@@ -1,0 +1,5 @@
+[run]
+source=clast
+
+[report]
+include=clast*
