@@ -1,3 +1,5 @@
+coverage
+coveralls
 pybind11
 ccsyspath
 glud

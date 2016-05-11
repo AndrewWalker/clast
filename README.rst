@@ -20,8 +20,6 @@ prototype evolves into something more suitable for use in production**
 Prerequisites
 =============
 
-Install pybind11
-
 Install a recent version of Clang and the python libclang bindings. On Ubuntu
 you can install pre-built binaries from the llvm repositories:
 
