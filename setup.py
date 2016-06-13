@@ -14,16 +14,43 @@ def read(filename):
     return contents
 
 
-def llvm_config(args):
+def llvm_config(arg):
     llvm_home = os.environ['LLVM_HOME']
-    llvm_config_bin = os.path.join(llvm_home, 'bin', 'llvm-config')
+    llvm_config = os.path.join(llvm_home, 'bin', 'llvm-config')
     res = subprocess.check_output([llvm_config, arg]).split()
     if sys.version_info.major >= 3:
         return [p.decode('utf-8') for p in res]
     return res
 
 LLVM_CFLAGS  = llvm_config('--cflags')
-LLVM_LDFLAGS = llvm_config('--ldflags')
+LLVM_LIBS    = [ lib[2:] for lib in llvm_config('--libs') ]
+
+def clang_libraries():
+    libraries = [
+        'clangAST',
+        'clangAnalysis',
+        'clangBasic',
+        'clangDriver',
+        'clangEdit',
+        'clangFrontend',
+        'clangFormat',
+        'clangFrontendTool',
+        'clangLex',
+        'clangParse',
+        'clangSema',
+        'clangEdit',
+        'clangASTMatchers',
+        'clangRewrite',
+        'clangRewriteFrontend',
+        'clangStaticAnalyzerFrontend',
+        'clangStaticAnalyzerCheckers',
+        'clangStaticAnalyzerCore',
+        'clangSerialization',
+        'clangToolingCore',
+        'clangTooling',
+    ]
+    libraries = ['-l' + lib for lib in libraries ]
+    return ['-Wl,--start-group'] + libraries + ['-Wl,--end-group']
 
 class get_pybind_include(object):
     """Helper class to determine the pybind11 include path
@@ -43,15 +70,20 @@ ext_modules = [
     Extension(
         '_clast',
         [
-            'src/modulemain.cpp'
+            'src/modulemain.cpp',
             'src/toolmain.cpp'
         ],
         extra_compile_args=LLVM_CFLAGS,
-        extra_link_args=LLVM_LDFLAGS
+        libraries=LLVM_LIBS ,
+        extra_link_args=clang_libraries(),
+        library_dirs=[
+            os.path.join(os.environ['LLVM_HOME'], 'lib')
+        ],
         include_dirs=[
             # Path to pybind11 headers
             get_pybind_include(),
-            get_pybind_include(user=True)
+            get_pybind_include(user=True),
+            os.path.join(os.environ['LLVM_HOME'], 'include')
         ],
         language='c++'
     ),
@@ -119,7 +151,9 @@ setup(
     author_email = "walker.ab@gmail.com",
     url          = "http://github.com/AndrewWalker/clast",
     license      = "MIT",
-    packages     = find_packages(), 
+    packages     = {'clast': 'clast'}, 
+    cmdclass     = {'build_ext': BuildExt},
+    ext_modules  = ext_modules,
     classifiers  = [
         'Development Status :: 1 - Planning',
         'Intended Audience :: Developers',
