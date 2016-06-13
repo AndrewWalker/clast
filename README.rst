@@ -17,8 +17,8 @@ Installation
 To compile Clast, you'll need to:
 
 1. Install Clang and LLVM
-1. Set some environment variables
-1. Install Clast
+2. Set some environment variables
+3. Install Clast
 
 Ubuntu 14.04 (Trusty)
 ---------------------
