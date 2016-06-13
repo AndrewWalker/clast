@@ -131,12 +131,9 @@ class BuildExt(build_ext):
         ct = self.compiler.compiler_type
         opts = self.c_opts.get(ct, [])
         if ct == 'unix':
-            opts.append('-DVERSION_INFO="%s"' % self.distribution.get_version())
             opts.append(cpp_flag(self.compiler))
             if has_flag(self.compiler, '-fvisibility=hidden'):
                 opts.append('-fvisibility=hidden')
-        elif ct == 'msvc':
-            opts.append('/DVERSION_INFO=\\"%s\\"' % self.distribution.get_version())
         for ext in self.extensions:
             ext.extra_compile_args = opts
         build_ext.build_extensions(self)
@@ -151,6 +148,8 @@ setup(
     author_email = "walker.ab@gmail.com",
     url          = "http://github.com/AndrewWalker/clast",
     license      = "MIT",
+    setup_requires  = ['glud>=0.3'],
+    install_requires= ['pybind11>=1.7'],
     packages     = {'clast': 'clast'}, 
     cmdclass     = {'build_ext': BuildExt},
     ext_modules  = ext_modules,
@@ -167,5 +166,6 @@ setup(
         'Operating System :: POSIX :: Linux',
         'Topic :: Software Development :: Code Generators',
     ],
+    zip_safe=False
 )
 

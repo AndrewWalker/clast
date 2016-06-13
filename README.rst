@@ -57,7 +57,8 @@ Some parts of clasts setup.py were derived from the BSD licensed pybind
 `python_example`_, Copyright (c) 2016 the Pybind Development Team, All rights
 reserved. 
 
-The need for a tool like Clast was inspired by Christian Schafmeister's work on `clasp`_
+The need for a tool to make the Clang AST matchers library available from
+Python was inspired by Christian Schafmeister's work on `clasp`_
 
 .. _pybind11: https://github.com/pybind/pybind11
 .. _clasp: https://github.com/drmeister/clasp
