@@ -50,7 +50,7 @@ Finally, install Clast
 Acknowledgements
 ================
 
-This project builds on the excellent work of the LLVM and the University of
+This project builds on the excellent work of the LLVM team and the University of
 Illinois at Urbana-Champaign, but is in no way affiliated with either.
 
 Some parts of clasts setup.py were derived from the BSD licensed pybind
