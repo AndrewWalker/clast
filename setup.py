@@ -6,13 +6,7 @@ from setuptools.command.build_ext import build_ext
 import setuptools
 import subprocess
 import os
-
-
-def read(filename):
-    path = os.path.join(os.path.dirname(__file__), filename)
-    contents = open(path).read()
-    return contents
-
+import glob
 
 def llvm_config(arg):
     llvm_home = os.environ['LLVM_HOME']
@@ -22,7 +16,14 @@ def llvm_config(arg):
         return [p.decode('utf-8') for p in res]
     return res
 
-LLVM_CFLAGS  = llvm_config('--cflags')
+
+def read(filename):
+    path = os.path.join(os.path.dirname(__file__), filename)
+    contents = open(path).read()
+    return contents
+
+
+LLVM_CFLAGS  = llvm_config('--cflags') 
 LLVM_LIBS    = [ lib[2:] for lib in llvm_config('--libs') ]
 
 def clang_libraries():
@@ -72,7 +73,8 @@ ext_modules = [
         [
             'src/modulemain.cpp',
             'src/toolmain.cpp'
-        ],
+        ] + glob.glob('src/380/*.cpp'),
+        define_macros=[(s,None) for s in '_GNU_SOURCE __STDC_CONSTANT_MACROS __STDC_FORMAT_MACROS __STDC_LIMIT_MACROS'.split()],
         extra_compile_args=LLVM_CFLAGS,
         libraries=LLVM_LIBS ,
         extra_link_args=clang_libraries(),
@@ -80,7 +82,7 @@ ext_modules = [
             os.path.join(os.environ['LLVM_HOME'], 'lib')
         ],
         include_dirs=[
-            # Path to pybind11 headers
+            'src',
             get_pybind_include(),
             get_pybind_include(user=True),
             os.path.join(os.environ['LLVM_HOME'], 'include')
@@ -103,20 +105,6 @@ def has_flag(compiler, flagname):
             return False
     return True
 
-
-def cpp_flag(compiler):
-    """Return the -std=c++[11/14] compiler flag.
-    The c++14 is prefered over c++11 (when it is available).
-    """
-    if has_flag(compiler, '-std=c++14'):
-        return '-std=c++14'
-    elif has_flag(compiler, '-std=c++11'):
-        return '-std=c++11'
-    else:
-        raise RuntimeError('Unsupported compiler -- at least C++11 support '
-                           'is needed!')
-
-
 class BuildExt(build_ext):
     """A custom build extension for adding compiler-specific options."""
     c_opts = {
@@ -131,7 +119,7 @@ class BuildExt(build_ext):
         ct = self.compiler.compiler_type
         opts = self.c_opts.get(ct, [])
         if ct == 'unix':
-            opts.append(cpp_flag(self.compiler))
+            opts.append('-std=c++11')
             if has_flag(self.compiler, '-fvisibility=hidden'):
                 opts.append('-fvisibility=hidden')
         for ext in self.extensions:
@@ -142,13 +130,12 @@ class BuildExt(build_ext):
 setup(
     name         = "clast",
     version      = "0.0.1",
-    description  = "Generate pybind11 bindings for the unstable interface of the Clang AST Matchers library",
+    description  = "Python bindings for the unstable interface of the Clang AST Matchers library",
     long_description = read('README.rst'),
     author       = "Andrew Walker",
     author_email = "walker.ab@gmail.com",
     url          = "http://github.com/AndrewWalker/clast",
     license      = "MIT",
-    setup_requires  = ['glud>=0.3'],
     install_requires= ['pybind11>=1.7'],
     packages     = {'clast': 'clast'}, 
     cmdclass     = {'build_ext': BuildExt},
