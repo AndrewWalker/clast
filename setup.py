@@ -136,7 +136,9 @@ setup(
     author_email = "walker.ab@gmail.com",
     url          = "http://github.com/AndrewWalker/clast",
     license      = "MIT",
-    install_requires= ['pybind11>=1.7'],
+    install_requires= [
+        'pybind11>=1.7'
+    ],
     packages     = {'clast': 'clast'}, 
     cmdclass     = {'build_ext': BuildExt},
     ext_modules  = ext_modules,
