@@ -7,6 +7,7 @@ from clastgen.context import *
 from clastgen.filters import *
 from clastgen.intermediate import *
 from clastgen.templates import *
+from clastgen.pagination import *
 import ccsyspath
 import collections
 import os
@@ -156,9 +157,7 @@ def resolve_disabled_classes(ctx):
             ctx.set_attr(c, is_disabled=False)
 
 
-
-
-def render_result(template, model):
+def render_result(template, model, **kwargs):
     import jinja2
     from jinja2 import Environment, StrictUndefined
     
@@ -167,7 +166,7 @@ def render_result(template, model):
                       undefined = StrictUndefined, 
                       loader=loader)
     env.filters.update(clast_jinja_filters())
-    return env.get_template(template).render(model = model)
+    return env.get_template(template).render(model = model, **kwargs)
 
 
 def build_context(tu):
@@ -200,12 +199,20 @@ if __name__ == "__main__":
     ctx = build_context(tu)
     ctx.set_prelude(c_src)
 
-    print '# classes = ', len(ctx.classes)
     intermediate = render_intermediate(ctx)
     with open(os.path.join(args.output, 'intermediate.json'), 'w') as fh:
         fh.write(json.dumps(intermediate, indent=4))
     with open(os.path.join(args.output, '00_autogen_enums.cpp'), 'w') as fh:
         fh.write(render_result(template='enum_module.j2', model=intermediate)) 
-    with open(os.path.join(args.output, '01_autogen_classes.cpp'), 'w') as fh:
-        fh.write(render_result(template='class_module.j2', model=intermediate)) 
+
+    classargs = dict(
+        template='class_module.j2', 
+        model=intermediate)
+    for pageno, pgstart, pgend in pagination(ctx.classes, 20):    
+        fname = '%02d_autogen_classes.cpp' % (pageno+1)
+        classargs['pageno']  = pageno
+        classargs['pgstart'] = pgstart
+        classargs['pgend']   = pgend
+        with open(os.path.join(args.output, fname), 'w') as fh:
+            fh.write(render_result(**classargs)) 
 

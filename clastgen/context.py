@@ -39,7 +39,7 @@ class Context(object):
 
     @property
     def prelude(self):
-        self._prelude
+        return self._prelude
 
     @property
     def enums(self):

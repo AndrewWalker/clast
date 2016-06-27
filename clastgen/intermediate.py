@@ -5,6 +5,8 @@ from .clangext import *
 __all__ = ['render_intermediate']
 
 def render_type(t):
+    """Convert a type to a dictionary (taking care to preserve namespaces)
+    """
     tcan = t.get_canonical()
     kinds = [
         TypeKind.UNEXPOSED,
@@ -17,6 +19,8 @@ def render_type(t):
         return render_type(tcan)
 
 def render_method(m, ctx):
+    """Convert a method to a dictionary
+    """
     d = dict(
         mode            = 'long',
         parent          = m.semantic_parent.type.spelling,
@@ -37,6 +41,8 @@ def render_method(m, ctx):
     return d
 
 def render_enum(c, ctx):
+    """Convert a enum decl to a dictionary
+    """
     anon = 'anonymous enum at' in c.type.spelling
     parent = None
     if c.semantic_parent.kind == CursorKind.CLASS_DECL:
@@ -50,6 +56,8 @@ def render_enum(c, ctx):
     )
 
 def render_class(c, ctx):
+    """Convert a class/struct decl to a dictionary
+    """
     d = dict(
         name = c.spelling,
         typename = c.type.spelling,
