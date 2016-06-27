@@ -65,6 +65,7 @@ def render_intermediate(ctx):
     d = dict(
         classes = [ render_class(c, ctx) for c in ctx.classes ],
         enums   = [ render_enum(c, ctx) for c in ctx.enums ],
+        prelude = ctx.prelude
     )
     return d
 
