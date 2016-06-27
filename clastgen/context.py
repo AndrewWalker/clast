@@ -11,6 +11,10 @@ class Context(object):
         self._typedefs = []
         self._methods = collections.defaultdict(list)
         self._meta = {}
+        self._prelude = ''
+
+    def set_prelude(self, src):
+        self._prelude = src
 
     def add_typedef(self, cursor):
         decl = underlying_type(cursor.get_definition().type).get_declaration()
@@ -32,6 +36,10 @@ class Context(object):
         if cursor.hash not in self._meta:
             self._meta[cursor.hash] = {}
         self._meta[cursor.hash].update(kwargs)
+
+    @property
+    def prelude(self):
+        self._prelude
 
     @property
     def enums(self):
