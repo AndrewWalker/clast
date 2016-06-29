@@ -157,7 +157,7 @@ def resolve_disabled_classes(ctx):
             ctx.set_attr(c, is_disabled=False)
 
 
-def render_result(template, model, **kwargs):
+def render_result(template, **kwargs):
     import jinja2
     from jinja2 import Environment, StrictUndefined
     
@@ -166,7 +166,7 @@ def render_result(template, model, **kwargs):
                       undefined = StrictUndefined, 
                       loader=loader)
     env.filters.update(clast_jinja_filters())
-    return env.get_template(template).render(model = model, **kwargs)
+    return env.get_template(template).render(**kwargs)
 
 
 def build_context(tu):
@@ -206,6 +206,10 @@ if __name__ == "__main__":
 
     with open(os.path.join(args.output, '00_autogen_enums.cpp'), 'w') as fh:
         fh.write(render_result(template='enum_module.j2', model=intermediate)) 
+
+    with open(os.path.join(args.output, 'modulemain.cpp'), 'w') as fh:
+        pagecnt=len(list(pagination(intermediate['classes'])))
+        fh.write(render_result(template='module_main.j2', pagecnt=pagecnt)) 
 
     for page in pagination(intermediate['classes']):
         with open(os.path.join(args.output, '%02d_autogen_classes.cpp' % page.idx), 'w') as fh:
