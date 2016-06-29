@@ -70,11 +70,7 @@ class get_pybind_include(object):
 ext_modules = [
     Extension(
         '_clast',
-        [
-            'src/modulemain.cpp',
-            'src/toolmain.cpp'
-        ] + glob.glob('src/380/*.cpp'),
-        define_macros=[(s,None) for s in '_GNU_SOURCE __STDC_CONSTANT_MACROS __STDC_FORMAT_MACROS __STDC_LIMIT_MACROS'.split()],
+        glob.glob('src/*.cpp') + glob.glob('src/380/*.cpp'),
         extra_compile_args=LLVM_CFLAGS,
         libraries=LLVM_LIBS ,
         extra_link_args=clang_libraries(),
@@ -120,10 +116,11 @@ class BuildExt(build_ext):
         opts = self.c_opts.get(ct, [])
         if ct == 'unix':
             opts.append('-std=c++11')
+            opts.append('-O0')
             if has_flag(self.compiler, '-fvisibility=hidden'):
                 opts.append('-fvisibility=hidden')
         for ext in self.extensions:
-            ext.extra_compile_args = opts
+            ext.extra_compile_args += opts
         build_ext.build_extensions(self)
 
 

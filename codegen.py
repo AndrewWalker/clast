@@ -207,11 +207,12 @@ if __name__ == "__main__":
     with open(os.path.join(args.output, '00_autogen_enums.cpp'), 'w') as fh:
         fh.write(render_result(template='enum_module.j2', model=intermediate)) 
 
-    with open(os.path.join(args.output, 'modulemain.cpp'), 'w') as fh:
-        pagecnt=len(list(pagination(intermediate['classes'])))
-        fh.write(render_result(template='module_main.j2', pagecnt=pagecnt)) 
+    pages = list(pagination(intermediate['classes'], chunksize=50))
 
-    for page in pagination(intermediate['classes']):
+    with open(os.path.join(args.output, 'modulemain.cpp'), 'w') as fh:
+        fh.write(render_result(template='module_main.j2', pagecnt=len(pages))) 
+
+    for page in pages:
         with open(os.path.join(args.output, '%02d_autogen_classes.cpp' % page.idx), 'w') as fh:
             fh.write(render_result(template='class_module.j2', model=intermediate, page=page)) 
 
