@@ -1,14 +1,8 @@
-import contextlib
-import os
+import collections
 
+Page = collections.namedtuple('Page', ['idx', 'start', 'end'])
 
-def npages(n, sz):
-    if n % sz == 0:
-        return n/sz
-    else:
-        return n/sz+1
-
-def pagination(lst, chunksize):
+def pagination(lst, chunksize=20):
     for j, i in enumerate(xrange(0, len(lst), chunksize)):
-        yield j, i, i + chunksize
+        yield Page(j, i, i + chunksize)
  

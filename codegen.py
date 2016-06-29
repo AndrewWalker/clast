@@ -200,19 +200,14 @@ if __name__ == "__main__":
     ctx.set_prelude(c_src)
 
     intermediate = render_intermediate(ctx)
+
     with open(os.path.join(args.output, 'intermediate.json'), 'w') as fh:
         fh.write(json.dumps(intermediate, indent=4))
+
     with open(os.path.join(args.output, '00_autogen_enums.cpp'), 'w') as fh:
         fh.write(render_result(template='enum_module.j2', model=intermediate)) 
 
-    classargs = dict(
-        template='class_module.j2', 
-        model=intermediate)
-    for pageno, pgstart, pgend in pagination(ctx.classes, 20):    
-        fname = '%02d_autogen_classes.cpp' % (pageno+1)
-        classargs['pageno']  = pageno
-        classargs['pgstart'] = pgstart
-        classargs['pgend']   = pgend
-        with open(os.path.join(args.output, fname), 'w') as fh:
-            fh.write(render_result(**classargs)) 
+    for page in pagination(intermediate['classes']):
+        with open(os.path.join(args.output, '%02d_autogen_classes.cpp' % page.idx), 'w') as fh:
+            fh.write(render_result(template='class_module.j2', model=intermediate, page=page)) 
 
