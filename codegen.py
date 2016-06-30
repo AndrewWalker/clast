@@ -214,9 +214,9 @@ if __name__ == "__main__":
     pages = list(pagination(intermediate['classes'], chunksize=50))
 
     with open(os.path.join(args.output, 'autogen_classes.cpp'), 'w') as fh:
-        fh.write(render_result(template='allclass_template.j2', pagecnt=len(pages))) 
+        fh.write(render_result(template='allclass_template.j2', model=intermediate, pagecnt=len(pages))) 
 
     for page in pages:
-        with open(os.path.join(args.output, '%02d_autogen_classes.cpp' % page.idx+1), 'w') as fh:
+        with open(os.path.join(args.output, '%02d_autogen_classes.cpp' % (page.idx+1)), 'w') as fh:
             fh.write(render_result(template='class_module.j2', model=intermediate, page=page)) 
 
