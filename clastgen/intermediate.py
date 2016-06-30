@@ -4,6 +4,7 @@ from .clangext import *
 
 __all__ = ['render_intermediate']
 
+
 def render_type(t):
     """Convert a type to a dictionary (taking care to preserve namespaces)
     """
@@ -17,6 +18,7 @@ def render_type(t):
         return t.spelling
     else:
         return render_type(tcan)
+
 
 def render_method(m, ctx):
     """Convert a method to a dictionary
@@ -40,6 +42,7 @@ def render_method(m, ctx):
     d.update(ctx.get_attr(m))
     return d
 
+
 def render_enum(c, ctx):
     """Convert a enum decl to a dictionary
     """
@@ -55,6 +58,16 @@ def render_enum(c, ctx):
         xitems   = [ n.spelling for n in c.get_children() ]
     )
 
+
+def render_superclasses(cursor, ctx):
+    lst = []
+    for c in cursor.get_children():
+        if c.kind == CursorKind.CXX_BASE_SPECIFIER:
+            cdef = c.get_definition()
+            lst.append(cdef)
+    return [ c.type.spelling for c in lst if c in ctx.classes ]
+   
+
 def render_class(c, ctx):
     """Convert a class/struct decl to a dictionary
     """
@@ -62,12 +75,13 @@ def render_class(c, ctx):
         name = c.spelling,
         typename = c.type.spelling,
         filename = c.location.file.name,
-        supers   = [],
+        supers   = render_superclasses(c, ctx),
         methods  = [ render_method(m, ctx) for m in ctx.class_methods(c) ],
         is_disabled = False,
     )
     d.update(ctx.get_attr(c))
     return d
+
 
 def render_intermediate(ctx):
     d = dict(

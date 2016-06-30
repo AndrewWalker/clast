@@ -39,7 +39,7 @@ def fdeleter(c):
 
 def baseclass(c):
     if len(c['supers']) > 0:
-        return ', py::base<%s>' % c['supers'][0]
+        return ', py::base<%s>()' % c['supers'][0]
     else:
         return ''
 

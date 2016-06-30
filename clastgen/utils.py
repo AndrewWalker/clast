@@ -17,6 +17,7 @@ def is_ref_to_ptr(t):
     assert( type(t) == Type )
     return t.kind == TypeKind.LVALUEREFERENCE and t.get_pointee().kind == TypeKind.POINTER
 
+
 def dependent_types(m):
     """Yield all of the types the method depends on
     """
@@ -24,6 +25,7 @@ def dependent_types(m):
     for arg in m.get_arguments():
         lst.append(arg.type)
     return lst
+
 
 def method_signature(m):
     rt = m.result_type.spelling
@@ -34,10 +36,12 @@ def method_signature(m):
         return res + ' const'
     return res
 
+
 def is_overload(c):
     it = iter_child_nodes(is_kind(CursorKind.CXX_METHOD), c.semantic_parent)
     names = [ m.spelling for m in it if m.spelling == c.spelling ]
     return len(names) > 1 
+
 
 def fully_qualified(c):
     res = c.spelling
@@ -46,6 +50,7 @@ def fully_qualified(c):
         res = c.spelling + '::' + res
         c = c.semantic_parent
     return res
+
 
 def underlying_type(t):
     """ Retrieve the simplest version of this type
@@ -65,6 +70,7 @@ def underlying_type(t):
     else:
         return t
 
+
 def in_decl_set(decls, c):
     """ True if the cursor is in an sequence of cursor
     """
@@ -72,6 +78,7 @@ def in_decl_set(decls, c):
         if c == d:
             return True
     return False
+
 
 def is_resolved_type(decls, t):
     """ True if a type exists in the context of a set of declarations
@@ -82,6 +89,7 @@ def is_resolved_type(decls, t):
     elif in_decl_set(decls, ut.get_declaration()):
         return True
     return False
+
 
 def is_resolved_method(m, decls):
     """ True if all a methods dependent types exist in a set of declarations
