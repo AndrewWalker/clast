@@ -10,7 +10,7 @@ method_template = '''
 '''
 
 class_template = '''
-    py::class_<{{cls.typename}}{{cls|fdeleter}}>(m, "{{cls.name}}")
+    py::class_<{{cls.typename}}{{cls|fdeleter}}>(m, "{{cls.name}}" {{cls|baseclass}})
     {% for m in cls.methods %}
         {% block context scoped %}
         {% include "method_template.j2" %}

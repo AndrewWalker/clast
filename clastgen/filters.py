@@ -37,6 +37,12 @@ def fdeleter(c):
     else:
         return ''
 
+def baseclass(c):
+    if len(c['supers']) > 0:
+        return ', py::base<%s>' % c['supers'][0]
+    else:
+        return ''
+
 def clast_jinja_filters():
     d = {}
     d['argpack'] = argpack
@@ -45,6 +51,7 @@ def clast_jinja_filters():
     d['disabled'] = disabled
     d['fdeleter']  = fdeleter
     d['enum_parent'] = enum_parent
+    d['baseclass'] = baseclass
     return d
 
 
