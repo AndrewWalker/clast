@@ -10,8 +10,8 @@ before_install:
     - sudo apt-get install -y clang-3.8 libclang-common-3.8-dev libclang-3.8-dev llvm-3.8-dev liblldb-3.8-dev python-clang-3.8
     - export LLVM_HOME=/usr/lib/llvm-3.8
 install:
-    - pip install -r requirements.txt
-    - python setup.py install
+    - python setup.py sdist
+    - pip install --verbose dist/*.tar.gz
 script:
     - coverage run setup.py test
     - coverage report --show-missing
