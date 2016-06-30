@@ -1,20 +1,21 @@
 import _clast
+from _clast import *
 
 ## REPRESENTATIVE CLASSES ONLY
 
 def cxxRecordDecl(*args):
-    return pyclast._cxxRecordDecl(list(args))
+    return _clast._cxxRecordDecl(list(args))
 
 def decl(*args):
-    return pyclast._decl(list(args))
+    return _clast._decl(list(args))
 
 def stmt(*args):
-    return pyclast._stmt(list(args))
+    return _clast._stmt(list(args))
 
 def forStmt(*args):
-    return pyclast._forStmt(list(args))
+    return _clast._forStmt(list(args))
 
 def hasLoopInit(arg):
-    return pyclast._hasLoopInit(arg)
+    return _clast._hasLoopInit(arg)
 
 

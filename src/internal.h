@@ -3,7 +3,6 @@
 
 #include <clang/AST/AST.h>
 
-
 template<class T>
 struct nopdeleter {
     void operator()(T* t) {

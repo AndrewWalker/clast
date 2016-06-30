@@ -23,7 +23,7 @@ def read(filename):
     return contents
 
 
-LLVM_CFLAGS  = llvm_config('--cflags') 
+LLVM_CFLAGS  = [ f for f in llvm_config('--cflags') if f.startswith('-D') ] 
 LLVM_LIBS    = [ lib[2:] for lib in llvm_config('--libs') ]
 
 def clang_libraries():

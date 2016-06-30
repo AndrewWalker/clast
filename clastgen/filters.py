@@ -6,7 +6,7 @@ __all__ = ['clast_jinja_filters']
 
 def enum_parent(e):
     if e['parent'] is not None:
-        return 'm.attr("%s")' % e['parent'] 
+        return 'm.attr("%s")' % e['parent'].split('::')[-1] 
     else:
         return 'm'
 

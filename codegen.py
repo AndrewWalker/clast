@@ -118,7 +118,11 @@ def find_enums(ctx):
                     if not (is_protected(decl) or is_private(decl)):
                         res[decl.hash] = decl
     for decl in res.values():
-        ctx.add_enum(decl)
+        parent = decl.semantic_parent
+        if parent.kind != CursorKind.CLASS_DECL:
+            ctx.add_enum(decl)
+        elif parent.kind == CursorKind.CLASS_DECL and (parent in ctx.classes):
+            ctx.add_enum(decl)
 
 
 def resolve_deleters(ctx):
@@ -209,10 +213,10 @@ if __name__ == "__main__":
 
     pages = list(pagination(intermediate['classes'], chunksize=50))
 
-    with open(os.path.join(args.output, 'modulemain.cpp'), 'w') as fh:
-        fh.write(render_result(template='module_main.j2', pagecnt=len(pages))) 
+    with open(os.path.join(args.output, 'autogen_classes.cpp'), 'w') as fh:
+        fh.write(render_result(template='allclass_template.j2', pagecnt=len(pages))) 
 
     for page in pages:
-        with open(os.path.join(args.output, '%02d_autogen_classes.cpp' % page.idx), 'w') as fh:
+        with open(os.path.join(args.output, '%02d_autogen_classes.cpp' % page.idx+1), 'w') as fh:
             fh.write(render_result(template='class_module.j2', model=intermediate, page=page)) 
 
