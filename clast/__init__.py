@@ -18,4 +18,8 @@ def forStmt(*args):
 def hasLoopInit(arg):
     return _clast._hasLoopInit(arg)
 
+def ifStmt(*args):
+    return _clast._ifStmt(list(args))
 
+def hasCondition(expr):
+    return _clast._hasCondition(expr)

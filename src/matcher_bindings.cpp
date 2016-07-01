@@ -82,11 +82,24 @@ clami::DynTypedMatcher _stmt(std::vector<clami::DynTypedMatcher>& args) {
     return execute(clam::stmt, val);
 }
 
+clami::DynTypedMatcher _ifStmt(std::vector<clami::DynTypedMatcher>& args) {
+    auto val =  convert<clang::Stmt>(args);
+    return execute(clam::ifStmt, val);
+}
+
+clami::DynTypedMatcher _hasCondition(clami::DynTypedMatcher& arg) {
+    auto tmp = clam::hasCondition(try_convert<clang::Expr>(arg));
+    clami::Matcher<clang::AbstractConditionalOperator> m(tmp);
+    return clami::DynTypedMatcher(m);
+}
+
 
 void install_wrappers(pybind11::module& m)
 {
     m.def("_decl", _decl);
     m.def("_stmt", _stmt);
+    m.def("_ifStmt", _stmt);
+    m.def("_hasCondition", _hasCondition);
     m.def("_forStmt", _forStmt);
     m.def("_hasLoopInit", _hasLoopInit);
     m.def("_cxxRecordDecl", _cxxRecordDecl);
