@@ -76,8 +76,8 @@ Limitations
 - Out of the box, Clast will fail to link if LLVM has not been configured to
   generate a shared library.  Future work may include overcoming this issue.
 - Clast is known to not work correctly if Clang and LLVM have been compiled
-  with the `-fno-rtti` option.  This means that (at least some) of the Ubuntu
-  binaries from `llvm.org` cannot be used with Clast.
+  with the -fno-rtti option.  This means that (at least some) of the Ubuntu
+  binaries from `llvm.org`_ cannot be used with Clast.
 - Clast disables C++14 support - future work will involve updating the test platform to systems
   that ship with C++14 compilers and standard libraries by default.  This will have some impact
   on the sizes of binaries produced.
