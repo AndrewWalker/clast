@@ -1,65 +1,16 @@
 {
     "enums": [
         {
-            "typename": "clang::FunctionDecl::TemplatedKind", 
+            "typename": "clang::AccessSpecifier", 
             "xitems": [
-                "TK_NonTemplate", 
-                "TK_FunctionTemplate", 
-                "TK_MemberSpecialization", 
-                "TK_FunctionTemplateSpecialization", 
-                "TK_DependentFunctionTemplateSpecialization"
-            ], 
-            "anon": false, 
-            "parent": "clang::FunctionDecl", 
-            "name": "TemplatedKind"
-        }, 
-        {
-            "typename": "clang::ThreadStorageClassSpecifier", 
-            "xitems": [
-                "TSCS_unspecified", 
-                "TSCS___thread", 
-                "TSCS_thread_local", 
-                "TSCS__Thread_local"
+                "AS_public", 
+                "AS_protected", 
+                "AS_private", 
+                "AS_none"
             ], 
             "anon": false, 
             "parent": null, 
-            "name": "ThreadStorageClassSpecifier"
-        }, 
-        {
-            "typename": "clang::CXXConstructExpr::ConstructionKind", 
-            "xitems": [
-                "CK_Complete", 
-                "CK_NonVirtualBase", 
-                "CK_VirtualBase", 
-                "CK_Delegating"
-            ], 
-            "anon": false, 
-            "parent": "clang::CXXConstructExpr", 
-            "name": "ConstructionKind"
-        }, 
-        {
-            "typename": "clang::Expr::isModifiableLvalueResult", 
-            "xitems": [
-                "MLV_Valid", 
-                "MLV_NotObjectType", 
-                "MLV_IncompleteVoidType", 
-                "MLV_DuplicateVectorComponents", 
-                "MLV_InvalidExpression", 
-                "MLV_LValueCast", 
-                "MLV_IncompleteType", 
-                "MLV_ConstQualified", 
-                "MLV_ConstAddrSpace", 
-                "MLV_ArrayType", 
-                "MLV_NoSetterProperty", 
-                "MLV_MemberFunction", 
-                "MLV_SubObjCPropertySetting", 
-                "MLV_InvalidMessageExpression", 
-                "MLV_ClassTemporary", 
-                "MLV_ArrayTemporary"
-            ], 
-            "anon": false, 
-            "parent": "clang::Expr", 
-            "name": "isModifiableLvalueResult"
+            "name": "AccessSpecifier"
         }, 
         {
             "typename": "clang::ArrayTypeTrait", 
@@ -72,14 +23,209 @@
             "name": "ArrayTypeTrait"
         }, 
         {
-            "typename": "clang::ExpressionTrait", 
+            "typename": "clang::AtomicExpr::AtomicOp", 
             "xitems": [
-                "ET_IsLValueExpr", 
-                "ET_IsRValueExpr"
+                "AO__c11_atomic_init", 
+                "AO__c11_atomic_load", 
+                "AO__c11_atomic_store", 
+                "AO__c11_atomic_exchange", 
+                "AO__c11_atomic_compare_exchange_strong", 
+                "AO__c11_atomic_compare_exchange_weak", 
+                "AO__c11_atomic_fetch_add", 
+                "AO__c11_atomic_fetch_sub", 
+                "AO__c11_atomic_fetch_and", 
+                "AO__c11_atomic_fetch_or", 
+                "AO__c11_atomic_fetch_xor", 
+                "AO__atomic_load", 
+                "AO__atomic_load_n", 
+                "AO__atomic_store", 
+                "AO__atomic_store_n", 
+                "AO__atomic_exchange", 
+                "AO__atomic_exchange_n", 
+                "AO__atomic_compare_exchange", 
+                "AO__atomic_compare_exchange_n", 
+                "AO__atomic_fetch_add", 
+                "AO__atomic_fetch_sub", 
+                "AO__atomic_fetch_and", 
+                "AO__atomic_fetch_or", 
+                "AO__atomic_fetch_xor", 
+                "AO__atomic_fetch_nand", 
+                "AO__atomic_add_fetch", 
+                "AO__atomic_sub_fetch", 
+                "AO__atomic_and_fetch", 
+                "AO__atomic_or_fetch", 
+                "AO__atomic_xor_fetch", 
+                "AO__atomic_nand_fetch", 
+                "BI_First"
+            ], 
+            "anon": false, 
+            "parent": "clang::AtomicExpr", 
+            "name": "AtomicOp"
+        }, 
+        {
+            "typename": "clang::AutoTypeKeyword", 
+            "xitems": [
+                "Auto", 
+                "DecltypeAuto", 
+                "GNUAutoType"
             ], 
             "anon": false, 
             "parent": null, 
-            "name": "ExpressionTrait"
+            "name": "AutoTypeKeyword"
+        }, 
+        {
+            "typename": "clang::AvailabilityResult", 
+            "xitems": [
+                "AR_Available", 
+                "AR_NotYetIntroduced", 
+                "AR_Deprecated", 
+                "AR_Unavailable"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "AvailabilityResult"
+        }, 
+        {
+            "typename": "clang::BinaryOperatorKind", 
+            "xitems": [
+                "BO_PtrMemD", 
+                "BO_PtrMemI", 
+                "BO_Mul", 
+                "BO_Div", 
+                "BO_Rem", 
+                "BO_Add", 
+                "BO_Sub", 
+                "BO_Shl", 
+                "BO_Shr", 
+                "BO_LT", 
+                "BO_GT", 
+                "BO_LE", 
+                "BO_GE", 
+                "BO_EQ", 
+                "BO_NE", 
+                "BO_And", 
+                "BO_Xor", 
+                "BO_Or", 
+                "BO_LAnd", 
+                "BO_LOr", 
+                "BO_Assign", 
+                "BO_MulAssign", 
+                "BO_DivAssign", 
+                "BO_RemAssign", 
+                "BO_AddAssign", 
+                "BO_SubAssign", 
+                "BO_ShlAssign", 
+                "BO_ShrAssign", 
+                "BO_AndAssign", 
+                "BO_XorAssign", 
+                "BO_OrAssign", 
+                "BO_Comma"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "BinaryOperatorKind"
+        }, 
+        {
+            "typename": "clang::BuiltinTemplateKind", 
+            "xitems": [], 
+            "anon": false, 
+            "parent": null, 
+            "name": "BuiltinTemplateKind"
+        }, 
+        {
+            "typename": "clang::CallingConv", 
+            "xitems": [
+                "CC_C", 
+                "CC_X86StdCall", 
+                "CC_X86FastCall", 
+                "CC_X86ThisCall", 
+                "CC_X86VectorCall", 
+                "CC_X86Pascal", 
+                "CC_X86_64Win64", 
+                "CC_X86_64SysV", 
+                "CC_AAPCS", 
+                "CC_AAPCS_VFP", 
+                "CC_IntelOclBicc", 
+                "CC_SpirFunction", 
+                "CC_SpirKernel"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "CallingConv"
+        }, 
+        {
+            "typename": "clang::CapturedRegionKind", 
+            "xitems": [
+                "CR_Default", 
+                "CR_OpenMP"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "CapturedRegionKind"
+        }, 
+        {
+            "typename": "clang::CastKind", 
+            "xitems": [
+                "CK_Dependent", 
+                "CK_BitCast", 
+                "CK_LValueBitCast", 
+                "CK_LValueToRValue", 
+                "CK_NoOp", 
+                "CK_BaseToDerived", 
+                "CK_DerivedToBase", 
+                "CK_UncheckedDerivedToBase", 
+                "CK_Dynamic", 
+                "CK_ToUnion", 
+                "CK_ArrayToPointerDecay", 
+                "CK_FunctionToPointerDecay", 
+                "CK_NullToPointer", 
+                "CK_NullToMemberPointer", 
+                "CK_BaseToDerivedMemberPointer", 
+                "CK_DerivedToBaseMemberPointer", 
+                "CK_MemberPointerToBoolean", 
+                "CK_ReinterpretMemberPointer", 
+                "CK_UserDefinedConversion", 
+                "CK_ConstructorConversion", 
+                "CK_IntegralToPointer", 
+                "CK_PointerToIntegral", 
+                "CK_PointerToBoolean", 
+                "CK_ToVoid", 
+                "CK_VectorSplat", 
+                "CK_IntegralCast", 
+                "CK_IntegralToBoolean", 
+                "CK_IntegralToFloating", 
+                "CK_FloatingToIntegral", 
+                "CK_FloatingToBoolean", 
+                "CK_BooleanToSignedIntegral", 
+                "CK_FloatingCast", 
+                "CK_CPointerToObjCPointerCast", 
+                "CK_BlockPointerToObjCPointerCast", 
+                "CK_AnyPointerToBlockPointerCast", 
+                "CK_ObjCObjectLValueCast", 
+                "CK_FloatingRealToComplex", 
+                "CK_FloatingComplexToReal", 
+                "CK_FloatingComplexToBoolean", 
+                "CK_FloatingComplexCast", 
+                "CK_FloatingComplexToIntegralComplex", 
+                "CK_IntegralRealToComplex", 
+                "CK_IntegralComplexToReal", 
+                "CK_IntegralComplexToBoolean", 
+                "CK_IntegralComplexCast", 
+                "CK_IntegralComplexToFloatingComplex", 
+                "CK_ARCProduceObject", 
+                "CK_ARCConsumeObject", 
+                "CK_ARCReclaimReturnedObject", 
+                "CK_ARCExtendBlockObject", 
+                "CK_AtomicToNonAtomic", 
+                "CK_NonAtomicToAtomic", 
+                "CK_CopyAndAutoreleaseBlockObject", 
+                "CK_BuiltinFnToFnPtr", 
+                "CK_ZeroToOCLEvent", 
+                "CK_AddressSpaceConversion"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "CastKind"
         }, 
         {
             "typename": "clang::CharacterLiteral::CharacterKind", 
@@ -95,53 +241,204 @@
             "name": "CharacterKind"
         }, 
         {
-            "typename": "clang::LanguageLinkage", 
+            "typename": "clang::SrcMgr::CharacteristicKind", 
             "xitems": [
-                "CLanguageLinkage", 
-                "CXXLanguageLinkage", 
-                "NoLanguageLinkage"
+                "C_User", 
+                "C_System", 
+                "C_ExternCSystem"
             ], 
             "anon": false, 
             "parent": null, 
-            "name": "LanguageLinkage"
+            "name": "CharacteristicKind"
         }, 
         {
-            "typename": "clang::LambdaCaptureDefault", 
+            "typename": "clang::CXXConstructExpr::ConstructionKind", 
             "xitems": [
-                "LCD_None", 
-                "LCD_ByCopy", 
-                "LCD_ByRef"
+                "CK_Complete", 
+                "CK_NonVirtualBase", 
+                "CK_VirtualBase", 
+                "CK_Delegating"
             ], 
             "anon": false, 
-            "parent": null, 
-            "name": "LambdaCaptureDefault"
+            "parent": "clang::CXXConstructExpr", 
+            "name": "ConstructionKind"
         }, 
         {
-            "typename": "clang::ObjCSubstitutionContext", 
+            "typename": "clang::VarDecl::DefinitionKind", 
             "xitems": [
-                "Ordinary", 
-                "Result", 
-                "Parameter", 
-                "Property", 
-                "Superclass"
+                "DeclarationOnly", 
+                "TentativeDefinition", 
+                "Definition"
             ], 
             "anon": false, 
-            "parent": null, 
-            "name": "ObjCSubstitutionContext"
+            "parent": "clang::VarDecl", 
+            "name": "DefinitionKind"
         }, 
         {
-            "typename": "clang::StorageClass", 
+            "typename": "clang::QualType::DestructionKind", 
             "xitems": [
-                "SC_None", 
-                "SC_Extern", 
-                "SC_Static", 
-                "SC_PrivateExtern", 
-                "SC_Auto", 
-                "SC_Register"
+                "DK_none", 
+                "DK_cxx_destructor", 
+                "DK_objc_strong_lifetime", 
+                "DK_objc_weak_lifetime"
+            ], 
+            "anon": false, 
+            "parent": "clang::QualType", 
+            "name": "DestructionKind"
+        }, 
+        {
+            "typename": "clang::ElaboratedTypeKeyword", 
+            "xitems": [
+                "ETK_Struct", 
+                "ETK_Interface", 
+                "ETK_Union", 
+                "ETK_Class", 
+                "ETK_Enum", 
+                "ETK_Typename", 
+                "ETK_None"
             ], 
             "anon": false, 
             "parent": null, 
-            "name": "StorageClass"
+            "name": "ElaboratedTypeKeyword"
+        }, 
+        {
+            "typename": "clang::NamedDecl::ExplicitVisibilityKind", 
+            "xitems": [
+                "VisibilityForType", 
+                "VisibilityForValue"
+            ], 
+            "anon": false, 
+            "parent": "clang::NamedDecl", 
+            "name": "ExplicitVisibilityKind"
+        }, 
+        {
+            "typename": "clang::ExprObjectKind", 
+            "xitems": [
+                "OK_Ordinary", 
+                "OK_BitField", 
+                "OK_VectorComponent", 
+                "OK_ObjCProperty", 
+                "OK_ObjCSubscript"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "ExprObjectKind"
+        }, 
+        {
+            "typename": "clang::ExprValueKind", 
+            "xitems": [
+                "VK_RValue", 
+                "VK_LValue", 
+                "VK_XValue"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "ExprValueKind"
+        }, 
+        {
+            "typename": "clang::ExpressionTrait", 
+            "xitems": [
+                "ET_IsLValueExpr", 
+                "ET_IsRValueExpr"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "ExpressionTrait"
+        }, 
+        {
+            "typename": "clang::Decl::FriendObjectKind", 
+            "xitems": [
+                "FOK_None", 
+                "FOK_Declared", 
+                "FOK_Undeclared"
+            ], 
+            "anon": false, 
+            "parent": "clang::Decl", 
+            "name": "FriendObjectKind"
+        }, 
+        {
+            "typename": "clang::Qualifiers::GC", 
+            "xitems": [
+                "GCNone", 
+                "Weak", 
+                "Strong"
+            ], 
+            "anon": false, 
+            "parent": "clang::Qualifiers", 
+            "name": "GC"
+        }, 
+        {
+            "typename": "clang::GVALinkage", 
+            "xitems": [
+                "GVA_Internal", 
+                "GVA_AvailableExternally", 
+                "GVA_DiscardableODR", 
+                "GVA_StrongExternal", 
+                "GVA_StrongODR"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "GVALinkage"
+        }, 
+        {
+            "typename": "clang::ASTContext::GetBuiltinTypeError", 
+            "xitems": [
+                "GE_None", 
+                "GE_Missing_stdio", 
+                "GE_Missing_setjmp", 
+                "GE_Missing_ucontext"
+            ], 
+            "anon": false, 
+            "parent": "clang::ASTContext", 
+            "name": "GetBuiltinTypeError"
+        }, 
+        {
+            "typename": "clang::PredefinedExpr::IdentType", 
+            "xitems": [
+                "Func", 
+                "Function", 
+                "LFunction", 
+                "FuncDName", 
+                "FuncSig", 
+                "PrettyFunction", 
+                "PrettyFunctionNoVirtual"
+            ], 
+            "anon": false, 
+            "parent": "clang::PredefinedExpr", 
+            "name": "IdentType"
+        }, 
+        {
+            "typename": "clang::InClassInitStyle", 
+            "xitems": [
+                "ICIS_NoInit", 
+                "ICIS_CopyInit", 
+                "ICIS_ListInit"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "InClassInitStyle"
+        }, 
+        {
+            "typename": "clang::VarDecl::InitializationStyle", 
+            "xitems": [
+                "CInit", 
+                "CallInit", 
+                "ListInit"
+            ], 
+            "anon": false, 
+            "parent": "clang::VarDecl", 
+            "name": "InitializationStyle"
+        }, 
+        {
+            "typename": "clang::CXXNewExpr::InitializationStyle", 
+            "xitems": [
+                "NoInit", 
+                "CallInit", 
+                "ListInit"
+            ], 
+            "anon": false, 
+            "parent": "clang::CXXNewExpr", 
+            "name": "InitializationStyle"
         }, 
         {
             "typename": "clang::Decl::Kind", 
@@ -253,108 +550,112 @@
             "name": "Kind"
         }, 
         {
-            "typename": "clang::TypeTrait", 
+            "typename": "clang::Expr::LValueClassification", 
             "xitems": [
-                "UTT_HasNothrowAssign", 
-                "UTT_HasNothrowMoveAssign", 
-                "UTT_HasNothrowCopy", 
-                "UTT_HasNothrowConstructor", 
-                "UTT_HasTrivialAssign", 
-                "UTT_HasTrivialMoveAssign", 
-                "UTT_HasTrivialCopy", 
-                "UTT_HasTrivialDefaultConstructor", 
-                "UTT_HasTrivialMoveConstructor", 
-                "UTT_HasTrivialDestructor", 
-                "UTT_HasVirtualDestructor", 
-                "UTT_IsAbstract", 
-                "UTT_IsArithmetic", 
-                "UTT_IsArray", 
-                "UTT_IsClass", 
-                "UTT_IsCompleteType", 
-                "UTT_IsCompound", 
-                "UTT_IsConst", 
-                "UTT_IsDestructible", 
-                "UTT_IsEmpty", 
-                "UTT_IsEnum", 
-                "UTT_IsFinal", 
-                "UTT_IsFloatingPoint", 
-                "UTT_IsFunction", 
-                "UTT_IsFundamental", 
-                "UTT_IsIntegral", 
-                "UTT_IsInterfaceClass", 
-                "UTT_IsLiteral", 
-                "UTT_IsLvalueReference", 
-                "UTT_IsMemberFunctionPointer", 
-                "UTT_IsMemberObjectPointer", 
-                "UTT_IsMemberPointer", 
-                "UTT_IsNothrowDestructible", 
-                "UTT_IsObject", 
-                "UTT_IsPOD", 
-                "UTT_IsPointer", 
-                "UTT_IsPolymorphic", 
-                "UTT_IsReference", 
-                "UTT_IsRvalueReference", 
-                "UTT_IsScalar", 
-                "UTT_IsSealed", 
-                "UTT_IsSigned", 
-                "UTT_IsStandardLayout", 
-                "UTT_IsTrivial", 
-                "UTT_IsTriviallyCopyable", 
-                "UTT_IsUnion", 
-                "UTT_IsUnsigned", 
-                "UTT_IsVoid", 
-                "UTT_IsVolatile", 
-                "UTT_Last", 
-                "BTT_IsBaseOf", 
-                "BTT_IsConvertible", 
-                "BTT_IsConvertibleTo", 
-                "BTT_IsSame", 
-                "BTT_TypeCompatible", 
-                "BTT_IsNothrowAssignable", 
-                "BTT_IsTriviallyAssignable", 
-                "BTT_Last", 
-                "TT_IsConstructible", 
-                "TT_IsNothrowConstructible", 
-                "TT_IsTriviallyConstructible"
+                "LV_Valid", 
+                "LV_NotObjectType", 
+                "LV_IncompleteVoidType", 
+                "LV_DuplicateVectorComponents", 
+                "LV_InvalidExpression", 
+                "LV_InvalidMessageExpression", 
+                "LV_MemberFunction", 
+                "LV_SubObjCPropertySetting", 
+                "LV_ClassTemporary", 
+                "LV_ArrayTemporary"
             ], 
             "anon": false, 
-            "parent": null, 
-            "name": "TypeTrait"
+            "parent": "clang::Expr", 
+            "name": "LValueClassification"
         }, 
         {
-            "typename": "clang::ObjCStringFormatFamily", 
+            "typename": "clang::LambdaCaptureDefault", 
             "xitems": [
-                "SFF_None", 
-                "SFF_NSString", 
-                "SFF_CFString"
+                "LCD_None", 
+                "LCD_ByCopy", 
+                "LCD_ByRef"
             ], 
             "anon": false, 
             "parent": null, 
-            "name": "ObjCStringFormatFamily"
+            "name": "LambdaCaptureDefault"
         }, 
         {
-            "typename": "clang::AutoTypeKeyword", 
+            "typename": "clang::LinkageSpecDecl::LanguageIDs", 
             "xitems": [
-                "Auto", 
-                "DecltypeAuto", 
-                "GNUAutoType"
+                "lang_c", 
+                "lang_cxx"
             ], 
             "anon": false, 
-            "parent": null, 
-            "name": "AutoTypeKeyword"
+            "parent": "clang::LinkageSpecDecl", 
+            "name": "LanguageIDs"
         }, 
         {
-            "typename": "clang::GVALinkage", 
+            "typename": "clang::LanguageLinkage", 
             "xitems": [
-                "GVA_Internal", 
-                "GVA_AvailableExternally", 
-                "GVA_DiscardableODR", 
-                "GVA_StrongExternal", 
-                "GVA_StrongODR"
+                "CLanguageLinkage", 
+                "CXXLanguageLinkage", 
+                "NoLanguageLinkage"
             ], 
             "anon": false, 
             "parent": null, 
-            "name": "GVALinkage"
+            "name": "LanguageLinkage"
+        }, 
+        {
+            "typename": "clang::Linkage", 
+            "xitems": [
+                "NoLinkage", 
+                "InternalLinkage", 
+                "UniqueExternalLinkage", 
+                "VisibleNoLinkage", 
+                "ExternalLinkage"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "Linkage"
+        }, 
+        {
+            "typename": "clang::UserDefinedLiteral::LiteralOperatorKind", 
+            "xitems": [
+                "LOK_Raw", 
+                "LOK_Template", 
+                "LOK_Integer", 
+                "LOK_Floating", 
+                "LOK_String", 
+                "LOK_Character"
+            ], 
+            "anon": false, 
+            "parent": "clang::UserDefinedLiteral", 
+            "name": "LiteralOperatorKind"
+        }, 
+        {
+            "typename": "clang::DeclarationName::NameKind", 
+            "xitems": [
+                "Identifier", 
+                "ObjCZeroArgSelector", 
+                "ObjCOneArgSelector", 
+                "ObjCMultiArgSelector", 
+                "CXXConstructorName", 
+                "CXXDestructorName", 
+                "CXXConversionFunctionName", 
+                "CXXOperatorName", 
+                "CXXLiteralOperatorName", 
+                "CXXUsingDirective"
+            ], 
+            "anon": false, 
+            "parent": "clang::DeclarationName", 
+            "name": "NameKind"
+        }, 
+        {
+            "typename": "clang::Expr::NullPointerConstantKind", 
+            "xitems": [
+                "NPCK_NotNull", 
+                "NPCK_ZeroExpression", 
+                "NPCK_ZeroLiteral", 
+                "NPCK_CXX11_nullptr", 
+                "NPCK_GNUNull"
+            ], 
+            "anon": false, 
+            "parent": "clang::Expr", 
+            "name": "NullPointerConstantKind"
         }, 
         {
             "typename": "clang::Expr::NullPointerConstantValueDependence", 
@@ -384,16 +685,41 @@
             "name": "ObjCDeclQualifier"
         }, 
         {
-            "typename": "clang::UnaryExprOrTypeTrait", 
+            "typename": "clang::Qualifiers::ObjCLifetime", 
             "xitems": [
-                "UETT_SizeOf", 
-                "UETT_AlignOf", 
-                "UETT_VecStep", 
-                "UETT_OpenMPRequiredSimdAlign"
+                "OCL_None", 
+                "OCL_ExplicitNone", 
+                "OCL_Strong", 
+                "OCL_Weak", 
+                "OCL_Autoreleasing"
+            ], 
+            "anon": false, 
+            "parent": "clang::Qualifiers", 
+            "name": "ObjCLifetime"
+        }, 
+        {
+            "typename": "clang::ObjCStringFormatFamily", 
+            "xitems": [
+                "SFF_None", 
+                "SFF_NSString", 
+                "SFF_CFString"
             ], 
             "anon": false, 
             "parent": null, 
-            "name": "UnaryExprOrTypeTrait"
+            "name": "ObjCStringFormatFamily"
+        }, 
+        {
+            "typename": "clang::ObjCSubstitutionContext", 
+            "xitems": [
+                "Ordinary", 
+                "Result", 
+                "Parameter", 
+                "Property", 
+                "Superclass"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "ObjCSubstitutionContext"
         }, 
         {
             "typename": "clang::OverloadedOperatorKind", 
@@ -461,42 +787,6 @@
             "name": "RefQualifierKind"
         }, 
         {
-            "typename": "clang::ASTContext::GetBuiltinTypeError", 
-            "xitems": [
-                "GE_None", 
-                "GE_Missing_stdio", 
-                "GE_Missing_setjmp", 
-                "GE_Missing_ucontext"
-            ], 
-            "anon": false, 
-            "parent": "clang::ASTContext", 
-            "name": "GetBuiltinTypeError"
-        }, 
-        {
-            "typename": "clang::Qualifiers::GC", 
-            "xitems": [
-                "GCNone", 
-                "Weak", 
-                "Strong"
-            ], 
-            "anon": false, 
-            "parent": "clang::Qualifiers", 
-            "name": "GC"
-        }, 
-        {
-            "typename": "clang::StringLiteral::StringKind", 
-            "xitems": [
-                "Ascii", 
-                "Wide", 
-                "UTF8", 
-                "UTF16", 
-                "UTF32"
-            ], 
-            "anon": false, 
-            "parent": "clang::StringLiteral", 
-            "name": "StringKind"
-        }, 
-        {
             "typename": "clang::Type::ScalarTypeKind", 
             "xitems": [
                 "STK_CPointer", 
@@ -514,141 +804,15 @@
             "name": "ScalarTypeKind"
         }, 
         {
-            "typename": "clang::BuiltinTemplateKind", 
-            "xitems": [], 
-            "anon": false, 
-            "parent": null, 
-            "name": "BuiltinTemplateKind"
-        }, 
-        {
-            "typename": "clang::CXXNewExpr::InitializationStyle", 
+            "typename": "clang::Expr::SideEffectsKind", 
             "xitems": [
-                "NoInit", 
-                "CallInit", 
-                "ListInit"
-            ], 
-            "anon": false, 
-            "parent": "clang::CXXNewExpr", 
-            "name": "InitializationStyle"
-        }, 
-        {
-            "typename": "clang::InClassInitStyle", 
-            "xitems": [
-                "ICIS_NoInit", 
-                "ICIS_CopyInit", 
-                "ICIS_ListInit"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "InClassInitStyle"
-        }, 
-        {
-            "typename": "clang::CapturedRegionKind", 
-            "xitems": [
-                "CR_Default", 
-                "CR_OpenMP"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "CapturedRegionKind"
-        }, 
-        {
-            "typename": "clang::UserDefinedLiteral::LiteralOperatorKind", 
-            "xitems": [
-                "LOK_Raw", 
-                "LOK_Template", 
-                "LOK_Integer", 
-                "LOK_Floating", 
-                "LOK_String", 
-                "LOK_Character"
-            ], 
-            "anon": false, 
-            "parent": "clang::UserDefinedLiteral", 
-            "name": "LiteralOperatorKind"
-        }, 
-        {
-            "typename": "clang::Expr::NullPointerConstantKind", 
-            "xitems": [
-                "NPCK_NotNull", 
-                "NPCK_ZeroExpression", 
-                "NPCK_ZeroLiteral", 
-                "NPCK_CXX11_nullptr", 
-                "NPCK_GNUNull"
+                "SE_NoSideEffects", 
+                "SE_AllowUndefinedBehavior", 
+                "SE_AllowSideEffects"
             ], 
             "anon": false, 
             "parent": "clang::Expr", 
-            "name": "NullPointerConstantKind"
-        }, 
-        {
-            "typename": "clang::AccessSpecifier", 
-            "xitems": [
-                "AS_public", 
-                "AS_protected", 
-                "AS_private", 
-                "AS_none"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "AccessSpecifier"
-        }, 
-        {
-            "typename": "clang::TagTypeKind", 
-            "xitems": [
-                "TTK_Struct", 
-                "TTK_Interface", 
-                "TTK_Union", 
-                "TTK_Class", 
-                "TTK_Enum"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "TagTypeKind"
-        }, 
-        {
-            "typename": "clang::ElaboratedTypeKeyword", 
-            "xitems": [
-                "ETK_Struct", 
-                "ETK_Interface", 
-                "ETK_Union", 
-                "ETK_Class", 
-                "ETK_Enum", 
-                "ETK_Typename", 
-                "ETK_None"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "ElaboratedTypeKeyword"
-        }, 
-        {
-            "typename": "clang::DeclarationName::NameKind", 
-            "xitems": [
-                "Identifier", 
-                "ObjCZeroArgSelector", 
-                "ObjCOneArgSelector", 
-                "ObjCMultiArgSelector", 
-                "CXXConstructorName", 
-                "CXXDestructorName", 
-                "CXXConversionFunctionName", 
-                "CXXOperatorName", 
-                "CXXLiteralOperatorName", 
-                "CXXUsingDirective"
-            ], 
-            "anon": false, 
-            "parent": "clang::DeclarationName", 
-            "name": "NameKind"
-        }, 
-        {
-            "typename": "clang::StorageDuration", 
-            "xitems": [
-                "SD_FullExpression", 
-                "SD_Automatic", 
-                "SD_Thread", 
-                "SD_Static", 
-                "SD_Dynamic"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "StorageDuration"
+            "name": "SideEffectsKind"
         }, 
         {
             "typename": "clang::Stmt::StmtClass", 
@@ -860,101 +1024,68 @@
             "name": "StmtClass"
         }, 
         {
-            "typename": "clang::BinaryOperatorKind", 
+            "typename": "clang::StorageClass", 
             "xitems": [
-                "BO_PtrMemD", 
-                "BO_PtrMemI", 
-                "BO_Mul", 
-                "BO_Div", 
-                "BO_Rem", 
-                "BO_Add", 
-                "BO_Sub", 
-                "BO_Shl", 
-                "BO_Shr", 
-                "BO_LT", 
-                "BO_GT", 
-                "BO_LE", 
-                "BO_GE", 
-                "BO_EQ", 
-                "BO_NE", 
-                "BO_And", 
-                "BO_Xor", 
-                "BO_Or", 
-                "BO_LAnd", 
-                "BO_LOr", 
-                "BO_Assign", 
-                "BO_MulAssign", 
-                "BO_DivAssign", 
-                "BO_RemAssign", 
-                "BO_AddAssign", 
-                "BO_SubAssign", 
-                "BO_ShlAssign", 
-                "BO_ShrAssign", 
-                "BO_AndAssign", 
-                "BO_XorAssign", 
-                "BO_OrAssign", 
-                "BO_Comma"
+                "SC_None", 
+                "SC_Extern", 
+                "SC_Static", 
+                "SC_PrivateExtern", 
+                "SC_Auto", 
+                "SC_Register"
             ], 
             "anon": false, 
             "parent": null, 
-            "name": "BinaryOperatorKind"
+            "name": "StorageClass"
         }, 
         {
-            "typename": "clang::Expr::SideEffectsKind", 
+            "typename": "clang::StorageDuration", 
             "xitems": [
-                "SE_NoSideEffects", 
-                "SE_AllowUndefinedBehavior", 
-                "SE_AllowSideEffects"
-            ], 
-            "anon": false, 
-            "parent": "clang::Expr", 
-            "name": "SideEffectsKind"
-        }, 
-        {
-            "typename": "clang::ExprValueKind", 
-            "xitems": [
-                "VK_RValue", 
-                "VK_LValue", 
-                "VK_XValue"
+                "SD_FullExpression", 
+                "SD_Automatic", 
+                "SD_Thread", 
+                "SD_Static", 
+                "SD_Dynamic"
             ], 
             "anon": false, 
             "parent": null, 
-            "name": "ExprValueKind"
+            "name": "StorageDuration"
         }, 
         {
-            "typename": "clang::ExprObjectKind", 
+            "typename": "clang::StringLiteral::StringKind", 
             "xitems": [
-                "OK_Ordinary", 
-                "OK_BitField", 
-                "OK_VectorComponent", 
-                "OK_ObjCProperty", 
-                "OK_ObjCSubscript"
+                "Ascii", 
+                "Wide", 
+                "UTF8", 
+                "UTF16", 
+                "UTF32"
             ], 
             "anon": false, 
-            "parent": null, 
-            "name": "ExprObjectKind"
+            "parent": "clang::StringLiteral", 
+            "name": "StringKind"
         }, 
         {
-            "typename": "clang::VarDecl::InitializationStyle", 
+            "typename": "clang::VarDecl::TLSKind", 
             "xitems": [
-                "CInit", 
-                "CallInit", 
-                "ListInit"
+                "TLS_None", 
+                "TLS_Static", 
+                "TLS_Dynamic"
             ], 
             "anon": false, 
             "parent": "clang::VarDecl", 
-            "name": "InitializationStyle"
+            "name": "TLSKind"
         }, 
         {
-            "typename": "clang::SrcMgr::CharacteristicKind", 
+            "typename": "clang::TagTypeKind", 
             "xitems": [
-                "C_User", 
-                "C_System", 
-                "C_ExternCSystem"
+                "TTK_Struct", 
+                "TTK_Interface", 
+                "TTK_Union", 
+                "TTK_Class", 
+                "TTK_Enum"
             ], 
             "anon": false, 
             "parent": null, 
-            "name": "CharacteristicKind"
+            "name": "TagTypeKind"
         }, 
         {
             "typename": "clang::TemplateSpecializationKind", 
@@ -970,205 +1101,29 @@
             "name": "TemplateSpecializationKind"
         }, 
         {
-            "typename": "clang::QualType::DestructionKind", 
+            "typename": "clang::FunctionDecl::TemplatedKind", 
             "xitems": [
-                "DK_none", 
-                "DK_cxx_destructor", 
-                "DK_objc_strong_lifetime", 
-                "DK_objc_weak_lifetime"
+                "TK_NonTemplate", 
+                "TK_FunctionTemplate", 
+                "TK_MemberSpecialization", 
+                "TK_FunctionTemplateSpecialization", 
+                "TK_DependentFunctionTemplateSpecialization"
             ], 
             "anon": false, 
-            "parent": "clang::QualType", 
-            "name": "DestructionKind"
+            "parent": "clang::FunctionDecl", 
+            "name": "TemplatedKind"
         }, 
         {
-            "typename": "clang::VarDecl::TLSKind", 
+            "typename": "clang::ThreadStorageClassSpecifier", 
             "xitems": [
-                "TLS_None", 
-                "TLS_Static", 
-                "TLS_Dynamic"
-            ], 
-            "anon": false, 
-            "parent": "clang::VarDecl", 
-            "name": "TLSKind"
-        }, 
-        {
-            "typename": "clang::UnaryOperatorKind", 
-            "xitems": [
-                "UO_PostInc", 
-                "UO_PostDec", 
-                "UO_PreInc", 
-                "UO_PreDec", 
-                "UO_AddrOf", 
-                "UO_Deref", 
-                "UO_Plus", 
-                "UO_Minus", 
-                "UO_Not", 
-                "UO_LNot", 
-                "UO_Real", 
-                "UO_Imag", 
-                "UO_Extension", 
-                "UO_Coawait"
+                "TSCS_unspecified", 
+                "TSCS___thread", 
+                "TSCS_thread_local", 
+                "TSCS__Thread_local"
             ], 
             "anon": false, 
             "parent": null, 
-            "name": "UnaryOperatorKind"
-        }, 
-        {
-            "typename": "clang::Qualifiers::ObjCLifetime", 
-            "xitems": [
-                "OCL_None", 
-                "OCL_ExplicitNone", 
-                "OCL_Strong", 
-                "OCL_Weak", 
-                "OCL_Autoreleasing"
-            ], 
-            "anon": false, 
-            "parent": "clang::Qualifiers", 
-            "name": "ObjCLifetime"
-        }, 
-        {
-            "typename": "clang::AtomicExpr::AtomicOp", 
-            "xitems": [
-                "AO__c11_atomic_init", 
-                "AO__c11_atomic_load", 
-                "AO__c11_atomic_store", 
-                "AO__c11_atomic_exchange", 
-                "AO__c11_atomic_compare_exchange_strong", 
-                "AO__c11_atomic_compare_exchange_weak", 
-                "AO__c11_atomic_fetch_add", 
-                "AO__c11_atomic_fetch_sub", 
-                "AO__c11_atomic_fetch_and", 
-                "AO__c11_atomic_fetch_or", 
-                "AO__c11_atomic_fetch_xor", 
-                "AO__atomic_load", 
-                "AO__atomic_load_n", 
-                "AO__atomic_store", 
-                "AO__atomic_store_n", 
-                "AO__atomic_exchange", 
-                "AO__atomic_exchange_n", 
-                "AO__atomic_compare_exchange", 
-                "AO__atomic_compare_exchange_n", 
-                "AO__atomic_fetch_add", 
-                "AO__atomic_fetch_sub", 
-                "AO__atomic_fetch_and", 
-                "AO__atomic_fetch_or", 
-                "AO__atomic_fetch_xor", 
-                "AO__atomic_fetch_nand", 
-                "AO__atomic_add_fetch", 
-                "AO__atomic_sub_fetch", 
-                "AO__atomic_and_fetch", 
-                "AO__atomic_or_fetch", 
-                "AO__atomic_xor_fetch", 
-                "AO__atomic_nand_fetch", 
-                "BI_First"
-            ], 
-            "anon": false, 
-            "parent": "clang::AtomicExpr", 
-            "name": "AtomicOp"
-        }, 
-        {
-            "typename": "clang::Expr::LValueClassification", 
-            "xitems": [
-                "LV_Valid", 
-                "LV_NotObjectType", 
-                "LV_IncompleteVoidType", 
-                "LV_DuplicateVectorComponents", 
-                "LV_InvalidExpression", 
-                "LV_InvalidMessageExpression", 
-                "LV_MemberFunction", 
-                "LV_SubObjCPropertySetting", 
-                "LV_ClassTemporary", 
-                "LV_ArrayTemporary"
-            ], 
-            "anon": false, 
-            "parent": "clang::Expr", 
-            "name": "LValueClassification"
-        }, 
-        {
-            "typename": "clang::VarDecl::DefinitionKind", 
-            "xitems": [
-                "DeclarationOnly", 
-                "TentativeDefinition", 
-                "Definition"
-            ], 
-            "anon": false, 
-            "parent": "clang::VarDecl", 
-            "name": "DefinitionKind"
-        }, 
-        {
-            "typename": "clang::LinkageSpecDecl::LanguageIDs", 
-            "xitems": [
-                "lang_c", 
-                "lang_cxx"
-            ], 
-            "anon": false, 
-            "parent": "clang::LinkageSpecDecl", 
-            "name": "LanguageIDs"
-        }, 
-        {
-            "typename": "clang::CastKind", 
-            "xitems": [
-                "CK_Dependent", 
-                "CK_BitCast", 
-                "CK_LValueBitCast", 
-                "CK_LValueToRValue", 
-                "CK_NoOp", 
-                "CK_BaseToDerived", 
-                "CK_DerivedToBase", 
-                "CK_UncheckedDerivedToBase", 
-                "CK_Dynamic", 
-                "CK_ToUnion", 
-                "CK_ArrayToPointerDecay", 
-                "CK_FunctionToPointerDecay", 
-                "CK_NullToPointer", 
-                "CK_NullToMemberPointer", 
-                "CK_BaseToDerivedMemberPointer", 
-                "CK_DerivedToBaseMemberPointer", 
-                "CK_MemberPointerToBoolean", 
-                "CK_ReinterpretMemberPointer", 
-                "CK_UserDefinedConversion", 
-                "CK_ConstructorConversion", 
-                "CK_IntegralToPointer", 
-                "CK_PointerToIntegral", 
-                "CK_PointerToBoolean", 
-                "CK_ToVoid", 
-                "CK_VectorSplat", 
-                "CK_IntegralCast", 
-                "CK_IntegralToBoolean", 
-                "CK_IntegralToFloating", 
-                "CK_FloatingToIntegral", 
-                "CK_FloatingToBoolean", 
-                "CK_BooleanToSignedIntegral", 
-                "CK_FloatingCast", 
-                "CK_CPointerToObjCPointerCast", 
-                "CK_BlockPointerToObjCPointerCast", 
-                "CK_AnyPointerToBlockPointerCast", 
-                "CK_ObjCObjectLValueCast", 
-                "CK_FloatingRealToComplex", 
-                "CK_FloatingComplexToReal", 
-                "CK_FloatingComplexToBoolean", 
-                "CK_FloatingComplexCast", 
-                "CK_FloatingComplexToIntegralComplex", 
-                "CK_IntegralRealToComplex", 
-                "CK_IntegralComplexToReal", 
-                "CK_IntegralComplexToBoolean", 
-                "CK_IntegralComplexCast", 
-                "CK_IntegralComplexToFloatingComplex", 
-                "CK_ARCProduceObject", 
-                "CK_ARCConsumeObject", 
-                "CK_ARCReclaimReturnedObject", 
-                "CK_ARCExtendBlockObject", 
-                "CK_AtomicToNonAtomic", 
-                "CK_NonAtomicToAtomic", 
-                "CK_CopyAndAutoreleaseBlockObject", 
-                "CK_BuiltinFnToFnPtr", 
-                "CK_ZeroToOCLEvent", 
-                "CK_AddressSpaceConversion"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "CastKind"
+            "name": "ThreadStorageClassSpecifier"
         }, 
         {
             "typename": "clang::Type::TypeClass", 
@@ -1225,6 +1180,109 @@
             "name": "TypeClass"
         }, 
         {
+            "typename": "clang::TypeTrait", 
+            "xitems": [
+                "UTT_HasNothrowAssign", 
+                "UTT_HasNothrowMoveAssign", 
+                "UTT_HasNothrowCopy", 
+                "UTT_HasNothrowConstructor", 
+                "UTT_HasTrivialAssign", 
+                "UTT_HasTrivialMoveAssign", 
+                "UTT_HasTrivialCopy", 
+                "UTT_HasTrivialDefaultConstructor", 
+                "UTT_HasTrivialMoveConstructor", 
+                "UTT_HasTrivialDestructor", 
+                "UTT_HasVirtualDestructor", 
+                "UTT_IsAbstract", 
+                "UTT_IsArithmetic", 
+                "UTT_IsArray", 
+                "UTT_IsClass", 
+                "UTT_IsCompleteType", 
+                "UTT_IsCompound", 
+                "UTT_IsConst", 
+                "UTT_IsDestructible", 
+                "UTT_IsEmpty", 
+                "UTT_IsEnum", 
+                "UTT_IsFinal", 
+                "UTT_IsFloatingPoint", 
+                "UTT_IsFunction", 
+                "UTT_IsFundamental", 
+                "UTT_IsIntegral", 
+                "UTT_IsInterfaceClass", 
+                "UTT_IsLiteral", 
+                "UTT_IsLvalueReference", 
+                "UTT_IsMemberFunctionPointer", 
+                "UTT_IsMemberObjectPointer", 
+                "UTT_IsMemberPointer", 
+                "UTT_IsNothrowDestructible", 
+                "UTT_IsObject", 
+                "UTT_IsPOD", 
+                "UTT_IsPointer", 
+                "UTT_IsPolymorphic", 
+                "UTT_IsReference", 
+                "UTT_IsRvalueReference", 
+                "UTT_IsScalar", 
+                "UTT_IsSealed", 
+                "UTT_IsSigned", 
+                "UTT_IsStandardLayout", 
+                "UTT_IsTrivial", 
+                "UTT_IsTriviallyCopyable", 
+                "UTT_IsUnion", 
+                "UTT_IsUnsigned", 
+                "UTT_IsVoid", 
+                "UTT_IsVolatile", 
+                "UTT_Last", 
+                "BTT_IsBaseOf", 
+                "BTT_IsConvertible", 
+                "BTT_IsConvertibleTo", 
+                "BTT_IsSame", 
+                "BTT_TypeCompatible", 
+                "BTT_IsNothrowAssignable", 
+                "BTT_IsTriviallyAssignable", 
+                "BTT_Last", 
+                "TT_IsConstructible", 
+                "TT_IsNothrowConstructible", 
+                "TT_IsTriviallyConstructible"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "TypeTrait"
+        }, 
+        {
+            "typename": "clang::UnaryExprOrTypeTrait", 
+            "xitems": [
+                "UETT_SizeOf", 
+                "UETT_AlignOf", 
+                "UETT_VecStep", 
+                "UETT_OpenMPRequiredSimdAlign"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "UnaryExprOrTypeTrait"
+        }, 
+        {
+            "typename": "clang::UnaryOperatorKind", 
+            "xitems": [
+                "UO_PostInc", 
+                "UO_PostDec", 
+                "UO_PreInc", 
+                "UO_PreDec", 
+                "UO_AddrOf", 
+                "UO_Deref", 
+                "UO_Plus", 
+                "UO_Minus", 
+                "UO_Not", 
+                "UO_LNot", 
+                "UO_Real", 
+                "UO_Imag", 
+                "UO_Extension", 
+                "UO_Coawait"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "UnaryOperatorKind"
+        }, 
+        {
             "typename": "clang::Visibility", 
             "xitems": [
                 "HiddenVisibility", 
@@ -1236,90 +1294,33 @@
             "name": "Visibility"
         }, 
         {
-            "typename": "clang::CallingConv", 
+            "typename": "clang::Expr::isModifiableLvalueResult", 
             "xitems": [
-                "CC_C", 
-                "CC_X86StdCall", 
-                "CC_X86FastCall", 
-                "CC_X86ThisCall", 
-                "CC_X86VectorCall", 
-                "CC_X86Pascal", 
-                "CC_X86_64Win64", 
-                "CC_X86_64SysV", 
-                "CC_AAPCS", 
-                "CC_AAPCS_VFP", 
-                "CC_IntelOclBicc", 
-                "CC_SpirFunction", 
-                "CC_SpirKernel"
+                "MLV_Valid", 
+                "MLV_NotObjectType", 
+                "MLV_IncompleteVoidType", 
+                "MLV_DuplicateVectorComponents", 
+                "MLV_InvalidExpression", 
+                "MLV_LValueCast", 
+                "MLV_IncompleteType", 
+                "MLV_ConstQualified", 
+                "MLV_ConstAddrSpace", 
+                "MLV_ArrayType", 
+                "MLV_NoSetterProperty", 
+                "MLV_MemberFunction", 
+                "MLV_SubObjCPropertySetting", 
+                "MLV_InvalidMessageExpression", 
+                "MLV_ClassTemporary", 
+                "MLV_ArrayTemporary"
             ], 
             "anon": false, 
-            "parent": null, 
-            "name": "CallingConv"
-        }, 
-        {
-            "typename": "clang::Decl::FriendObjectKind", 
-            "xitems": [
-                "FOK_None", 
-                "FOK_Declared", 
-                "FOK_Undeclared"
-            ], 
-            "anon": false, 
-            "parent": "clang::Decl", 
-            "name": "FriendObjectKind"
-        }, 
-        {
-            "typename": "clang::Linkage", 
-            "xitems": [
-                "NoLinkage", 
-                "InternalLinkage", 
-                "UniqueExternalLinkage", 
-                "VisibleNoLinkage", 
-                "ExternalLinkage"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "Linkage"
-        }, 
-        {
-            "typename": "clang::PredefinedExpr::IdentType", 
-            "xitems": [
-                "Func", 
-                "Function", 
-                "LFunction", 
-                "FuncDName", 
-                "FuncSig", 
-                "PrettyFunction", 
-                "PrettyFunctionNoVirtual"
-            ], 
-            "anon": false, 
-            "parent": "clang::PredefinedExpr", 
-            "name": "IdentType"
-        }, 
-        {
-            "typename": "clang::AvailabilityResult", 
-            "xitems": [
-                "AR_Available", 
-                "AR_NotYetIntroduced", 
-                "AR_Deprecated", 
-                "AR_Unavailable"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "AvailabilityResult"
-        }, 
-        {
-            "typename": "clang::NamedDecl::ExplicitVisibilityKind", 
-            "xitems": [
-                "VisibilityForType", 
-                "VisibilityForValue"
-            ], 
-            "anon": false, 
-            "parent": "clang::NamedDecl", 
-            "name": "ExplicitVisibilityKind"
+            "parent": "clang::Expr", 
+            "name": "isModifiableLvalueResult"
         }
     ], 
     "classes": [
         {
+            "typename": "llvm::StringRef", 
             "methods": [
                 {
                     "const": "const", 
@@ -2194,13 +2195,12 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "llvm::StringRef", 
-            "name": "StringRef", 
             "is_disabled": true, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/llvm/ADT/StringRef.h"
+            "name": "StringRef"
         }, 
         {
+            "typename": "clang::SourceLocation", 
             "methods": [
                 {
                     "const": "const", 
@@ -2381,13 +2381,12 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SourceLocation", 
-            "name": "SourceLocation", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/Basic/SourceLocation.h"
+            "name": "SourceLocation"
         }, 
         {
+            "typename": "clang::SourceRange", 
             "methods": [
                 {
                     "const": "const", 
@@ -2494,13 +2493,12 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SourceRange", 
-            "name": "SourceRange", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/Basic/SourceLocation.h"
+            "name": "SourceRange"
         }, 
         {
+            "typename": "clang::DeclarationName", 
             "methods": [
                 {
                     "const": "const", 
@@ -2763,13 +2761,12 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::DeclarationName", 
-            "name": "DeclarationName", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclarationName.h"
+            "name": "DeclarationName"
         }, 
         {
+            "typename": "clang::DeclarationNameInfo", 
             "methods": [
                 {
                     "const": "const", 
@@ -3152,13 +3149,13 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::DeclarationNameInfo", 
-            "name": "DeclarationNameInfo", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclarationName.h"
+            "name": "DeclarationNameInfo"
         }, 
         {
+            "deleter": "decl_deleter<clang::Decl>::type", 
+            "typename": "clang::Decl", 
             "methods": [
                 {
                     "const": "const", 
@@ -4783,14 +4780,12 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::Decl", 
-            "name": "Decl", 
-            "deleter": "decl_deleter<clang::Decl>::type", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclBase.h"
+            "name": "Decl"
         }, 
         {
+            "typename": "clang::DeclContext", 
             "methods": [
                 {
                     "const": "const", 
@@ -5925,13 +5920,12 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::DeclContext", 
-            "name": "DeclContext", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclBase.h"
+            "name": "DeclContext"
         }, 
         {
+            "typename": "clang::Qualifiers", 
             "methods": [
                 {
                     "const": "const", 
@@ -7002,13 +6996,12 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::Qualifiers", 
-            "name": "Qualifiers", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Type.h"
+            "name": "Qualifiers"
         }, 
         {
+            "typename": "clang::QualType", 
             "methods": [
                 {
                     "const": "const", 
@@ -8383,13 +8376,12 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::QualType", 
-            "name": "QualType", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Type.h"
+            "name": "QualType"
         }, 
         {
+            "typename": "clang::Type", 
             "methods": [
                 {
                     "const": "const", 
@@ -11092,13 +11084,12 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::Type", 
-            "name": "Type", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Type.h"
+            "name": "Type"
         }, 
         {
+            "typename": "clang::TypeSourceInfo", 
             "methods": [
                 {
                     "const": "const", 
@@ -11153,13 +11144,13 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TypeSourceInfo", 
-            "name": "TypeSourceInfo", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "TypeSourceInfo"
         }, 
         {
+            "deleter": "decl_deleter<clang::TranslationUnitDecl>::type", 
+            "typename": "clang::TranslationUnitDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -11214,29 +11205,27 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TranslationUnitDecl", 
-            "name": "TranslationUnitDecl", 
-            "deleter": "decl_deleter<clang::TranslationUnitDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl", 
                 "clang::DeclContext"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "TranslationUnitDecl"
         }, 
         {
-            "methods": [], 
-            "typename": "clang::ExternCContextDecl", 
-            "name": "ExternCContextDecl", 
             "deleter": "decl_deleter<clang::ExternCContextDecl>::type", 
+            "typename": "clang::ExternCContextDecl", 
+            "methods": [], 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl", 
                 "clang::DeclContext"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "ExternCContextDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::NamedDecl>::type", 
+            "typename": "clang::NamedDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -11759,16 +11748,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::NamedDecl", 
-            "name": "NamedDecl", 
-            "deleter": "decl_deleter<clang::NamedDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "NamedDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::LabelDecl>::type", 
+            "typename": "clang::LabelDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -11943,16 +11931,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::LabelDecl", 
-            "name": "LabelDecl", 
-            "deleter": "decl_deleter<clang::LabelDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::NamedDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "LabelDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::NamespaceDecl>::type", 
+            "typename": "clang::NamespaceDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -12211,17 +12198,16 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::NamespaceDecl", 
-            "name": "NamespaceDecl", 
-            "deleter": "decl_deleter<clang::NamespaceDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::NamedDecl", 
                 "clang::DeclContext"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "NamespaceDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::ValueDecl>::type", 
+            "typename": "clang::ValueDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -12276,16 +12262,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ValueDecl", 
-            "name": "ValueDecl", 
-            "deleter": "decl_deleter<clang::ValueDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::NamedDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "ValueDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::DeclaratorDecl>::type", 
+            "typename": "clang::DeclaratorDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -12534,16 +12519,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::DeclaratorDecl", 
-            "name": "DeclaratorDecl", 
-            "deleter": "decl_deleter<clang::DeclaratorDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::ValueDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "DeclaratorDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::VarDecl>::type", 
+            "typename": "clang::VarDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -13818,27 +13802,25 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::VarDecl", 
-            "name": "VarDecl", 
-            "deleter": "decl_deleter<clang::VarDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::DeclaratorDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "VarDecl"
         }, 
         {
-            "methods": [], 
-            "typename": "clang::ImplicitParamDecl", 
-            "name": "ImplicitParamDecl", 
             "deleter": "decl_deleter<clang::ImplicitParamDecl>::type", 
+            "typename": "clang::ImplicitParamDecl", 
+            "methods": [], 
             "is_disabled": false, 
             "supers": [
                 "clang::VarDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "ImplicitParamDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::ParmVarDecl>::type", 
+            "typename": "clang::ParmVarDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -14291,16 +14273,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ParmVarDecl", 
-            "name": "ParmVarDecl", 
-            "deleter": "decl_deleter<clang::ParmVarDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::VarDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "ParmVarDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::FunctionDecl>::type", 
+            "typename": "clang::FunctionDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -16081,17 +16062,16 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::FunctionDecl", 
-            "name": "FunctionDecl", 
-            "deleter": "decl_deleter<clang::FunctionDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::DeclaratorDecl", 
                 "clang::DeclContext"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "FunctionDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::FieldDecl>::type", 
+            "typename": "clang::FieldDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -16462,16 +16442,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::FieldDecl", 
-            "name": "FieldDecl", 
-            "deleter": "decl_deleter<clang::FieldDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::DeclaratorDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "FieldDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::EnumConstantDecl>::type", 
+            "typename": "clang::EnumConstantDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -16610,16 +16589,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::EnumConstantDecl", 
-            "name": "EnumConstantDecl", 
-            "deleter": "decl_deleter<clang::EnumConstantDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::ValueDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "EnumConstantDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::IndirectFieldDecl>::type", 
+            "typename": "clang::IndirectFieldDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -16718,16 +16696,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::IndirectFieldDecl", 
-            "name": "IndirectFieldDecl", 
-            "deleter": "decl_deleter<clang::IndirectFieldDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::ValueDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "IndirectFieldDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::TypeDecl>::type", 
+            "typename": "clang::TypeDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -16818,16 +16795,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TypeDecl", 
-            "name": "TypeDecl", 
-            "deleter": "decl_deleter<clang::TypeDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::NamedDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "TypeDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::TypedefNameDecl>::type", 
+            "typename": "clang::TypedefNameDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -16972,16 +16948,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TypedefNameDecl", 
-            "name": "TypedefNameDecl", 
-            "deleter": "decl_deleter<clang::TypedefNameDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::TypeDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "TypedefNameDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::TypedefDecl>::type", 
+            "typename": "clang::TypedefDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -17000,16 +16975,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TypedefDecl", 
-            "name": "TypedefDecl", 
-            "deleter": "decl_deleter<clang::TypedefDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::TypedefNameDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "TypedefDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::TypeAliasDecl>::type", 
+            "typename": "clang::TypeAliasDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -17064,16 +17038,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TypeAliasDecl", 
-            "name": "TypeAliasDecl", 
-            "deleter": "decl_deleter<clang::TypeAliasDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::TypedefNameDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "TypeAliasDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::TagDecl>::type", 
+            "typename": "clang::TagDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -17710,17 +17683,16 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TagDecl", 
-            "name": "TagDecl", 
-            "deleter": "decl_deleter<clang::TagDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::TypeDecl", 
                 "clang::DeclContext"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "TagDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::EnumDecl>::type", 
+            "typename": "clang::EnumDecl", 
             "methods": [
                 {
                     "const": "", 
@@ -18229,16 +18201,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::EnumDecl", 
-            "name": "EnumDecl", 
-            "deleter": "decl_deleter<clang::EnumDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::TagDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "EnumDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::RecordDecl>::type", 
+            "typename": "clang::RecordDecl", 
             "methods": [
                 {
                     "const": "", 
@@ -18669,16 +18640,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::RecordDecl", 
-            "name": "RecordDecl", 
-            "deleter": "decl_deleter<clang::RecordDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::TagDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "RecordDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::FileScopeAsmDecl>::type", 
+            "typename": "clang::FileScopeAsmDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -18801,16 +18771,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::FileScopeAsmDecl", 
-            "name": "FileScopeAsmDecl", 
-            "deleter": "decl_deleter<clang::FileScopeAsmDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "FileScopeAsmDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::BlockDecl>::type", 
+            "typename": "clang::BlockDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -19375,17 +19344,16 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::BlockDecl", 
-            "name": "BlockDecl", 
-            "deleter": "decl_deleter<clang::BlockDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl", 
                 "clang::DeclContext"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "BlockDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::CapturedDecl>::type", 
+            "typename": "clang::CapturedDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -19588,17 +19556,16 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CapturedDecl", 
-            "name": "CapturedDecl", 
-            "deleter": "decl_deleter<clang::CapturedDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl", 
                 "clang::DeclContext"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "CapturedDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::ImportDecl>::type", 
+            "typename": "clang::ImportDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -19649,27 +19616,25 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ImportDecl", 
-            "name": "ImportDecl", 
-            "deleter": "decl_deleter<clang::ImportDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "ImportDecl"
         }, 
         {
-            "methods": [], 
-            "typename": "clang::EmptyDecl", 
-            "name": "EmptyDecl", 
             "deleter": "decl_deleter<clang::EmptyDecl>::type", 
+            "typename": "clang::EmptyDecl", 
+            "methods": [], 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Decl.h"
+            "name": "EmptyDecl"
         }, 
         {
+            "deleter": "stmt_deleter<clang::Stmt>::type", 
+            "typename": "clang::Stmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -20032,14 +19997,13 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::Stmt", 
-            "name": "Stmt", 
-            "deleter": "stmt_deleter<clang::Stmt>::type", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "Stmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::DeclStmt>::type", 
+            "typename": "clang::DeclStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -20294,16 +20258,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::DeclStmt", 
-            "name": "DeclStmt", 
-            "deleter": "stmt_deleter<clang::DeclStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "DeclStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::NullStmt>::type", 
+            "typename": "clang::NullStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -20406,16 +20369,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::NullStmt", 
-            "name": "NullStmt", 
-            "deleter": "stmt_deleter<clang::NullStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "NullStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CompoundStmt>::type", 
+            "typename": "clang::CompoundStmt", 
             "methods": [
                 {
                     "const": "", 
@@ -20684,16 +20646,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CompoundStmt", 
-            "name": "CompoundStmt", 
-            "deleter": "stmt_deleter<clang::CompoundStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "CompoundStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::SwitchCase>::type", 
+            "typename": "clang::SwitchCase", 
             "methods": [
                 {
                     "const": "const", 
@@ -20884,16 +20845,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SwitchCase", 
-            "name": "SwitchCase", 
-            "deleter": "stmt_deleter<clang::SwitchCase>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "SwitchCase"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CaseStmt>::type", 
+            "typename": "clang::CaseStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -21208,16 +21168,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CaseStmt", 
-            "name": "CaseStmt", 
-            "deleter": "stmt_deleter<clang::CaseStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::SwitchCase"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "CaseStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::DefaultStmt>::type", 
+            "typename": "clang::DefaultStmt", 
             "methods": [
                 {
                     "const": "", 
@@ -21392,16 +21351,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::DefaultStmt", 
-            "name": "DefaultStmt", 
-            "deleter": "stmt_deleter<clang::DefaultStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::SwitchCase"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "DefaultStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::LabelStmt>::type", 
+            "typename": "clang::LabelStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -21592,16 +21550,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::LabelStmt", 
-            "name": "LabelStmt", 
-            "deleter": "stmt_deleter<clang::LabelStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "LabelStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::AttributedStmt>::type", 
+            "typename": "clang::AttributedStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -21716,16 +21673,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::AttributedStmt", 
-            "name": "AttributedStmt", 
-            "deleter": "stmt_deleter<clang::AttributedStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "AttributedStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::IfStmt>::type", 
+            "typename": "clang::IfStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -22058,16 +22014,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::IfStmt", 
-            "name": "IfStmt", 
-            "deleter": "stmt_deleter<clang::IfStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "IfStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::SwitchStmt>::type", 
+            "typename": "clang::SwitchStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -22438,16 +22393,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SwitchStmt", 
-            "name": "SwitchStmt", 
-            "deleter": "stmt_deleter<clang::SwitchStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "SwitchStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::WhileStmt>::type", 
+            "typename": "clang::WhileStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -22692,16 +22646,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::WhileStmt", 
-            "name": "WhileStmt", 
-            "deleter": "stmt_deleter<clang::WhileStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "WhileStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::DoStmt>::type", 
+            "typename": "clang::DoStmt", 
             "methods": [
                 {
                     "const": "", 
@@ -22964,16 +22917,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::DoStmt", 
-            "name": "DoStmt", 
-            "deleter": "stmt_deleter<clang::DoStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "DoStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ForStmt>::type", 
+            "typename": "clang::ForStmt", 
             "methods": [
                 {
                     "const": "", 
@@ -23394,16 +23346,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ForStmt", 
-            "name": "ForStmt", 
-            "deleter": "stmt_deleter<clang::ForStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "ForStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::GotoStmt>::type", 
+            "typename": "clang::GotoStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -23562,16 +23513,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::GotoStmt", 
-            "name": "GotoStmt", 
-            "deleter": "stmt_deleter<clang::GotoStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "GotoStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::IndirectGotoStmt>::type", 
+            "typename": "clang::IndirectGotoStmt", 
             "methods": [
                 {
                     "const": "", 
@@ -23778,16 +23728,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::IndirectGotoStmt", 
-            "name": "IndirectGotoStmt", 
-            "deleter": "stmt_deleter<clang::IndirectGotoStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "IndirectGotoStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ContinueStmt>::type", 
+            "typename": "clang::ContinueStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -23874,16 +23823,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ContinueStmt", 
-            "name": "ContinueStmt", 
-            "deleter": "stmt_deleter<clang::ContinueStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "ContinueStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::BreakStmt>::type", 
+            "typename": "clang::BreakStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -23970,16 +23918,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::BreakStmt", 
-            "name": "BreakStmt", 
-            "deleter": "stmt_deleter<clang::BreakStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "BreakStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ReturnStmt>::type", 
+            "typename": "clang::ReturnStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -24154,16 +24101,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ReturnStmt", 
-            "name": "ReturnStmt", 
-            "deleter": "stmt_deleter<clang::ReturnStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "ReturnStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::AsmStmt>::type", 
+            "typename": "clang::AsmStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -24590,16 +24536,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::AsmStmt", 
-            "name": "AsmStmt", 
-            "deleter": "stmt_deleter<clang::AsmStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "AsmStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::GCCAsmStmt>::type", 
+            "typename": "clang::GCCAsmStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -25148,16 +25093,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::GCCAsmStmt", 
-            "name": "GCCAsmStmt", 
-            "deleter": "stmt_deleter<clang::GCCAsmStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::AsmStmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "GCCAsmStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::MSAsmStmt>::type", 
+            "typename": "clang::MSAsmStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -25574,16 +25518,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::MSAsmStmt", 
-            "name": "MSAsmStmt", 
-            "deleter": "stmt_deleter<clang::MSAsmStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::AsmStmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "MSAsmStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::SEHExceptStmt>::type", 
+            "typename": "clang::SEHExceptStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -25698,16 +25641,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SEHExceptStmt", 
-            "name": "SEHExceptStmt", 
-            "deleter": "stmt_deleter<clang::SEHExceptStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "SEHExceptStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::SEHFinallyStmt>::type", 
+            "typename": "clang::SEHFinallyStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -25806,16 +25748,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SEHFinallyStmt", 
-            "name": "SEHFinallyStmt", 
-            "deleter": "stmt_deleter<clang::SEHFinallyStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "SEHFinallyStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::SEHTryStmt>::type", 
+            "typename": "clang::SEHTryStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -25978,16 +25919,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SEHTryStmt", 
-            "name": "SEHTryStmt", 
-            "deleter": "stmt_deleter<clang::SEHTryStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "SEHTryStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::SEHLeaveStmt>::type", 
+            "typename": "clang::SEHLeaveStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -26074,16 +26014,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SEHLeaveStmt", 
-            "name": "SEHLeaveStmt", 
-            "deleter": "stmt_deleter<clang::SEHLeaveStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "SEHLeaveStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CapturedStmt>::type", 
+            "typename": "clang::CapturedStmt", 
             "methods": [
                 {
                     "const": "", 
@@ -26406,16 +26345,14 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CapturedStmt", 
-            "name": "CapturedStmt", 
-            "deleter": "stmt_deleter<clang::CapturedStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Stmt.h"
+            "name": "CapturedStmt"
         }, 
         {
+            "typename": "clang::SourceManager", 
             "methods": [
                 {
                     "const": "", 
@@ -28608,13 +28545,12 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SourceManager", 
-            "name": "SourceManager", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/Basic/SourceManager.h"
+            "name": "SourceManager"
         }, 
         {
+            "typename": "clang::ASTContext", 
             "methods": [
                 {
                     "const": "", 
@@ -35841,13 +35777,13 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ASTContext", 
-            "name": "ASTContext", 
             "is_disabled": false, 
             "supers": [], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ASTContext.h"
+            "name": "ASTContext"
         }, 
         {
+            "deleter": "stmt_deleter<clang::Expr>::type", 
+            "typename": "clang::Expr", 
             "methods": [
                 {
                     "const": "const", 
@@ -37292,16 +37228,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::Expr", 
-            "name": "Expr", 
-            "deleter": "stmt_deleter<clang::Expr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "Expr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::OpaqueValueExpr>::type", 
+            "typename": "clang::OpaqueValueExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -37400,16 +37335,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::OpaqueValueExpr", 
-            "name": "OpaqueValueExpr", 
-            "deleter": "stmt_deleter<clang::OpaqueValueExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "OpaqueValueExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::DeclRefExpr>::type", 
+            "typename": "clang::DeclRefExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -37844,16 +37778,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::DeclRefExpr", 
-            "name": "DeclRefExpr", 
-            "deleter": "stmt_deleter<clang::DeclRefExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "DeclRefExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::PredefinedExpr>::type", 
+            "typename": "clang::PredefinedExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -37988,16 +37921,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::PredefinedExpr", 
-            "name": "PredefinedExpr", 
-            "deleter": "stmt_deleter<clang::PredefinedExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "PredefinedExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::IntegerLiteral>::type", 
+            "typename": "clang::IntegerLiteral", 
             "methods": [
                 {
                     "const": "const", 
@@ -38084,16 +38016,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::IntegerLiteral", 
-            "name": "IntegerLiteral", 
-            "deleter": "stmt_deleter<clang::IntegerLiteral>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "IntegerLiteral"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CharacterLiteral>::type", 
+            "typename": "clang::CharacterLiteral", 
             "methods": [
                 {
                     "const": "const", 
@@ -38252,16 +38183,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CharacterLiteral", 
-            "name": "CharacterLiteral", 
-            "deleter": "stmt_deleter<clang::CharacterLiteral>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "CharacterLiteral"
         }, 
         {
+            "deleter": "stmt_deleter<clang::FloatingLiteral>::type", 
+            "typename": "clang::FloatingLiteral", 
             "methods": [
                 {
                     "const": "const", 
@@ -38510,16 +38440,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::FloatingLiteral", 
-            "name": "FloatingLiteral", 
-            "deleter": "stmt_deleter<clang::FloatingLiteral>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "FloatingLiteral"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ImaginaryLiteral>::type", 
+            "typename": "clang::ImaginaryLiteral", 
             "methods": [
                 {
                     "const": "const", 
@@ -38622,16 +38551,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ImaginaryLiteral", 
-            "name": "ImaginaryLiteral", 
-            "deleter": "stmt_deleter<clang::ImaginaryLiteral>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ImaginaryLiteral"
         }, 
         {
+            "deleter": "stmt_deleter<clang::StringLiteral>::type", 
+            "typename": "clang::StringLiteral", 
             "methods": [
                 {
                     "const": "const", 
@@ -39044,16 +38972,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::StringLiteral", 
-            "name": "StringLiteral", 
-            "deleter": "stmt_deleter<clang::StringLiteral>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "StringLiteral"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ParenExpr>::type", 
+            "typename": "clang::ParenExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -39228,16 +39155,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ParenExpr", 
-            "name": "ParenExpr", 
-            "deleter": "stmt_deleter<clang::ParenExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ParenExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::UnaryOperator>::type", 
+            "typename": "clang::UnaryOperator", 
             "methods": [
                 {
                     "const": "const", 
@@ -39508,16 +39434,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::UnaryOperator", 
-            "name": "UnaryOperator", 
-            "deleter": "stmt_deleter<clang::UnaryOperator>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "UnaryOperator"
         }, 
         {
+            "deleter": "stmt_deleter<clang::OffsetOfExpr>::type", 
+            "typename": "clang::OffsetOfExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -39812,16 +39737,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::OffsetOfExpr", 
-            "name": "OffsetOfExpr", 
-            "deleter": "stmt_deleter<clang::OffsetOfExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "OffsetOfExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::UnaryExprOrTypeTraitExpr>::type", 
+            "typename": "clang::UnaryExprOrTypeTraitExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -40116,16 +40040,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::UnaryExprOrTypeTraitExpr", 
-            "name": "UnaryExprOrTypeTraitExpr", 
-            "deleter": "stmt_deleter<clang::UnaryExprOrTypeTraitExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "UnaryExprOrTypeTraitExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ArraySubscriptExpr>::type", 
+            "typename": "clang::ArraySubscriptExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -40396,16 +40319,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ArraySubscriptExpr", 
-            "name": "ArraySubscriptExpr", 
-            "deleter": "stmt_deleter<clang::ArraySubscriptExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ArraySubscriptExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CallExpr>::type", 
+            "typename": "clang::CallExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -40828,16 +40750,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CallExpr", 
-            "name": "CallExpr", 
-            "deleter": "stmt_deleter<clang::CallExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "CallExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::MemberExpr>::type", 
+            "typename": "clang::MemberExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -41348,16 +41269,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::MemberExpr", 
-            "name": "MemberExpr", 
-            "deleter": "stmt_deleter<clang::MemberExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "MemberExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CompoundLiteralExpr>::type", 
+            "typename": "clang::CompoundLiteralExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -41568,16 +41488,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CompoundLiteralExpr", 
-            "name": "CompoundLiteralExpr", 
-            "deleter": "stmt_deleter<clang::CompoundLiteralExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "CompoundLiteralExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CastExpr>::type", 
+            "typename": "clang::CastExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -41764,16 +41683,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CastExpr", 
-            "name": "CastExpr", 
-            "deleter": "stmt_deleter<clang::CastExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "CastExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ImplicitCastExpr>::type", 
+            "typename": "clang::ImplicitCastExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -41808,16 +41726,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ImplicitCastExpr", 
-            "name": "ImplicitCastExpr", 
-            "deleter": "stmt_deleter<clang::ImplicitCastExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CastExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ImplicitCastExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ExplicitCastExpr>::type", 
+            "typename": "clang::ExplicitCastExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -41872,16 +41789,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ExplicitCastExpr", 
-            "name": "ExplicitCastExpr", 
-            "deleter": "stmt_deleter<clang::ExplicitCastExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CastExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ExplicitCastExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CStyleCastExpr>::type", 
+            "typename": "clang::CStyleCastExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -41988,16 +41904,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CStyleCastExpr", 
-            "name": "CStyleCastExpr", 
-            "deleter": "stmt_deleter<clang::CStyleCastExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::ExplicitCastExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "CStyleCastExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::BinaryOperator>::type", 
+            "typename": "clang::BinaryOperator", 
             "methods": [
                 {
                     "const": "const", 
@@ -42452,16 +42367,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::BinaryOperator", 
-            "name": "BinaryOperator", 
-            "deleter": "stmt_deleter<clang::BinaryOperator>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "BinaryOperator"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CompoundAssignOperator>::type", 
+            "typename": "clang::CompoundAssignOperator", 
             "methods": [
                 {
                     "const": "const", 
@@ -42536,16 +42450,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CompoundAssignOperator", 
-            "name": "CompoundAssignOperator", 
-            "deleter": "stmt_deleter<clang::CompoundAssignOperator>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::BinaryOperator"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "CompoundAssignOperator"
         }, 
         {
+            "deleter": "stmt_deleter<clang::AbstractConditionalOperator>::type", 
+            "typename": "clang::AbstractConditionalOperator", 
             "methods": [
                 {
                     "const": "const", 
@@ -42628,16 +42541,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::AbstractConditionalOperator", 
-            "name": "AbstractConditionalOperator", 
-            "deleter": "stmt_deleter<clang::AbstractConditionalOperator>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "AbstractConditionalOperator"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ConditionalOperator>::type", 
+            "typename": "clang::ConditionalOperator", 
             "methods": [
                 {
                     "const": "const", 
@@ -42768,16 +42680,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ConditionalOperator", 
-            "name": "ConditionalOperator", 
-            "deleter": "stmt_deleter<clang::ConditionalOperator>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::AbstractConditionalOperator"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ConditionalOperator"
         }, 
         {
+            "deleter": "stmt_deleter<clang::BinaryConditionalOperator>::type", 
+            "typename": "clang::BinaryConditionalOperator", 
             "methods": [
                 {
                     "const": "const", 
@@ -42908,16 +42819,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::BinaryConditionalOperator", 
-            "name": "BinaryConditionalOperator", 
-            "deleter": "stmt_deleter<clang::BinaryConditionalOperator>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::AbstractConditionalOperator"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "BinaryConditionalOperator"
         }, 
         {
+            "deleter": "stmt_deleter<clang::AddrLabelExpr>::type", 
+            "typename": "clang::AddrLabelExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -43076,16 +42986,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::AddrLabelExpr", 
-            "name": "AddrLabelExpr", 
-            "deleter": "stmt_deleter<clang::AddrLabelExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "AddrLabelExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::StmtExpr>::type", 
+            "typename": "clang::StmtExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -43260,16 +43169,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::StmtExpr", 
-            "name": "StmtExpr", 
-            "deleter": "stmt_deleter<clang::StmtExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "StmtExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ShuffleVectorExpr>::type", 
+            "typename": "clang::ShuffleVectorExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -43492,16 +43400,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ShuffleVectorExpr", 
-            "name": "ShuffleVectorExpr", 
-            "deleter": "stmt_deleter<clang::ShuffleVectorExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ShuffleVectorExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ConvertVectorExpr>::type", 
+            "typename": "clang::ConvertVectorExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -43636,16 +43543,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ConvertVectorExpr", 
-            "name": "ConvertVectorExpr", 
-            "deleter": "stmt_deleter<clang::ConvertVectorExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ConvertVectorExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ChooseExpr>::type", 
+            "typename": "clang::ChooseExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -43944,16 +43850,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ChooseExpr", 
-            "name": "ChooseExpr", 
-            "deleter": "stmt_deleter<clang::ChooseExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ChooseExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::GNUNullExpr>::type", 
+            "typename": "clang::GNUNullExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -44040,16 +43945,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::GNUNullExpr", 
-            "name": "GNUNullExpr", 
-            "deleter": "stmt_deleter<clang::GNUNullExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "GNUNullExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::VAArgExpr>::type", 
+            "typename": "clang::VAArgExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -44296,16 +44200,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::VAArgExpr", 
-            "name": "VAArgExpr", 
-            "deleter": "stmt_deleter<clang::VAArgExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "VAArgExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::InitListExpr>::type", 
+            "typename": "clang::InitListExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -44846,16 +44749,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::InitListExpr", 
-            "name": "InitListExpr", 
-            "deleter": "stmt_deleter<clang::InitListExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "InitListExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::DesignatedInitExpr>::type", 
+            "typename": "clang::DesignatedInitExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -45266,16 +45168,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::DesignatedInitExpr", 
-            "name": "DesignatedInitExpr", 
-            "deleter": "stmt_deleter<clang::DesignatedInitExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "DesignatedInitExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::NoInitExpr>::type", 
+            "typename": "clang::NoInitExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -45326,16 +45227,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::NoInitExpr", 
-            "name": "NoInitExpr", 
-            "deleter": "stmt_deleter<clang::NoInitExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "NoInitExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::DesignatedInitUpdateExpr>::type", 
+            "typename": "clang::DesignatedInitUpdateExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -45458,16 +45358,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::DesignatedInitUpdateExpr", 
-            "name": "DesignatedInitUpdateExpr", 
-            "deleter": "stmt_deleter<clang::DesignatedInitUpdateExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "DesignatedInitUpdateExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ImplicitValueInitExpr>::type", 
+            "typename": "clang::ImplicitValueInitExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -45518,16 +45417,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ImplicitValueInitExpr", 
-            "name": "ImplicitValueInitExpr", 
-            "deleter": "stmt_deleter<clang::ImplicitValueInitExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ImplicitValueInitExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ParenListExpr>::type", 
+            "typename": "clang::ParenListExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -45682,16 +45580,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ParenListExpr", 
-            "name": "ParenListExpr", 
-            "deleter": "stmt_deleter<clang::ParenListExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ParenListExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::GenericSelectionExpr>::type", 
+            "typename": "clang::GenericSelectionExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -46002,16 +45899,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::GenericSelectionExpr", 
-            "name": "GenericSelectionExpr", 
-            "deleter": "stmt_deleter<clang::GenericSelectionExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "GenericSelectionExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ExtVectorElementExpr>::type", 
+            "typename": "clang::ExtVectorElementExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -46254,16 +46150,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ExtVectorElementExpr", 
-            "name": "ExtVectorElementExpr", 
-            "deleter": "stmt_deleter<clang::ExtVectorElementExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "ExtVectorElementExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::BlockExpr>::type", 
+            "typename": "clang::BlockExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -46430,16 +46325,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::BlockExpr", 
-            "name": "BlockExpr", 
-            "deleter": "stmt_deleter<clang::BlockExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "BlockExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::AsTypeExpr>::type", 
+            "typename": "clang::AsTypeExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -46538,16 +46432,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::AsTypeExpr", 
-            "name": "AsTypeExpr", 
-            "deleter": "stmt_deleter<clang::AsTypeExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "AsTypeExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::PseudoObjectExpr>::type", 
+            "typename": "clang::PseudoObjectExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -46782,16 +46675,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::PseudoObjectExpr", 
-            "name": "PseudoObjectExpr", 
-            "deleter": "stmt_deleter<clang::PseudoObjectExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "PseudoObjectExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::AtomicExpr>::type", 
+            "typename": "clang::AtomicExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -47034,16 +46926,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::AtomicExpr", 
-            "name": "AtomicExpr", 
-            "deleter": "stmt_deleter<clang::AtomicExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "AtomicExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::TypoExpr>::type", 
+            "typename": "clang::TypoExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -47094,16 +46985,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TypoExpr", 
-            "name": "TypoExpr", 
-            "deleter": "stmt_deleter<clang::TypoExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/Expr.h"
+            "name": "TypoExpr"
         }, 
         {
+            "deleter": "decl_deleter<clang::AccessSpecDecl>::type", 
+            "typename": "clang::AccessSpecDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -47194,16 +47084,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::AccessSpecDecl", 
-            "name": "AccessSpecDecl", 
-            "deleter": "decl_deleter<clang::AccessSpecDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "AccessSpecDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::CXXRecordDecl>::type", 
+            "typename": "clang::CXXRecordDecl", 
             "methods": [
                 {
                     "const": "", 
@@ -49368,16 +49257,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXRecordDecl", 
-            "name": "CXXRecordDecl", 
-            "deleter": "decl_deleter<clang::CXXRecordDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::RecordDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "CXXRecordDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::CXXMethodDecl>::type", 
+            "typename": "clang::CXXMethodDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -49784,16 +49672,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXMethodDecl", 
-            "name": "CXXMethodDecl", 
-            "deleter": "decl_deleter<clang::CXXMethodDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::FunctionDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "CXXMethodDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::CXXConstructorDecl>::type", 
+            "typename": "clang::CXXConstructorDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -50156,16 +50043,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXConstructorDecl", 
-            "name": "CXXConstructorDecl", 
-            "deleter": "decl_deleter<clang::CXXConstructorDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CXXMethodDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "CXXConstructorDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::CXXDestructorDecl>::type", 
+            "typename": "clang::CXXDestructorDecl", 
             "methods": [
                 {
                     "const": "", 
@@ -50204,16 +50090,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXDestructorDecl", 
-            "name": "CXXDestructorDecl", 
-            "deleter": "decl_deleter<clang::CXXDestructorDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CXXMethodDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "CXXDestructorDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::CXXConversionDecl>::type", 
+            "typename": "clang::CXXConversionDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -50280,16 +50165,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXConversionDecl", 
-            "name": "CXXConversionDecl", 
-            "deleter": "decl_deleter<clang::CXXConversionDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CXXMethodDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "CXXConversionDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::LinkageSpecDecl>::type", 
+            "typename": "clang::LinkageSpecDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -50448,17 +50332,16 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::LinkageSpecDecl", 
-            "name": "LinkageSpecDecl", 
-            "deleter": "decl_deleter<clang::LinkageSpecDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl", 
                 "clang::DeclContext"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "LinkageSpecDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::UsingDirectiveDecl>::type", 
+            "typename": "clang::UsingDirectiveDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -50653,16 +50536,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::UsingDirectiveDecl", 
-            "name": "UsingDirectiveDecl", 
-            "deleter": "decl_deleter<clang::UsingDirectiveDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::NamedDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "UsingDirectiveDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::NamespaceAliasDecl>::type", 
+            "typename": "clang::NamespaceAliasDecl", 
             "methods": [
                 {
                     "const": "", 
@@ -50841,16 +50723,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::NamespaceAliasDecl", 
-            "name": "NamespaceAliasDecl", 
-            "deleter": "decl_deleter<clang::NamespaceAliasDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::NamedDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "NamespaceAliasDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::UsingShadowDecl>::type", 
+            "typename": "clang::UsingShadowDecl", 
             "methods": [
                 {
                     "const": "", 
@@ -50953,16 +50834,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::UsingShadowDecl", 
-            "name": "UsingShadowDecl", 
-            "deleter": "decl_deleter<clang::UsingShadowDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::NamedDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "UsingShadowDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::UsingDecl>::type", 
+            "typename": "clang::UsingDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -51221,16 +51101,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::UsingDecl", 
-            "name": "UsingDecl", 
-            "deleter": "decl_deleter<clang::UsingDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::NamedDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "UsingDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::UnresolvedUsingValueDecl>::type", 
+            "typename": "clang::UnresolvedUsingValueDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -51381,16 +51260,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::UnresolvedUsingValueDecl", 
-            "name": "UnresolvedUsingValueDecl", 
-            "deleter": "decl_deleter<clang::UnresolvedUsingValueDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::ValueDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "UnresolvedUsingValueDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::UnresolvedUsingTypenameDecl>::type", 
+            "typename": "clang::UnresolvedUsingTypenameDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -51489,16 +51367,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::UnresolvedUsingTypenameDecl", 
-            "name": "UnresolvedUsingTypenameDecl", 
-            "deleter": "decl_deleter<clang::UnresolvedUsingTypenameDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::TypeDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "UnresolvedUsingTypenameDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::StaticAssertDecl>::type", 
+            "typename": "clang::StaticAssertDecl", 
             "methods": [
                 {
                     "const": "", 
@@ -51613,16 +51490,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::StaticAssertDecl", 
-            "name": "StaticAssertDecl", 
-            "deleter": "decl_deleter<clang::StaticAssertDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "StaticAssertDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::MSPropertyDecl>::type", 
+            "typename": "clang::MSPropertyDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -51689,16 +51565,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::MSPropertyDecl", 
-            "name": "MSPropertyDecl", 
-            "deleter": "decl_deleter<clang::MSPropertyDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::DeclaratorDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclCXX.h"
+            "name": "MSPropertyDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::TemplateDecl>::type", 
+            "typename": "clang::TemplateDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -51771,16 +51646,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TemplateDecl", 
-            "name": "TemplateDecl", 
-            "deleter": "decl_deleter<clang::TemplateDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::NamedDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "TemplateDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::RedeclarableTemplateDecl>::type", 
+            "typename": "clang::RedeclarableTemplateDecl", 
             "methods": [
                 {
                     "const": "", 
@@ -51883,16 +51757,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::RedeclarableTemplateDecl", 
-            "name": "RedeclarableTemplateDecl", 
-            "deleter": "decl_deleter<clang::RedeclarableTemplateDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::TemplateDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "RedeclarableTemplateDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::FunctionTemplateDecl>::type", 
+            "typename": "clang::FunctionTemplateDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -52087,16 +51960,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::FunctionTemplateDecl", 
-            "name": "FunctionTemplateDecl", 
-            "deleter": "decl_deleter<clang::FunctionTemplateDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::RedeclarableTemplateDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "FunctionTemplateDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::TemplateTypeParmDecl>::type", 
+            "typename": "clang::TemplateTypeParmDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -52353,16 +52225,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TemplateTypeParmDecl", 
-            "name": "TemplateTypeParmDecl", 
-            "deleter": "decl_deleter<clang::TemplateTypeParmDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::TypeDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "TemplateTypeParmDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::NonTypeTemplateParmDecl>::type", 
+            "typename": "clang::NonTypeTemplateParmDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -52623,16 +52494,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::NonTypeTemplateParmDecl", 
-            "name": "NonTypeTemplateParmDecl", 
-            "deleter": "decl_deleter<clang::NonTypeTemplateParmDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::DeclaratorDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "NonTypeTemplateParmDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::TemplateTemplateParmDecl>::type", 
+            "typename": "clang::TemplateTemplateParmDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -52875,16 +52745,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TemplateTemplateParmDecl", 
-            "name": "TemplateTemplateParmDecl", 
-            "deleter": "decl_deleter<clang::TemplateTemplateParmDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::TemplateDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "TemplateTemplateParmDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::BuiltinTemplateDecl>::type", 
+            "typename": "clang::BuiltinTemplateDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -52919,16 +52788,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::BuiltinTemplateDecl", 
-            "name": "BuiltinTemplateDecl", 
-            "deleter": "decl_deleter<clang::BuiltinTemplateDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::TemplateDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "BuiltinTemplateDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::ClassTemplateSpecializationDecl>::type", 
+            "typename": "clang::ClassTemplateSpecializationDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -53341,16 +53209,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ClassTemplateSpecializationDecl", 
-            "name": "ClassTemplateSpecializationDecl", 
-            "deleter": "decl_deleter<clang::ClassTemplateSpecializationDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CXXRecordDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "ClassTemplateSpecializationDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::ClassTemplatePartialSpecializationDecl>::type", 
+            "typename": "clang::ClassTemplatePartialSpecializationDecl", 
             "methods": [
                 {
                     "const": "", 
@@ -53485,16 +53352,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ClassTemplatePartialSpecializationDecl", 
-            "name": "ClassTemplatePartialSpecializationDecl", 
-            "deleter": "decl_deleter<clang::ClassTemplatePartialSpecializationDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::ClassTemplateSpecializationDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "ClassTemplatePartialSpecializationDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::ClassTemplateDecl>::type", 
+            "typename": "clang::ClassTemplateDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -53793,16 +53659,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ClassTemplateDecl", 
-            "name": "ClassTemplateDecl", 
-            "deleter": "decl_deleter<clang::ClassTemplateDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::RedeclarableTemplateDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "ClassTemplateDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::FriendTemplateDecl>::type", 
+            "typename": "clang::FriendTemplateDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -53889,16 +53754,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::FriendTemplateDecl", 
-            "name": "FriendTemplateDecl", 
-            "deleter": "decl_deleter<clang::FriendTemplateDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "FriendTemplateDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::TypeAliasTemplateDecl>::type", 
+            "typename": "clang::TypeAliasTemplateDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -53997,16 +53861,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TypeAliasTemplateDecl", 
-            "name": "TypeAliasTemplateDecl", 
-            "deleter": "decl_deleter<clang::TypeAliasTemplateDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::RedeclarableTemplateDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "TypeAliasTemplateDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::ClassScopeFunctionSpecializationDecl>::type", 
+            "typename": "clang::ClassScopeFunctionSpecializationDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -54057,16 +53920,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ClassScopeFunctionSpecializationDecl", 
-            "name": "ClassScopeFunctionSpecializationDecl", 
-            "deleter": "decl_deleter<clang::ClassScopeFunctionSpecializationDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "ClassScopeFunctionSpecializationDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::VarTemplateSpecializationDecl>::type", 
+            "typename": "clang::VarTemplateSpecializationDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -54499,16 +54361,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::VarTemplateSpecializationDecl", 
-            "name": "VarTemplateSpecializationDecl", 
-            "deleter": "decl_deleter<clang::VarTemplateSpecializationDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::VarDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "VarTemplateSpecializationDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::VarTemplatePartialSpecializationDecl>::type", 
+            "typename": "clang::VarTemplatePartialSpecializationDecl", 
             "methods": [
                 {
                     "const": "", 
@@ -54627,16 +54488,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::VarTemplatePartialSpecializationDecl", 
-            "name": "VarTemplatePartialSpecializationDecl", 
-            "deleter": "decl_deleter<clang::VarTemplatePartialSpecializationDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::VarTemplateSpecializationDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "VarTemplatePartialSpecializationDecl"
         }, 
         {
+            "deleter": "decl_deleter<clang::VarTemplateDecl>::type", 
+            "typename": "clang::VarTemplateDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -54915,16 +54775,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::VarTemplateDecl", 
-            "name": "VarTemplateDecl", 
-            "deleter": "decl_deleter<clang::VarTemplateDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::RedeclarableTemplateDecl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclTemplate.h"
+            "name": "VarTemplateDecl"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXOperatorCallExpr>::type", 
+            "typename": "clang::CXXOperatorCallExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -55059,16 +54918,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXOperatorCallExpr", 
-            "name": "CXXOperatorCallExpr", 
-            "deleter": "stmt_deleter<clang::CXXOperatorCallExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CallExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXOperatorCallExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXMemberCallExpr>::type", 
+            "typename": "clang::CXXMemberCallExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -55119,16 +54977,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXMemberCallExpr", 
-            "name": "CXXMemberCallExpr", 
-            "deleter": "stmt_deleter<clang::CXXMemberCallExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CallExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXMemberCallExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CUDAKernelCallExpr>::type", 
+            "typename": "clang::CUDAKernelCallExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -55183,16 +55040,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CUDAKernelCallExpr", 
-            "name": "CUDAKernelCallExpr", 
-            "deleter": "stmt_deleter<clang::CUDAKernelCallExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CallExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CUDAKernelCallExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXNamedCastExpr>::type", 
+            "typename": "clang::CXXNamedCastExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -55291,27 +55147,25 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXNamedCastExpr", 
-            "name": "CXXNamedCastExpr", 
-            "deleter": "stmt_deleter<clang::CXXNamedCastExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::ExplicitCastExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXNamedCastExpr"
         }, 
         {
-            "methods": [], 
-            "typename": "clang::CXXStaticCastExpr", 
-            "name": "CXXStaticCastExpr", 
             "deleter": "stmt_deleter<clang::CXXStaticCastExpr>::type", 
+            "typename": "clang::CXXStaticCastExpr", 
+            "methods": [], 
             "is_disabled": false, 
             "supers": [
                 "clang::CXXNamedCastExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXStaticCastExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXDynamicCastExpr>::type", 
+            "typename": "clang::CXXDynamicCastExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -55330,38 +55184,35 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXDynamicCastExpr", 
-            "name": "CXXDynamicCastExpr", 
-            "deleter": "stmt_deleter<clang::CXXDynamicCastExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CXXNamedCastExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXDynamicCastExpr"
         }, 
         {
-            "methods": [], 
-            "typename": "clang::CXXReinterpretCastExpr", 
-            "name": "CXXReinterpretCastExpr", 
             "deleter": "stmt_deleter<clang::CXXReinterpretCastExpr>::type", 
-            "is_disabled": false, 
-            "supers": [
-                "clang::CXXNamedCastExpr"
-            ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
-        }, 
-        {
+            "typename": "clang::CXXReinterpretCastExpr", 
             "methods": [], 
-            "typename": "clang::CXXConstCastExpr", 
-            "name": "CXXConstCastExpr", 
-            "deleter": "stmt_deleter<clang::CXXConstCastExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CXXNamedCastExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXReinterpretCastExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXConstCastExpr>::type", 
+            "typename": "clang::CXXConstCastExpr", 
+            "methods": [], 
+            "is_disabled": false, 
+            "supers": [
+                "clang::CXXNamedCastExpr"
+            ], 
+            "name": "CXXConstCastExpr"
+        }, 
+        {
+            "deleter": "stmt_deleter<clang::UserDefinedLiteral>::type", 
+            "typename": "clang::UserDefinedLiteral", 
             "methods": [
                 {
                     "const": "const", 
@@ -55476,16 +55327,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::UserDefinedLiteral", 
-            "name": "UserDefinedLiteral", 
-            "deleter": "stmt_deleter<clang::UserDefinedLiteral>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CallExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "UserDefinedLiteral"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXBoolLiteralExpr>::type", 
+            "typename": "clang::CXXBoolLiteralExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -55608,16 +55458,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXBoolLiteralExpr", 
-            "name": "CXXBoolLiteralExpr", 
-            "deleter": "stmt_deleter<clang::CXXBoolLiteralExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXBoolLiteralExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXNullPtrLiteralExpr>::type", 
+            "typename": "clang::CXXNullPtrLiteralExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -55704,16 +55553,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXNullPtrLiteralExpr", 
-            "name": "CXXNullPtrLiteralExpr", 
-            "deleter": "stmt_deleter<clang::CXXNullPtrLiteralExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXNullPtrLiteralExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXStdInitializerListExpr>::type", 
+            "typename": "clang::CXXStdInitializerListExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -55812,16 +55660,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXStdInitializerListExpr", 
-            "name": "CXXStdInitializerListExpr", 
-            "deleter": "stmt_deleter<clang::CXXStdInitializerListExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXStdInitializerListExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXTypeidExpr>::type", 
+            "typename": "clang::CXXTypeidExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -56032,16 +55879,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXTypeidExpr", 
-            "name": "CXXTypeidExpr", 
-            "deleter": "stmt_deleter<clang::CXXTypeidExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXTypeidExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::MSPropertyRefExpr>::type", 
+            "typename": "clang::MSPropertyRefExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -56204,16 +56050,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::MSPropertyRefExpr", 
-            "name": "MSPropertyRefExpr", 
-            "deleter": "stmt_deleter<clang::MSPropertyRefExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "MSPropertyRefExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::MSPropertySubscriptExpr>::type", 
+            "typename": "clang::MSPropertySubscriptExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -56380,16 +56225,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::MSPropertySubscriptExpr", 
-            "name": "MSPropertySubscriptExpr", 
-            "deleter": "stmt_deleter<clang::MSPropertySubscriptExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "MSPropertySubscriptExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXUuidofExpr>::type", 
+            "typename": "clang::CXXUuidofExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -56604,16 +56448,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXUuidofExpr", 
-            "name": "CXXUuidofExpr", 
-            "deleter": "stmt_deleter<clang::CXXUuidofExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXUuidofExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXThisExpr>::type", 
+            "typename": "clang::CXXThisExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -56736,16 +56579,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXThisExpr", 
-            "name": "CXXThisExpr", 
-            "deleter": "stmt_deleter<clang::CXXThisExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXThisExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXThrowExpr>::type", 
+            "typename": "clang::CXXThrowExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -56860,16 +56702,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXThrowExpr", 
-            "name": "CXXThrowExpr", 
-            "deleter": "stmt_deleter<clang::CXXThrowExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXThrowExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXDefaultArgExpr>::type", 
+            "typename": "clang::CXXDefaultArgExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -57016,16 +56857,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXDefaultArgExpr", 
-            "name": "CXXDefaultArgExpr", 
-            "deleter": "stmt_deleter<clang::CXXDefaultArgExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXDefaultArgExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXDefaultInitExpr>::type", 
+            "typename": "clang::CXXDefaultInitExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -57140,16 +56980,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXDefaultInitExpr", 
-            "name": "CXXDefaultInitExpr", 
-            "deleter": "stmt_deleter<clang::CXXDefaultInitExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXDefaultInitExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXBindTemporaryExpr>::type", 
+            "typename": "clang::CXXBindTemporaryExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -57304,16 +57143,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXBindTemporaryExpr", 
-            "name": "CXXBindTemporaryExpr", 
-            "deleter": "stmt_deleter<clang::CXXBindTemporaryExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXBindTemporaryExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXConstructExpr>::type", 
+            "typename": "clang::CXXConstructExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -57798,16 +57636,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXConstructExpr", 
-            "name": "CXXConstructExpr", 
-            "deleter": "stmt_deleter<clang::CXXConstructExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXConstructExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXFunctionalCastExpr>::type", 
+            "typename": "clang::CXXFunctionalCastExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -57914,16 +57751,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXFunctionalCastExpr", 
-            "name": "CXXFunctionalCastExpr", 
-            "deleter": "stmt_deleter<clang::CXXFunctionalCastExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::ExplicitCastExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXFunctionalCastExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXTemporaryObjectExpr>::type", 
+            "typename": "clang::CXXTemporaryObjectExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -57974,16 +57810,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXTemporaryObjectExpr", 
-            "name": "CXXTemporaryObjectExpr", 
-            "deleter": "stmt_deleter<clang::CXXTemporaryObjectExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CXXConstructExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXTemporaryObjectExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::LambdaExpr>::type", 
+            "typename": "clang::LambdaExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -58346,16 +58181,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::LambdaExpr", 
-            "name": "LambdaExpr", 
-            "deleter": "stmt_deleter<clang::LambdaExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "LambdaExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXScalarValueInitExpr>::type", 
+            "typename": "clang::CXXScalarValueInitExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -58438,16 +58272,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXScalarValueInitExpr", 
-            "name": "CXXScalarValueInitExpr", 
-            "deleter": "stmt_deleter<clang::CXXScalarValueInitExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXScalarValueInitExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXNewExpr>::type", 
+            "typename": "clang::CXXNewExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -58992,16 +58825,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXNewExpr", 
-            "name": "CXXNewExpr", 
-            "deleter": "stmt_deleter<clang::CXXNewExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXNewExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXDeleteExpr>::type", 
+            "typename": "clang::CXXDeleteExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -59180,16 +59012,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXDeleteExpr", 
-            "name": "CXXDeleteExpr", 
-            "deleter": "stmt_deleter<clang::CXXDeleteExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXDeleteExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXPseudoDestructorExpr>::type", 
+            "typename": "clang::CXXPseudoDestructorExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -59490,16 +59321,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXPseudoDestructorExpr", 
-            "name": "CXXPseudoDestructorExpr", 
-            "deleter": "stmt_deleter<clang::CXXPseudoDestructorExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXPseudoDestructorExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::TypeTraitExpr>::type", 
+            "typename": "clang::TypeTraitExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -59634,16 +59464,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::TypeTraitExpr", 
-            "name": "TypeTraitExpr", 
-            "deleter": "stmt_deleter<clang::TypeTraitExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "TypeTraitExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ArrayTypeTraitExpr>::type", 
+            "typename": "clang::ArrayTypeTraitExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -59774,16 +59603,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ArrayTypeTraitExpr", 
-            "name": "ArrayTypeTraitExpr", 
-            "deleter": "stmt_deleter<clang::ArrayTypeTraitExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "ArrayTypeTraitExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ExpressionTraitExpr>::type", 
+            "typename": "clang::ExpressionTraitExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -59882,16 +59710,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ExpressionTraitExpr", 
-            "name": "ExpressionTraitExpr", 
-            "deleter": "stmt_deleter<clang::ExpressionTraitExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "ExpressionTraitExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::OverloadExpr>::type", 
+            "typename": "clang::OverloadExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -60154,16 +59981,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::OverloadExpr", 
-            "name": "OverloadExpr", 
-            "deleter": "stmt_deleter<clang::OverloadExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "OverloadExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::UnresolvedLookupExpr>::type", 
+            "typename": "clang::UnresolvedLookupExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -60262,16 +60088,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::UnresolvedLookupExpr", 
-            "name": "UnresolvedLookupExpr", 
-            "deleter": "stmt_deleter<clang::UnresolvedLookupExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::OverloadExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "UnresolvedLookupExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::DependentScopeDeclRefExpr>::type", 
+            "typename": "clang::DependentScopeDeclRefExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -60534,16 +60359,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::DependentScopeDeclRefExpr", 
-            "name": "DependentScopeDeclRefExpr", 
-            "deleter": "stmt_deleter<clang::DependentScopeDeclRefExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "DependentScopeDeclRefExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::ExprWithCleanups>::type", 
+            "typename": "clang::ExprWithCleanups", 
             "methods": [
                 {
                     "const": "const", 
@@ -60698,16 +60522,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::ExprWithCleanups", 
-            "name": "ExprWithCleanups", 
-            "deleter": "stmt_deleter<clang::ExprWithCleanups>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "ExprWithCleanups"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXUnresolvedConstructExpr>::type", 
+            "typename": "clang::CXXUnresolvedConstructExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -60940,16 +60763,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXUnresolvedConstructExpr", 
-            "name": "CXXUnresolvedConstructExpr", 
-            "deleter": "stmt_deleter<clang::CXXUnresolvedConstructExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXUnresolvedConstructExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXDependentScopeMemberExpr>::type", 
+            "typename": "clang::CXXDependentScopeMemberExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -61308,16 +61130,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXDependentScopeMemberExpr", 
-            "name": "CXXDependentScopeMemberExpr", 
-            "deleter": "stmt_deleter<clang::CXXDependentScopeMemberExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXDependentScopeMemberExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::UnresolvedMemberExpr>::type", 
+            "typename": "clang::UnresolvedMemberExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -61560,16 +61381,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::UnresolvedMemberExpr", 
-            "name": "UnresolvedMemberExpr", 
-            "deleter": "stmt_deleter<clang::UnresolvedMemberExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::OverloadExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "UnresolvedMemberExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXNoexceptExpr>::type", 
+            "typename": "clang::CXXNoexceptExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -61668,16 +61488,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXNoexceptExpr", 
-            "name": "CXXNoexceptExpr", 
-            "deleter": "stmt_deleter<clang::CXXNoexceptExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXNoexceptExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::PackExpansionExpr>::type", 
+            "typename": "clang::PackExpansionExpr", 
             "methods": [
                 {
                     "const": "", 
@@ -61792,16 +61611,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::PackExpansionExpr", 
-            "name": "PackExpansionExpr", 
-            "deleter": "stmt_deleter<clang::PackExpansionExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "PackExpansionExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::SizeOfPackExpr>::type", 
+            "typename": "clang::SizeOfPackExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -61964,16 +61782,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SizeOfPackExpr", 
-            "name": "SizeOfPackExpr", 
-            "deleter": "stmt_deleter<clang::SizeOfPackExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "SizeOfPackExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::SubstNonTypeTemplateParmExpr>::type", 
+            "typename": "clang::SubstNonTypeTemplateParmExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -62072,16 +61889,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SubstNonTypeTemplateParmExpr", 
-            "name": "SubstNonTypeTemplateParmExpr", 
-            "deleter": "stmt_deleter<clang::SubstNonTypeTemplateParmExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "SubstNonTypeTemplateParmExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::SubstNonTypeTemplateParmPackExpr>::type", 
+            "typename": "clang::SubstNonTypeTemplateParmPackExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -62180,16 +61996,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::SubstNonTypeTemplateParmPackExpr", 
-            "name": "SubstNonTypeTemplateParmPackExpr", 
-            "deleter": "stmt_deleter<clang::SubstNonTypeTemplateParmPackExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "SubstNonTypeTemplateParmPackExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::FunctionParmPackExpr>::type", 
+            "typename": "clang::FunctionParmPackExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -62308,16 +62123,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::FunctionParmPackExpr", 
-            "name": "FunctionParmPackExpr", 
-            "deleter": "stmt_deleter<clang::FunctionParmPackExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "FunctionParmPackExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::MaterializeTemporaryExpr>::type", 
+            "typename": "clang::MaterializeTemporaryExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -62486,16 +62300,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::MaterializeTemporaryExpr", 
-            "name": "MaterializeTemporaryExpr", 
-            "deleter": "stmt_deleter<clang::MaterializeTemporaryExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "MaterializeTemporaryExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXFoldExpr>::type", 
+            "typename": "clang::CXXFoldExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -62674,16 +62487,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXFoldExpr", 
-            "name": "CXXFoldExpr", 
-            "deleter": "stmt_deleter<clang::CXXFoldExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CXXFoldExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CoroutineSuspendExpr>::type", 
+            "typename": "clang::CoroutineSuspendExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -62814,16 +62626,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CoroutineSuspendExpr", 
-            "name": "CoroutineSuspendExpr", 
-            "deleter": "stmt_deleter<clang::CoroutineSuspendExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Expr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CoroutineSuspendExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CoawaitExpr>::type", 
+            "typename": "clang::CoawaitExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -62842,16 +62653,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CoawaitExpr", 
-            "name": "CoawaitExpr", 
-            "deleter": "stmt_deleter<clang::CoawaitExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CoroutineSuspendExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CoawaitExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CoyieldExpr>::type", 
+            "typename": "clang::CoyieldExpr", 
             "methods": [
                 {
                     "const": "const", 
@@ -62870,16 +62680,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CoyieldExpr", 
-            "name": "CoyieldExpr", 
-            "deleter": "stmt_deleter<clang::CoyieldExpr>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::CoroutineSuspendExpr"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/ExprCXX.h"
+            "name": "CoyieldExpr"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXCatchStmt>::type", 
+            "typename": "clang::CXXCatchStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -62994,16 +62803,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXCatchStmt", 
-            "name": "CXXCatchStmt", 
-            "deleter": "stmt_deleter<clang::CXXCatchStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/StmtCXX.h"
+            "name": "CXXCatchStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXTryStmt>::type", 
+            "typename": "clang::CXXTryStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -63174,16 +62982,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXTryStmt", 
-            "name": "CXXTryStmt", 
-            "deleter": "stmt_deleter<clang::CXXTryStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/StmtCXX.h"
+            "name": "CXXTryStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CXXForRangeStmt>::type", 
+            "typename": "clang::CXXForRangeStmt", 
             "methods": [
                 {
                     "const": "", 
@@ -63694,16 +63501,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CXXForRangeStmt", 
-            "name": "CXXForRangeStmt", 
-            "deleter": "stmt_deleter<clang::CXXForRangeStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/StmtCXX.h"
+            "name": "CXXForRangeStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::MSDependentExistsStmt>::type", 
+            "typename": "clang::MSDependentExistsStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -63850,16 +63656,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::MSDependentExistsStmt", 
-            "name": "MSDependentExistsStmt", 
-            "deleter": "stmt_deleter<clang::MSDependentExistsStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/StmtCXX.h"
+            "name": "MSDependentExistsStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CoroutineBodyStmt>::type", 
+            "typename": "clang::CoroutineBodyStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -64038,16 +63843,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CoroutineBodyStmt", 
-            "name": "CoroutineBodyStmt", 
-            "deleter": "stmt_deleter<clang::CoroutineBodyStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/StmtCXX.h"
+            "name": "CoroutineBodyStmt"
         }, 
         {
+            "deleter": "stmt_deleter<clang::CoreturnStmt>::type", 
+            "typename": "clang::CoreturnStmt", 
             "methods": [
                 {
                     "const": "const", 
@@ -64146,16 +63950,15 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::CoreturnStmt", 
-            "name": "CoreturnStmt", 
-            "deleter": "stmt_deleter<clang::CoreturnStmt>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Stmt"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/StmtCXX.h"
+            "name": "CoreturnStmt"
         }, 
         {
+            "deleter": "decl_deleter<clang::FriendDecl>::type", 
+            "typename": "clang::FriendDecl", 
             "methods": [
                 {
                     "const": "const", 
@@ -64258,14 +64061,11 @@
                     "mode": "long"
                 }
             ], 
-            "typename": "clang::FriendDecl", 
-            "name": "FriendDecl", 
-            "deleter": "decl_deleter<clang::FriendDecl>::type", 
             "is_disabled": false, 
             "supers": [
                 "clang::Decl"
             ], 
-            "filename": "/home/vagrant/clang-3.8.0/include/clang/AST/DeclFriend.h"
+            "name": "FriendDecl"
         }
     ], 
     "prelude": "\n#include <clang/AST/AST.h>\n#include <clang/ASTMatchers/ASTMatchers.h>\n#include <clang/ASTMatchers/ASTMatchFinder.h>\n"

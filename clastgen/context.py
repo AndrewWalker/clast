@@ -43,7 +43,10 @@ class Context(object):
 
     @property
     def enums(self):
-        return list(self._enums)
+        # guarantee a stable sort order
+        lst = list(self._enums)
+        lst.sort(key = lambda e : e.spelling)
+        return lst
 
     @property
     def classes(self):
