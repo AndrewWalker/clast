@@ -41,12 +41,13 @@ Then, set your environment variables:
     export LLVM_HOME=/usr/lib/llvm-3.8
     export LD_LIBRARY_PATH=$LLVM_HOME/lib
 
-Finally, install pybind11 and Clast
+Finally, install pybind11 and Clast. It is strongly recommended that clast be
+installed with the verbose flag on to show compilation progress
 
 .. code:: console
 
     pip install pybind11
-    pip install clast
+    pip install -v clast
 
 Updating the Bindings
 ---------------------
@@ -56,7 +57,10 @@ to maintain hand rolled bindings, instead Clast bootstraps itself using the
 libclang library, and generates the pybind11 wrappers as required.
 
 In cases where the bindings are stale, or do not compile correctly, you can try
-to rebuild the bindings using the clastgen.py script.
+to rebuild the them using the included clastgen.py script.  
+
+It is hoped that future revisions of Clast will rapidly become self-hosting
+(one version of Clast will be able to successive versions).
 
 
 Limitations
@@ -64,10 +68,22 @@ Limitations
 
 - Clast does not support all versions of Clang - focus is on the stable and development
   branches of the Clang compiler (currently 3.8 and 3.9).
-- Clast will not compile if you do not have the development headers for 
+- Clast installs are quite slow and memory intensive, ensure that you have at least 2Gb or RAM
+  free, compile times are on the order of 30 seconds.
+- Clast has not been tested on Windows - it's likely that small changes would allow it to function
+  on that platform.
+- Clast will not compile if you do not have the development headers for Clang and LLVM installed.
+- Out of the box, Clast will fail to link if LLVM has not been configured to
+  generate a shared library.  Future work may include overcoming this issue.
 - Clast is known to not work correctly if Clang and LLVM have been compiled
-  with the `-fno-rtti` option.  Some of the official downloads from `llvm.org`
-  have this issue.
+  with the `-fno-rtti` option.  This means that (at least some) of the Ubuntu
+  binaries from `llvm.org` cannot be used with Clast.
+- Clast disables C++14 support - future work will involve updating the test platform to systems
+  that ship with C++14 compilers and standard libraries by default.  This will have some impact
+  on the sizes of binaries produced.
+- Building pybind11 wrappers can be quite slow in release mode, for that reason Clast builds
+  bindings with optimisations disabled - this is considered an acceptable tradeoff as most Clast
+  code should be easy to translate to equivalent C++ constructs if performance does become and issue.
 - It is strongly recommended that you use an up-to-date version of Python
   (2.7.11)
 

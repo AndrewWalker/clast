@@ -36,12 +36,36 @@ llvm::ArrayRef<clami::Matcher<T>> convert(std::vector<clami::DynTypedMatcher>& a
     return tmp;
 }
 
+template<typename T, typename U>
+clami::DynTypedMatcher execute(T& t, llvm::ArrayRef<clami::Matcher<U>>& args) {
+    size_t len = args.size();
+    if(len == 0) {
+        return t();
+    }
+    else if(len == 1) {
+        return t(args[0]);
+    }
+    else if(len == 2) {
+        return t(args[0], args[1]);
+    }
+    else if(len == 3) {
+        return t(args[0], args[1], args[2]);
+    }
+    else if(len == 4) {
+        return t(args[0], args[1], args[2], args[3]);
+    }
+    throw std::logic_error("execute");
+}
+
+
 clami::DynTypedMatcher _cxxRecordDecl(std::vector<clami::DynTypedMatcher>& args) {
-    return clam::cxxRecordDecl(convert<clang::CXXRecordDecl>(args));
+    auto val = convert<clang::CXXRecordDecl>(args);
+    return execute(clam::cxxRecordDecl, val);
 }
 
 clami::DynTypedMatcher _forStmt(std::vector<clami::DynTypedMatcher>& args) {
-    return clam::forStmt(convert<clang::ForStmt>(args));
+    auto val = convert<clang::ForStmt>(args);
+    return execute(clam::forStmt, val);
 }
 
 clami::DynTypedMatcher _hasLoopInit(clami::DynTypedMatcher& args) {
@@ -49,15 +73,15 @@ clami::DynTypedMatcher _hasLoopInit(clami::DynTypedMatcher& args) {
 }
 
 clami::DynTypedMatcher _decl(std::vector<clami::DynTypedMatcher>& args) {
-    return clam::decl(convert<clang::Decl>(args));
+    auto val = convert<clang::Decl>(args);
+    return execute(clam::decl, val);
 }
 
 clami::DynTypedMatcher _stmt(std::vector<clami::DynTypedMatcher>& args) {
-    return clam::stmt(convert<clang::Stmt>(args));
+    auto val = convert<clang::Stmt>(args);
+    return execute(clam::stmt, val);
 }
 
-
-//clami::DynTypedMatcher _binaryOperator(
 
 void install_wrappers(pybind11::module& m)
 {

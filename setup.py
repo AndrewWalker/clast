@@ -23,10 +23,23 @@ def read(filename):
     return contents
 
 
-LLVM_CFLAGS  = [ f for f in llvm_config('--cflags') if f.startswith('-D') ] 
-LLVM_LIBS    = [ lib[2:] for lib in llvm_config('--libs') ]
+CLANG_VERSION = '380'
+
+# Rely on the llvm flags being compatible with the flags from Python
+# In cases where compilation fails, consider examining the verbose logs
+# of the build
+LLVM_CFLAGS  = [ f for f in llvm_config('--cflags') ] 
+
+# Rely on the dynamic library version of LLVM being present 
+# If your version of LLVM is not compiled in this way, you can
+# try using llvm_config('--libs'), and adding any omitted libraries
+LLVM_LIBS    = ['LLVM'] 
 
 def clang_libraries():
+    # Note that this list of libraries is drawn from Eli Bendersky's
+    # excellent LLVM-Clang-Samples repository [1]
+    # 
+    # [1] https://github.com/eliben/llvm-clang-samples
     libraries = [
         'clangAST',
         'clangAnalysis',
@@ -70,7 +83,7 @@ class get_pybind_include(object):
 ext_modules = [
     Extension(
         '_clast',
-        glob.glob('src/*.cpp') + glob.glob('src/380/*.cpp'),
+        glob.glob('src/%s/*.cpp' % CLANG_VERSION) + glob.glob('src/*.cpp'),
         extra_compile_args=LLVM_CFLAGS,
         libraries=LLVM_LIBS ,
         extra_link_args=clang_libraries(),
@@ -100,6 +113,7 @@ def has_flag(compiler, flagname):
         except setuptools.distutils.errors.CompileError:
             return False
     return True
+
 
 class BuildExt(build_ext):
     """A custom build extension for adding compiler-specific options."""
@@ -140,15 +154,13 @@ setup(
     cmdclass     = {'build_ext': BuildExt},
     ext_modules  = ext_modules,
     classifiers  = [
-        'Development Status :: 1 - Planning',
+        'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
+        # Python 3 support coming
         'Operating System :: POSIX :: Linux',
         'Topic :: Software Development :: Code Generators',
     ],
