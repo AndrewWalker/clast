@@ -17,10 +17,10 @@ Installation
 To install Clast, you'll need to:
 
 1. Install a c++11 compliant compiler
-1. Install a compatible version of Clang and LLVM 
-2. Set some environment variables
-1. Install the pybind11 package
-3. Install Clast
+2. Install a compatible version of Clang and LLVM 
+3. Set some environment variables
+4. Install the pybind11 package
+5. Install Clast
 
 Ubuntu 14.04 (Trusty)
 ---------------------
