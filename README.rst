@@ -83,9 +83,9 @@ Limitations
 - Clast is known to not work correctly if Clang and LLVM have been compiled
   with the -fno-rtti option.  This means that (at least some) of the Ubuntu
   binaries from `llvm.org`_ cannot be used with Clast.
-- Clast disables C++14 support - future work will involve updating the test platform to systems
-  that ship with C++14 compilers and standard libraries by default.  This will have some impact
-  on the sizes of binaries produced.
+- Clast disables pybinds C++14 support - future work will involve improving tests to use platforms 
+  that ship with C++14 compilers and standard libraries by default.  This will help reduce the 
+  size of binaries produced.
 - Building pybind11 wrappers can be quite slow in release mode, for that reason Clast builds
   bindings with optimisations disabled - this is considered an acceptable tradeoff as most Clast
   code should be easy to translate to equivalent C++ constructs if performance does become and issue.
