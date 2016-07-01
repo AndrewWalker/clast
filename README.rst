@@ -32,7 +32,7 @@ To compile under Ubuntu 14.04 (Trusty), you'll need to get an updated version of
     wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
     echo "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main" | sudo tee -a /etc/apt/sources.list
     sudo apt-get update -qq
-    sudo apt-get install -y python-clang-3.8 libclang1-3.8
+    sudo apt-get install -y clang-3.8 libclang-common-3.8-dev libclang-3.8-dev llvm-3.8-dev liblldb-3.8-dev python-clang-3.8
 
 Then, set your environment variables:
 
