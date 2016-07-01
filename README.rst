@@ -86,11 +86,14 @@ Limitations
 - Clast disables pybinds C++14 support - future work will involve improving tests to use platforms 
   that ship with C++14 compilers and standard libraries by default.  This will help reduce the 
   size of binaries produced.
-- Building pybind11 wrappers can be quite slow in release mode, for that reason Clast builds
-  bindings with optimisations disabled - this is considered an acceptable tradeoff as most Clast
-  code should be easy to translate to equivalent C++ constructs if performance does become and issue.
-- It is strongly recommended that you use an up-to-date version of Python
-  (2.7.11)
+- Compiling Clang bindings is on the order of 10 times slower with
+  optimisations enabled.  By default Clast builds bindings with optimisations
+  disabled - this is considered an acceptable, given that the primary goal of
+  the project is to facilitate rapid prototying. Furthermore, Clast code should
+  be easy to translate to equivalent C++ constructs if performance does become
+  and issue.
+- Some issues have been observed with older Python releases, it is strongly
+  recommended that you use an up-to-date version of Python (2.7.11)
 
 Acknowledgements
 ================
