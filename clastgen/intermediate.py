@@ -74,7 +74,6 @@ def render_class(c, ctx):
     d = dict(
         name = c.spelling,
         typename = c.type.spelling,
-        filename = c.location.file.name,
         supers   = render_superclasses(c, ctx),
         methods  = [ render_method(m, ctx) for m in ctx.class_methods(c) ],
         is_disabled = False,
