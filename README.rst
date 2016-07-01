@@ -68,6 +68,11 @@ Limitations
 
 - Clast does not support all versions of Clang - focus is on the stable and development
   branches of the Clang compiler (currently 3.8 and 3.9).
+- Clast relies on the C++ reference counting scheme to collect memory in
+  preference to using the Python reference counting.  This is in part a
+  technical limitation of the Clang AST Nodes being noncopyable but is also in
+  part by design, Clast scripts are intended to facilitate prototyping, not act
+  as a replacement for the API. 
 - Clast installs are quite slow and memory intensive, ensure that you have at least 2Gb or RAM
   free, compile times are on the order of 30 seconds.
 - Clast has not been tested on Windows - it's likely that small changes would allow it to function
