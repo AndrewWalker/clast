@@ -23,7 +23,7 @@ def read(filename):
     return contents
 
 
-CLANG_VERSION = '380'
+CLANG_VERSION = '390'
 
 # Rely on the llvm flags being compatible with the flags from Python
 # In cases where compilation fails, consider examining the verbose logs
@@ -45,6 +45,7 @@ def clang_libraries():
         'clangAnalysis',
         'clangBasic',
         'clangDriver',
+	'clangDynamicASTMatchers', 
         'clangEdit',
         'clangFrontend',
         'clangFormat',
@@ -83,7 +84,7 @@ class get_pybind_include(object):
 ext_modules = [
     Extension(
         '_clast',
-        glob.glob('src/%s/*.cpp' % CLANG_VERSION) + glob.glob('src/*.cpp'),
+        glob.glob('src/*.cpp') + glob.glob('src/%s/*.cpp' % CLANG_VERSION),
         extra_compile_args=LLVM_CFLAGS,
         libraries=LLVM_LIBS ,
         extra_link_args=clang_libraries(),
