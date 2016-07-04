@@ -97,37 +97,7 @@ void install_ast_matcher_bindings(pybind11::module& m)
         .def("hasPointerIdentity", &clang::ast_type_traits::ASTNodeKind::hasPointerIdentity)
     ;
 
-    py::class_<clatt::DynTypedNode>(m, "DynTypedNode")
-        .def("getNodeKind", &clang::ast_type_traits::DynTypedNode::getNodeKind)
-        .def("getSourceRange", &clang::ast_type_traits::DynTypedNode::getSourceRange)
-        .def("_get_ForStmt", [](const clatt::DynTypedNode& self) -> const clang::ForStmt& {
-            const clang::ForStmt* node = self.get<clang::ForStmt>();
-            if(nullptr == node) {
-                throw std::runtime_error("cannot convert");
-            }
-            return *node;
-        }, py::return_value_policy::reference)
-        .def("_get_CXXRecordDecl", [](const clatt::DynTypedNode& self) -> const clang::CXXRecordDecl& {
-            const clang::CXXRecordDecl* node = self.get<clang::CXXRecordDecl>();
-            if(nullptr == node) {
-                throw std::runtime_error("cannot convert");
-            }
-            return *node;
-        }, py::return_value_policy::reference)
-        .def("__eq__", [](const clatt::DynTypedNode& self, const clatt::DynTypedNode& other) {
-            return self == other;
-        })
-        .def("__ne__", [](const clatt::DynTypedNode& self, const clatt::DynTypedNode& other) {
-            return self != other;
-        })
-    ;
-
     py::class_<clam::BoundNodes>(m, "BoundNodes")
-                
-    ;
-
-    // required?
-    py::class_<clami::BoundNodesTreeBuilder>(m, "BoundNodesTreeBuilder")
     ;
 
     py::class_<clami::DynTypedMatcher>(m, "DynTypedMatcher")

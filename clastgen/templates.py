@@ -42,6 +42,39 @@ namespace py = pybind11;
 {% endblock %}
 '''
 
+dyntyped_node = '''
+{% extends 'file_template.j2' %}
+
+{% block fblock scoped %}
+namespace clatt = clang::ast_type_traits;
+
+template<typename T>
+const T* dyn_node_convert(const clatt::DynTypedNode& self)
+{
+    return self.get<T>();
+}
+
+void install_dyntypednode(pybind11::module& m) 
+{
+    py::class_<clatt::DynTypedNode>(m, "DynTypedNode")
+        .def("getNodeKind", &clang::ast_type_traits::DynTypedNode::getNodeKind)
+        .def("getSourceRange", &clang::ast_type_traits::DynTypedNode::getSourceRange)
+        .def("__eq__", [](const clatt::DynTypedNode& self, const clatt::DynTypedNode& other) {
+            return self == other;
+        })
+        .def("__ne__", [](const clatt::DynTypedNode& self, const clatt::DynTypedNode& other) {
+            return self != other;
+        })
+        {% for cls in model.classes %}
+        {% if cls.node %}
+        .def("_get_{{ cls.name }}", &clatt::DynTypedNode::get<{{cls.typename}}>, py::return_value_policy::reference)
+        {% endif %}
+        {% endfor %}
+    ;
+}
+{% endblock %}
+'''
+
 module_class = '''
 {% extends 'file_template.j2' %}
 
@@ -102,6 +135,7 @@ def clast_templates():
         'class_template.j2'    : class_template,
         'allclass_template.j2' : allclass_template,
         'enum_template.j2'     : enum_template,
+        'dyntyped_node_template.j2': dyntyped_node,
     }
     return templates
 

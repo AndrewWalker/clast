@@ -135,8 +135,13 @@ def resolve_deleters(ctx):
         assert type(c) == Cursor
         if decl_subclass(c):
             ctx.set_attr(c, deleter='decl_deleter<%s>::type' % c.type.spelling)
-        if stmt_subclass(c):
+            ctx.set_attr(c, node=True)
+        elif stmt_subclass(c):
             ctx.set_attr(c, deleter='stmt_deleter<%s>::type' % c.type.spelling)
+            ctx.set_attr(c, node=True)
+        else:
+            ctx.set_attr(c, node=False)
+
 
 
 def resolve_methods(ctx):
@@ -215,6 +220,9 @@ if __name__ == "__main__":
 
     with open(os.path.join(args.output, 'autogen_classes.cpp'), 'w') as fh:
         fh.write(render_result(template='allclass_template.j2', model=intermediate, pagecnt=len(pages))) 
+
+    with open(os.path.join(args.output, 'autogen_dyntypenode.cpp'), 'w') as fh:
+        fh.write(render_result(template='dyntyped_node_template.j2', model=intermediate)) 
 
     for page in pages:
         with open(os.path.join(args.output, '%02d_autogen_classes.cpp' % (page.idx+1)), 'w') as fh:
