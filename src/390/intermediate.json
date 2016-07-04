@@ -422,17 +422,6 @@
             "name": "InClassInitStyle"
         }, 
         {
-            "typename": "clang::VarDecl::InitializationStyle", 
-            "xitems": [
-                "CInit", 
-                "CallInit", 
-                "ListInit"
-            ], 
-            "anon": false, 
-            "parent": "clang::VarDecl", 
-            "name": "InitializationStyle"
-        }, 
-        {
             "typename": "clang::CXXNewExpr::InitializationStyle", 
             "xitems": [
                 "NoInit", 
@@ -441,6 +430,17 @@
             ], 
             "anon": false, 
             "parent": "clang::CXXNewExpr", 
+            "name": "InitializationStyle"
+        }, 
+        {
+            "typename": "clang::VarDecl::InitializationStyle", 
+            "xitems": [
+                "CInit", 
+                "CallInit", 
+                "ListInit"
+            ], 
+            "anon": false, 
+            "parent": "clang::VarDecl", 
             "name": "InitializationStyle"
         }, 
         {
@@ -1345,6 +1345,7 @@
     ], 
     "classes": [
         {
+            "node": false, 
             "typename": "llvm::StringRef", 
             "methods": [
                 {
@@ -2285,6 +2286,7 @@
             "name": "StringRef"
         }, 
         {
+            "node": false, 
             "typename": "clang::SourceLocation", 
             "methods": [
                 {
@@ -2471,6 +2473,7 @@
             "name": "SourceLocation"
         }, 
         {
+            "node": false, 
             "typename": "clang::SourceRange", 
             "methods": [
                 {
@@ -2583,6 +2586,7 @@
             "name": "SourceRange"
         }, 
         {
+            "node": false, 
             "typename": "clang::DeclarationName", 
             "methods": [
                 {
@@ -2873,6 +2877,7 @@
             "name": "DeclarationName"
         }, 
         {
+            "node": false, 
             "typename": "clang::DeclarationNameInfo", 
             "methods": [
                 {
@@ -3261,8 +3266,7 @@
             "name": "DeclarationNameInfo"
         }, 
         {
-            "deleter": "decl_deleter<clang::Decl>::type", 
-            "typename": "clang::Decl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -4936,10 +4940,13 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::Decl", 
+            "deleter": "decl_deleter<clang::Decl>::type", 
             "supers": [], 
             "name": "Decl"
         }, 
         {
+            "node": false, 
             "typename": "clang::DeclContext", 
             "methods": [
                 {
@@ -6080,6 +6087,7 @@
             "name": "DeclContext"
         }, 
         {
+            "node": false, 
             "typename": "clang::Qualifiers", 
             "methods": [
                 {
@@ -7156,6 +7164,7 @@
             "name": "Qualifiers"
         }, 
         {
+            "node": false, 
             "typename": "clang::QualType", 
             "methods": [
                 {
@@ -8540,6 +8549,7 @@
             "name": "QualType"
         }, 
         {
+            "node": false, 
             "typename": "clang::Type", 
             "methods": [
                 {
@@ -11632,6 +11642,7 @@
             "name": "Type"
         }, 
         {
+            "node": false, 
             "typename": "clang::TypeSourceInfo", 
             "methods": [
                 {
@@ -11692,8 +11703,7 @@
             "name": "TypeSourceInfo"
         }, 
         {
-            "deleter": "decl_deleter<clang::TranslationUnitDecl>::type", 
-            "typename": "clang::TranslationUnitDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -11749,6 +11759,8 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TranslationUnitDecl", 
+            "deleter": "decl_deleter<clang::TranslationUnitDecl>::type", 
             "supers": [
                 "clang::Decl", 
                 "clang::DeclContext"
@@ -11756,8 +11768,7 @@
             "name": "TranslationUnitDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::PragmaCommentDecl>::type", 
-            "typename": "clang::PragmaCommentDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -11793,14 +11804,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::PragmaCommentDecl", 
+            "deleter": "decl_deleter<clang::PragmaCommentDecl>::type", 
             "supers": [
                 "clang::Decl"
             ], 
             "name": "PragmaCommentDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::PragmaDetectMismatchDecl>::type", 
-            "typename": "clang::PragmaDetectMismatchDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -11836,16 +11848,19 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::PragmaDetectMismatchDecl", 
+            "deleter": "decl_deleter<clang::PragmaDetectMismatchDecl>::type", 
             "supers": [
                 "clang::Decl"
             ], 
             "name": "PragmaDetectMismatchDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::ExternCContextDecl>::type", 
-            "typename": "clang::ExternCContextDecl", 
+            "node": true, 
             "methods": [], 
             "is_disabled": false, 
+            "typename": "clang::ExternCContextDecl", 
+            "deleter": "decl_deleter<clang::ExternCContextDecl>::type", 
             "supers": [
                 "clang::Decl", 
                 "clang::DeclContext"
@@ -11853,8 +11868,7 @@
             "name": "ExternCContextDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::NamedDecl>::type", 
-            "typename": "clang::NamedDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -12378,14 +12392,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::NamedDecl", 
+            "deleter": "decl_deleter<clang::NamedDecl>::type", 
             "supers": [
                 "clang::Decl"
             ], 
             "name": "NamedDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::LabelDecl>::type", 
-            "typename": "clang::LabelDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -12561,14 +12576,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::LabelDecl", 
+            "deleter": "decl_deleter<clang::LabelDecl>::type", 
             "supers": [
                 "clang::NamedDecl"
             ], 
             "name": "LabelDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::NamespaceDecl>::type", 
-            "typename": "clang::NamespaceDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -12828,6 +12844,8 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::NamespaceDecl", 
+            "deleter": "decl_deleter<clang::NamespaceDecl>::type", 
             "supers": [
                 "clang::NamedDecl", 
                 "clang::DeclContext"
@@ -12835,8 +12853,7 @@
             "name": "NamespaceDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::ValueDecl>::type", 
-            "typename": "clang::ValueDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -12892,14 +12909,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ValueDecl", 
+            "deleter": "decl_deleter<clang::ValueDecl>::type", 
             "supers": [
                 "clang::NamedDecl"
             ], 
             "name": "ValueDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::DeclaratorDecl>::type", 
-            "typename": "clang::DeclaratorDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -13149,14 +13167,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::DeclaratorDecl", 
+            "deleter": "decl_deleter<clang::DeclaratorDecl>::type", 
             "supers": [
                 "clang::ValueDecl"
             ], 
             "name": "DeclaratorDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::VarDecl>::type", 
-            "typename": "clang::VarDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -14396,24 +14415,26 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::VarDecl", 
+            "deleter": "decl_deleter<clang::VarDecl>::type", 
             "supers": [
                 "clang::DeclaratorDecl"
             ], 
             "name": "VarDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::ImplicitParamDecl>::type", 
-            "typename": "clang::ImplicitParamDecl", 
+            "node": true, 
             "methods": [], 
             "is_disabled": false, 
+            "typename": "clang::ImplicitParamDecl", 
+            "deleter": "decl_deleter<clang::ImplicitParamDecl>::type", 
             "supers": [
                 "clang::VarDecl"
             ], 
             "name": "ImplicitParamDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::ParmVarDecl>::type", 
-            "typename": "clang::ParmVarDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -14867,14 +14888,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ParmVarDecl", 
+            "deleter": "decl_deleter<clang::ParmVarDecl>::type", 
             "supers": [
                 "clang::VarDecl"
             ], 
             "name": "ParmVarDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::FunctionDecl>::type", 
-            "typename": "clang::FunctionDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -16672,6 +16694,8 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::FunctionDecl", 
+            "deleter": "decl_deleter<clang::FunctionDecl>::type", 
             "supers": [
                 "clang::DeclaratorDecl", 
                 "clang::DeclContext"
@@ -16679,8 +16703,7 @@
             "name": "FunctionDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::FieldDecl>::type", 
-            "typename": "clang::FieldDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -17052,14 +17075,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::FieldDecl", 
+            "deleter": "decl_deleter<clang::FieldDecl>::type", 
             "supers": [
                 "clang::DeclaratorDecl"
             ], 
             "name": "FieldDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::EnumConstantDecl>::type", 
-            "typename": "clang::EnumConstantDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -17199,14 +17223,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::EnumConstantDecl", 
+            "deleter": "decl_deleter<clang::EnumConstantDecl>::type", 
             "supers": [
                 "clang::ValueDecl"
             ], 
             "name": "EnumConstantDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::IndirectFieldDecl>::type", 
-            "typename": "clang::IndirectFieldDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -17306,14 +17331,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::IndirectFieldDecl", 
+            "deleter": "decl_deleter<clang::IndirectFieldDecl>::type", 
             "supers": [
                 "clang::ValueDecl"
             ], 
             "name": "IndirectFieldDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::TypeDecl>::type", 
-            "typename": "clang::TypeDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -17405,14 +17431,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TypeDecl", 
+            "deleter": "decl_deleter<clang::TypeDecl>::type", 
             "supers": [
                 "clang::NamedDecl"
             ], 
             "name": "TypeDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::TypedefNameDecl>::type", 
-            "typename": "clang::TypedefNameDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -17558,14 +17585,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TypedefNameDecl", 
+            "deleter": "decl_deleter<clang::TypedefNameDecl>::type", 
             "supers": [
                 "clang::TypeDecl"
             ], 
             "name": "TypedefNameDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::TypedefDecl>::type", 
-            "typename": "clang::TypedefDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -17585,14 +17613,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TypedefDecl", 
+            "deleter": "decl_deleter<clang::TypedefDecl>::type", 
             "supers": [
                 "clang::TypedefNameDecl"
             ], 
             "name": "TypedefDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::TypeAliasDecl>::type", 
-            "typename": "clang::TypeAliasDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -17648,14 +17677,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TypeAliasDecl", 
+            "deleter": "decl_deleter<clang::TypeAliasDecl>::type", 
             "supers": [
                 "clang::TypedefNameDecl"
             ], 
             "name": "TypeAliasDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::TagDecl>::type", 
-            "typename": "clang::TagDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -18293,6 +18323,8 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TagDecl", 
+            "deleter": "decl_deleter<clang::TagDecl>::type", 
             "supers": [
                 "clang::TypeDecl", 
                 "clang::DeclContext"
@@ -18300,8 +18332,7 @@
             "name": "TagDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::EnumDecl>::type", 
-            "typename": "clang::EnumDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -18811,14 +18842,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::EnumDecl", 
+            "deleter": "decl_deleter<clang::EnumDecl>::type", 
             "supers": [
                 "clang::TagDecl"
             ], 
             "name": "EnumDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::RecordDecl>::type", 
-            "typename": "clang::RecordDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -19250,14 +19282,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::RecordDecl", 
+            "deleter": "decl_deleter<clang::RecordDecl>::type", 
             "supers": [
                 "clang::TagDecl"
             ], 
             "name": "RecordDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::FileScopeAsmDecl>::type", 
-            "typename": "clang::FileScopeAsmDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -19381,14 +19414,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::FileScopeAsmDecl", 
+            "deleter": "decl_deleter<clang::FileScopeAsmDecl>::type", 
             "supers": [
                 "clang::Decl"
             ], 
             "name": "FileScopeAsmDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::BlockDecl>::type", 
-            "typename": "clang::BlockDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -19954,6 +19988,8 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::BlockDecl", 
+            "deleter": "decl_deleter<clang::BlockDecl>::type", 
             "supers": [
                 "clang::Decl", 
                 "clang::DeclContext"
@@ -19961,8 +19997,7 @@
             "name": "BlockDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::CapturedDecl>::type", 
-            "typename": "clang::CapturedDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -20166,6 +20201,8 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CapturedDecl", 
+            "deleter": "decl_deleter<clang::CapturedDecl>::type", 
             "supers": [
                 "clang::Decl", 
                 "clang::DeclContext"
@@ -20173,8 +20210,7 @@
             "name": "CapturedDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::ImportDecl>::type", 
-            "typename": "clang::ImportDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -20226,24 +20262,26 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ImportDecl", 
+            "deleter": "decl_deleter<clang::ImportDecl>::type", 
             "supers": [
                 "clang::Decl"
             ], 
             "name": "ImportDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::EmptyDecl>::type", 
-            "typename": "clang::EmptyDecl", 
+            "node": true, 
             "methods": [], 
             "is_disabled": false, 
+            "typename": "clang::EmptyDecl", 
+            "deleter": "decl_deleter<clang::EmptyDecl>::type", 
             "supers": [
                 "clang::Decl"
             ], 
             "name": "EmptyDecl"
         }, 
         {
-            "deleter": "stmt_deleter<clang::Stmt>::type", 
-            "typename": "clang::Stmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -20607,12 +20645,13 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::Stmt", 
+            "deleter": "stmt_deleter<clang::Stmt>::type", 
             "supers": [], 
             "name": "Stmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::DeclStmt>::type", 
-            "typename": "clang::DeclStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -20868,14 +20907,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::DeclStmt", 
+            "deleter": "stmt_deleter<clang::DeclStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "DeclStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::NullStmt>::type", 
-            "typename": "clang::NullStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -20979,14 +21019,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::NullStmt", 
+            "deleter": "stmt_deleter<clang::NullStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "NullStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CompoundStmt>::type", 
-            "typename": "clang::CompoundStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -21256,14 +21297,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CompoundStmt", 
+            "deleter": "stmt_deleter<clang::CompoundStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "CompoundStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::SwitchCase>::type", 
-            "typename": "clang::SwitchCase", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -21455,14 +21497,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::SwitchCase", 
+            "deleter": "stmt_deleter<clang::SwitchCase>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "SwitchCase"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CaseStmt>::type", 
-            "typename": "clang::CaseStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -21778,14 +21821,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CaseStmt", 
+            "deleter": "stmt_deleter<clang::CaseStmt>::type", 
             "supers": [
                 "clang::SwitchCase"
             ], 
             "name": "CaseStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::DefaultStmt>::type", 
-            "typename": "clang::DefaultStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -21961,14 +22005,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::DefaultStmt", 
+            "deleter": "stmt_deleter<clang::DefaultStmt>::type", 
             "supers": [
                 "clang::SwitchCase"
             ], 
             "name": "DefaultStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::LabelStmt>::type", 
-            "typename": "clang::LabelStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -22160,14 +22205,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::LabelStmt", 
+            "deleter": "stmt_deleter<clang::LabelStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "LabelStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::AttributedStmt>::type", 
-            "typename": "clang::AttributedStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -22283,14 +22329,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::AttributedStmt", 
+            "deleter": "stmt_deleter<clang::AttributedStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "AttributedStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::IfStmt>::type", 
-            "typename": "clang::IfStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -22624,14 +22671,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::IfStmt", 
+            "deleter": "stmt_deleter<clang::IfStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "IfStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::SwitchStmt>::type", 
-            "typename": "clang::SwitchStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -23003,14 +23051,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::SwitchStmt", 
+            "deleter": "stmt_deleter<clang::SwitchStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "SwitchStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::WhileStmt>::type", 
-            "typename": "clang::WhileStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -23256,14 +23305,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::WhileStmt", 
+            "deleter": "stmt_deleter<clang::WhileStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "WhileStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::DoStmt>::type", 
-            "typename": "clang::DoStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -23527,14 +23577,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::DoStmt", 
+            "deleter": "stmt_deleter<clang::DoStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "DoStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ForStmt>::type", 
-            "typename": "clang::ForStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -23956,14 +24007,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ForStmt", 
+            "deleter": "stmt_deleter<clang::ForStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "ForStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::GotoStmt>::type", 
-            "typename": "clang::GotoStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -24123,14 +24175,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::GotoStmt", 
+            "deleter": "stmt_deleter<clang::GotoStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "GotoStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::IndirectGotoStmt>::type", 
-            "typename": "clang::IndirectGotoStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -24338,14 +24391,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::IndirectGotoStmt", 
+            "deleter": "stmt_deleter<clang::IndirectGotoStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "IndirectGotoStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ContinueStmt>::type", 
-            "typename": "clang::ContinueStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -24433,14 +24487,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ContinueStmt", 
+            "deleter": "stmt_deleter<clang::ContinueStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "ContinueStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::BreakStmt>::type", 
-            "typename": "clang::BreakStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -24528,14 +24583,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::BreakStmt", 
+            "deleter": "stmt_deleter<clang::BreakStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "BreakStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ReturnStmt>::type", 
-            "typename": "clang::ReturnStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -24711,14 +24767,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ReturnStmt", 
+            "deleter": "stmt_deleter<clang::ReturnStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "ReturnStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::AsmStmt>::type", 
-            "typename": "clang::AsmStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -25146,14 +25203,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::AsmStmt", 
+            "deleter": "stmt_deleter<clang::AsmStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "AsmStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::GCCAsmStmt>::type", 
-            "typename": "clang::GCCAsmStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -25703,14 +25761,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::GCCAsmStmt", 
+            "deleter": "stmt_deleter<clang::GCCAsmStmt>::type", 
             "supers": [
                 "clang::AsmStmt"
             ], 
             "name": "GCCAsmStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::MSAsmStmt>::type", 
-            "typename": "clang::MSAsmStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -26128,14 +26187,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::MSAsmStmt", 
+            "deleter": "stmt_deleter<clang::MSAsmStmt>::type", 
             "supers": [
                 "clang::AsmStmt"
             ], 
             "name": "MSAsmStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::SEHExceptStmt>::type", 
-            "typename": "clang::SEHExceptStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -26251,14 +26311,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::SEHExceptStmt", 
+            "deleter": "stmt_deleter<clang::SEHExceptStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "SEHExceptStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::SEHFinallyStmt>::type", 
-            "typename": "clang::SEHFinallyStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -26358,14 +26419,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::SEHFinallyStmt", 
+            "deleter": "stmt_deleter<clang::SEHFinallyStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "SEHFinallyStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::SEHTryStmt>::type", 
-            "typename": "clang::SEHTryStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -26529,14 +26591,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::SEHTryStmt", 
+            "deleter": "stmt_deleter<clang::SEHTryStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "SEHTryStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::SEHLeaveStmt>::type", 
-            "typename": "clang::SEHLeaveStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -26624,14 +26687,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::SEHLeaveStmt", 
+            "deleter": "stmt_deleter<clang::SEHLeaveStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "SEHLeaveStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CapturedStmt>::type", 
-            "typename": "clang::CapturedStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -26955,12 +27019,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CapturedStmt", 
+            "deleter": "stmt_deleter<clang::CapturedStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "CapturedStmt"
         }, 
         {
+            "node": false, 
             "typename": "clang::SourceManager", 
             "methods": [
                 {
@@ -29181,6 +29248,7 @@
             "name": "SourceManager"
         }, 
         {
+            "node": false, 
             "typename": "clang::ASTContext", 
             "methods": [
                 {
@@ -36445,8 +36513,7 @@
             "name": "ASTContext"
         }, 
         {
-            "deleter": "stmt_deleter<clang::Expr>::type", 
-            "typename": "clang::Expr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -37916,14 +37983,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::Expr", 
+            "deleter": "stmt_deleter<clang::Expr>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "Expr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::OpaqueValueExpr>::type", 
-            "typename": "clang::OpaqueValueExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -38023,14 +38091,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::OpaqueValueExpr", 
+            "deleter": "stmt_deleter<clang::OpaqueValueExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "OpaqueValueExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::DeclRefExpr>::type", 
-            "typename": "clang::DeclRefExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -38466,14 +38535,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::DeclRefExpr", 
+            "deleter": "stmt_deleter<clang::DeclRefExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "DeclRefExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::PredefinedExpr>::type", 
-            "typename": "clang::PredefinedExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -38609,14 +38679,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::PredefinedExpr", 
+            "deleter": "stmt_deleter<clang::PredefinedExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "PredefinedExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::IntegerLiteral>::type", 
-            "typename": "clang::IntegerLiteral", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -38704,14 +38775,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::IntegerLiteral", 
+            "deleter": "stmt_deleter<clang::IntegerLiteral>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "IntegerLiteral"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CharacterLiteral>::type", 
-            "typename": "clang::CharacterLiteral", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -38871,14 +38943,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CharacterLiteral", 
+            "deleter": "stmt_deleter<clang::CharacterLiteral>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CharacterLiteral"
         }, 
         {
-            "deleter": "stmt_deleter<clang::FloatingLiteral>::type", 
-            "typename": "clang::FloatingLiteral", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -39128,14 +39201,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::FloatingLiteral", 
+            "deleter": "stmt_deleter<clang::FloatingLiteral>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "FloatingLiteral"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ImaginaryLiteral>::type", 
-            "typename": "clang::ImaginaryLiteral", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -39239,14 +39313,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ImaginaryLiteral", 
+            "deleter": "stmt_deleter<clang::ImaginaryLiteral>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ImaginaryLiteral"
         }, 
         {
-            "deleter": "stmt_deleter<clang::StringLiteral>::type", 
-            "typename": "clang::StringLiteral", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -39660,14 +39735,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::StringLiteral", 
+            "deleter": "stmt_deleter<clang::StringLiteral>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "StringLiteral"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ParenExpr>::type", 
-            "typename": "clang::ParenExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -39843,14 +39919,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ParenExpr", 
+            "deleter": "stmt_deleter<clang::ParenExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ParenExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::UnaryOperator>::type", 
-            "typename": "clang::UnaryOperator", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -40122,14 +40199,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::UnaryOperator", 
+            "deleter": "stmt_deleter<clang::UnaryOperator>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "UnaryOperator"
         }, 
         {
-            "deleter": "stmt_deleter<clang::OffsetOfExpr>::type", 
-            "typename": "clang::OffsetOfExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -40425,14 +40503,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::OffsetOfExpr", 
+            "deleter": "stmt_deleter<clang::OffsetOfExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "OffsetOfExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::UnaryExprOrTypeTraitExpr>::type", 
-            "typename": "clang::UnaryExprOrTypeTraitExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -40728,14 +40807,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::UnaryExprOrTypeTraitExpr", 
+            "deleter": "stmt_deleter<clang::UnaryExprOrTypeTraitExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "UnaryExprOrTypeTraitExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ArraySubscriptExpr>::type", 
-            "typename": "clang::ArraySubscriptExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -41007,14 +41087,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ArraySubscriptExpr", 
+            "deleter": "stmt_deleter<clang::ArraySubscriptExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ArraySubscriptExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CallExpr>::type", 
-            "typename": "clang::CallExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -41438,14 +41519,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CallExpr", 
+            "deleter": "stmt_deleter<clang::CallExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CallExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::MemberExpr>::type", 
-            "typename": "clang::MemberExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -41957,14 +42039,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::MemberExpr", 
+            "deleter": "stmt_deleter<clang::MemberExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "MemberExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CompoundLiteralExpr>::type", 
-            "typename": "clang::CompoundLiteralExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -42176,14 +42259,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CompoundLiteralExpr", 
+            "deleter": "stmt_deleter<clang::CompoundLiteralExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CompoundLiteralExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CastExpr>::type", 
-            "typename": "clang::CastExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -42371,14 +42455,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CastExpr", 
+            "deleter": "stmt_deleter<clang::CastExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CastExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ImplicitCastExpr>::type", 
-            "typename": "clang::ImplicitCastExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -42414,14 +42499,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ImplicitCastExpr", 
+            "deleter": "stmt_deleter<clang::ImplicitCastExpr>::type", 
             "supers": [
                 "clang::CastExpr"
             ], 
             "name": "ImplicitCastExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ExplicitCastExpr>::type", 
-            "typename": "clang::ExplicitCastExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -42477,14 +42563,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ExplicitCastExpr", 
+            "deleter": "stmt_deleter<clang::ExplicitCastExpr>::type", 
             "supers": [
                 "clang::CastExpr"
             ], 
             "name": "ExplicitCastExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CStyleCastExpr>::type", 
-            "typename": "clang::CStyleCastExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -42592,14 +42679,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CStyleCastExpr", 
+            "deleter": "stmt_deleter<clang::CStyleCastExpr>::type", 
             "supers": [
                 "clang::ExplicitCastExpr"
             ], 
             "name": "CStyleCastExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::BinaryOperator>::type", 
-            "typename": "clang::BinaryOperator", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -43055,14 +43143,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::BinaryOperator", 
+            "deleter": "stmt_deleter<clang::BinaryOperator>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "BinaryOperator"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CompoundAssignOperator>::type", 
-            "typename": "clang::CompoundAssignOperator", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -43138,14 +43227,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CompoundAssignOperator", 
+            "deleter": "stmt_deleter<clang::CompoundAssignOperator>::type", 
             "supers": [
                 "clang::BinaryOperator"
             ], 
             "name": "CompoundAssignOperator"
         }, 
         {
-            "deleter": "stmt_deleter<clang::AbstractConditionalOperator>::type", 
-            "typename": "clang::AbstractConditionalOperator", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -43229,14 +43319,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::AbstractConditionalOperator", 
+            "deleter": "stmt_deleter<clang::AbstractConditionalOperator>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "AbstractConditionalOperator"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ConditionalOperator>::type", 
-            "typename": "clang::ConditionalOperator", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -43368,14 +43459,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ConditionalOperator", 
+            "deleter": "stmt_deleter<clang::ConditionalOperator>::type", 
             "supers": [
                 "clang::AbstractConditionalOperator"
             ], 
             "name": "ConditionalOperator"
         }, 
         {
-            "deleter": "stmt_deleter<clang::BinaryConditionalOperator>::type", 
-            "typename": "clang::BinaryConditionalOperator", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -43507,14 +43599,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::BinaryConditionalOperator", 
+            "deleter": "stmt_deleter<clang::BinaryConditionalOperator>::type", 
             "supers": [
                 "clang::AbstractConditionalOperator"
             ], 
             "name": "BinaryConditionalOperator"
         }, 
         {
-            "deleter": "stmt_deleter<clang::AddrLabelExpr>::type", 
-            "typename": "clang::AddrLabelExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -43674,14 +43767,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::AddrLabelExpr", 
+            "deleter": "stmt_deleter<clang::AddrLabelExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "AddrLabelExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::StmtExpr>::type", 
-            "typename": "clang::StmtExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -43857,14 +43951,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::StmtExpr", 
+            "deleter": "stmt_deleter<clang::StmtExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "StmtExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ShuffleVectorExpr>::type", 
-            "typename": "clang::ShuffleVectorExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -44088,14 +44183,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ShuffleVectorExpr", 
+            "deleter": "stmt_deleter<clang::ShuffleVectorExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ShuffleVectorExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ConvertVectorExpr>::type", 
-            "typename": "clang::ConvertVectorExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -44231,14 +44327,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ConvertVectorExpr", 
+            "deleter": "stmt_deleter<clang::ConvertVectorExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ConvertVectorExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ChooseExpr>::type", 
-            "typename": "clang::ChooseExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -44538,14 +44635,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ChooseExpr", 
+            "deleter": "stmt_deleter<clang::ChooseExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ChooseExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::GNUNullExpr>::type", 
-            "typename": "clang::GNUNullExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -44633,14 +44731,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::GNUNullExpr", 
+            "deleter": "stmt_deleter<clang::GNUNullExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "GNUNullExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::VAArgExpr>::type", 
-            "typename": "clang::VAArgExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -44888,14 +44987,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::VAArgExpr", 
+            "deleter": "stmt_deleter<clang::VAArgExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "VAArgExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::InitListExpr>::type", 
-            "typename": "clang::InitListExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -45437,14 +45537,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::InitListExpr", 
+            "deleter": "stmt_deleter<clang::InitListExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "InitListExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::DesignatedInitExpr>::type", 
-            "typename": "clang::DesignatedInitExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -45856,14 +45957,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::DesignatedInitExpr", 
+            "deleter": "stmt_deleter<clang::DesignatedInitExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "DesignatedInitExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::NoInitExpr>::type", 
-            "typename": "clang::NoInitExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -45915,14 +46017,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::NoInitExpr", 
+            "deleter": "stmt_deleter<clang::NoInitExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "NoInitExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::DesignatedInitUpdateExpr>::type", 
-            "typename": "clang::DesignatedInitUpdateExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -46046,14 +46149,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::DesignatedInitUpdateExpr", 
+            "deleter": "stmt_deleter<clang::DesignatedInitUpdateExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "DesignatedInitUpdateExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ImplicitValueInitExpr>::type", 
-            "typename": "clang::ImplicitValueInitExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -46105,14 +46209,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ImplicitValueInitExpr", 
+            "deleter": "stmt_deleter<clang::ImplicitValueInitExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ImplicitValueInitExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ParenListExpr>::type", 
-            "typename": "clang::ParenListExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -46268,14 +46373,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ParenListExpr", 
+            "deleter": "stmt_deleter<clang::ParenListExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ParenListExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::GenericSelectionExpr>::type", 
-            "typename": "clang::GenericSelectionExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -46587,14 +46693,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::GenericSelectionExpr", 
+            "deleter": "stmt_deleter<clang::GenericSelectionExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "GenericSelectionExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ExtVectorElementExpr>::type", 
-            "typename": "clang::ExtVectorElementExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -46838,14 +46945,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ExtVectorElementExpr", 
+            "deleter": "stmt_deleter<clang::ExtVectorElementExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ExtVectorElementExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::BlockExpr>::type", 
-            "typename": "clang::BlockExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -47013,14 +47121,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::BlockExpr", 
+            "deleter": "stmt_deleter<clang::BlockExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "BlockExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::AsTypeExpr>::type", 
-            "typename": "clang::AsTypeExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -47120,14 +47229,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::AsTypeExpr", 
+            "deleter": "stmt_deleter<clang::AsTypeExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "AsTypeExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::PseudoObjectExpr>::type", 
-            "typename": "clang::PseudoObjectExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -47363,14 +47473,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::PseudoObjectExpr", 
+            "deleter": "stmt_deleter<clang::PseudoObjectExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "PseudoObjectExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::AtomicExpr>::type", 
-            "typename": "clang::AtomicExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -47614,14 +47725,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::AtomicExpr", 
+            "deleter": "stmt_deleter<clang::AtomicExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "AtomicExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::TypoExpr>::type", 
-            "typename": "clang::TypoExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -47673,14 +47785,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TypoExpr", 
+            "deleter": "stmt_deleter<clang::TypoExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "TypoExpr"
         }, 
         {
-            "deleter": "decl_deleter<clang::AccessSpecDecl>::type", 
-            "typename": "clang::AccessSpecDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -47772,14 +47885,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::AccessSpecDecl", 
+            "deleter": "decl_deleter<clang::AccessSpecDecl>::type", 
             "supers": [
                 "clang::Decl"
             ], 
             "name": "AccessSpecDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::CXXRecordDecl>::type", 
-            "typename": "clang::CXXRecordDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -49961,14 +50075,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXRecordDecl", 
+            "deleter": "decl_deleter<clang::CXXRecordDecl>::type", 
             "supers": [
                 "clang::RecordDecl"
             ], 
             "name": "CXXRecordDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::CXXMethodDecl>::type", 
-            "typename": "clang::CXXMethodDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -50376,14 +50491,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXMethodDecl", 
+            "deleter": "decl_deleter<clang::CXXMethodDecl>::type", 
             "supers": [
                 "clang::FunctionDecl"
             ], 
             "name": "CXXMethodDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::CXXConstructorDecl>::type", 
-            "typename": "clang::CXXConstructorDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -50747,14 +50863,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXConstructorDecl", 
+            "deleter": "decl_deleter<clang::CXXConstructorDecl>::type", 
             "supers": [
                 "clang::CXXMethodDecl"
             ], 
             "name": "CXXConstructorDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::CXXDestructorDecl>::type", 
-            "typename": "clang::CXXDestructorDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -50794,14 +50911,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXDestructorDecl", 
+            "deleter": "decl_deleter<clang::CXXDestructorDecl>::type", 
             "supers": [
                 "clang::CXXMethodDecl"
             ], 
             "name": "CXXDestructorDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::CXXConversionDecl>::type", 
-            "typename": "clang::CXXConversionDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -50869,14 +50987,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXConversionDecl", 
+            "deleter": "decl_deleter<clang::CXXConversionDecl>::type", 
             "supers": [
                 "clang::CXXMethodDecl"
             ], 
             "name": "CXXConversionDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::LinkageSpecDecl>::type", 
-            "typename": "clang::LinkageSpecDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -51036,6 +51155,8 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::LinkageSpecDecl", 
+            "deleter": "decl_deleter<clang::LinkageSpecDecl>::type", 
             "supers": [
                 "clang::Decl", 
                 "clang::DeclContext"
@@ -51043,8 +51164,7 @@
             "name": "LinkageSpecDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::UsingDirectiveDecl>::type", 
-            "typename": "clang::UsingDirectiveDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -51240,14 +51360,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::UsingDirectiveDecl", 
+            "deleter": "decl_deleter<clang::UsingDirectiveDecl>::type", 
             "supers": [
                 "clang::NamedDecl"
             ], 
             "name": "UsingDirectiveDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::NamespaceAliasDecl>::type", 
-            "typename": "clang::NamespaceAliasDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -51427,14 +51548,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::NamespaceAliasDecl", 
+            "deleter": "decl_deleter<clang::NamespaceAliasDecl>::type", 
             "supers": [
                 "clang::NamedDecl"
             ], 
             "name": "NamespaceAliasDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::UsingShadowDecl>::type", 
-            "typename": "clang::UsingShadowDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -51538,14 +51660,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::UsingShadowDecl", 
+            "deleter": "decl_deleter<clang::UsingShadowDecl>::type", 
             "supers": [
                 "clang::NamedDecl"
             ], 
             "name": "UsingShadowDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::UsingDecl>::type", 
-            "typename": "clang::UsingDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -51805,14 +51928,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::UsingDecl", 
+            "deleter": "decl_deleter<clang::UsingDecl>::type", 
             "supers": [
                 "clang::NamedDecl"
             ], 
             "name": "UsingDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::UnresolvedUsingValueDecl>::type", 
-            "typename": "clang::UnresolvedUsingValueDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -51964,14 +52088,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::UnresolvedUsingValueDecl", 
+            "deleter": "decl_deleter<clang::UnresolvedUsingValueDecl>::type", 
             "supers": [
                 "clang::ValueDecl"
             ], 
             "name": "UnresolvedUsingValueDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::UnresolvedUsingTypenameDecl>::type", 
-            "typename": "clang::UnresolvedUsingTypenameDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -52071,14 +52196,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::UnresolvedUsingTypenameDecl", 
+            "deleter": "decl_deleter<clang::UnresolvedUsingTypenameDecl>::type", 
             "supers": [
                 "clang::TypeDecl"
             ], 
             "name": "UnresolvedUsingTypenameDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::StaticAssertDecl>::type", 
-            "typename": "clang::StaticAssertDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -52194,14 +52320,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::StaticAssertDecl", 
+            "deleter": "decl_deleter<clang::StaticAssertDecl>::type", 
             "supers": [
                 "clang::Decl"
             ], 
             "name": "StaticAssertDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::MSPropertyDecl>::type", 
-            "typename": "clang::MSPropertyDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -52269,14 +52396,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::MSPropertyDecl", 
+            "deleter": "decl_deleter<clang::MSPropertyDecl>::type", 
             "supers": [
                 "clang::DeclaratorDecl"
             ], 
             "name": "MSPropertyDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::TemplateDecl>::type", 
-            "typename": "clang::TemplateDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -52382,14 +52510,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TemplateDecl", 
+            "deleter": "decl_deleter<clang::TemplateDecl>::type", 
             "supers": [
                 "clang::NamedDecl"
             ], 
             "name": "TemplateDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::RedeclarableTemplateDecl>::type", 
-            "typename": "clang::RedeclarableTemplateDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -52493,14 +52622,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::RedeclarableTemplateDecl", 
+            "deleter": "decl_deleter<clang::RedeclarableTemplateDecl>::type", 
             "supers": [
                 "clang::TemplateDecl"
             ], 
             "name": "RedeclarableTemplateDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::FunctionTemplateDecl>::type", 
-            "typename": "clang::FunctionTemplateDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -52696,14 +52826,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::FunctionTemplateDecl", 
+            "deleter": "decl_deleter<clang::FunctionTemplateDecl>::type", 
             "supers": [
                 "clang::RedeclarableTemplateDecl"
             ], 
             "name": "FunctionTemplateDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::TemplateTypeParmDecl>::type", 
-            "typename": "clang::TemplateTypeParmDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -52961,14 +53092,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TemplateTypeParmDecl", 
+            "deleter": "decl_deleter<clang::TemplateTypeParmDecl>::type", 
             "supers": [
                 "clang::TypeDecl"
             ], 
             "name": "TemplateTypeParmDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::NonTypeTemplateParmDecl>::type", 
-            "typename": "clang::NonTypeTemplateParmDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -53230,14 +53362,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::NonTypeTemplateParmDecl", 
+            "deleter": "decl_deleter<clang::NonTypeTemplateParmDecl>::type", 
             "supers": [
                 "clang::DeclaratorDecl"
             ], 
             "name": "NonTypeTemplateParmDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::TemplateTemplateParmDecl>::type", 
-            "typename": "clang::TemplateTemplateParmDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -53481,14 +53614,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TemplateTemplateParmDecl", 
+            "deleter": "decl_deleter<clang::TemplateTemplateParmDecl>::type", 
             "supers": [
                 "clang::TemplateDecl"
             ], 
             "name": "TemplateTemplateParmDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::BuiltinTemplateDecl>::type", 
-            "typename": "clang::BuiltinTemplateDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -53524,14 +53658,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::BuiltinTemplateDecl", 
+            "deleter": "decl_deleter<clang::BuiltinTemplateDecl>::type", 
             "supers": [
                 "clang::TemplateDecl"
             ], 
             "name": "BuiltinTemplateDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::ClassTemplateSpecializationDecl>::type", 
-            "typename": "clang::ClassTemplateSpecializationDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -53945,14 +54080,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ClassTemplateSpecializationDecl", 
+            "deleter": "decl_deleter<clang::ClassTemplateSpecializationDecl>::type", 
             "supers": [
                 "clang::CXXRecordDecl"
             ], 
             "name": "ClassTemplateSpecializationDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::ClassTemplatePartialSpecializationDecl>::type", 
-            "typename": "clang::ClassTemplatePartialSpecializationDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -54088,14 +54224,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ClassTemplatePartialSpecializationDecl", 
+            "deleter": "decl_deleter<clang::ClassTemplatePartialSpecializationDecl>::type", 
             "supers": [
                 "clang::ClassTemplateSpecializationDecl"
             ], 
             "name": "ClassTemplatePartialSpecializationDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::ClassTemplateDecl>::type", 
-            "typename": "clang::ClassTemplateDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -54395,14 +54532,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ClassTemplateDecl", 
+            "deleter": "decl_deleter<clang::ClassTemplateDecl>::type", 
             "supers": [
                 "clang::RedeclarableTemplateDecl"
             ], 
             "name": "ClassTemplateDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::FriendTemplateDecl>::type", 
-            "typename": "clang::FriendTemplateDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -54490,14 +54628,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::FriendTemplateDecl", 
+            "deleter": "decl_deleter<clang::FriendTemplateDecl>::type", 
             "supers": [
                 "clang::Decl"
             ], 
             "name": "FriendTemplateDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::TypeAliasTemplateDecl>::type", 
-            "typename": "clang::TypeAliasTemplateDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -54597,14 +54736,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TypeAliasTemplateDecl", 
+            "deleter": "decl_deleter<clang::TypeAliasTemplateDecl>::type", 
             "supers": [
                 "clang::RedeclarableTemplateDecl"
             ], 
             "name": "TypeAliasTemplateDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::ClassScopeFunctionSpecializationDecl>::type", 
-            "typename": "clang::ClassScopeFunctionSpecializationDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -54656,14 +54796,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ClassScopeFunctionSpecializationDecl", 
+            "deleter": "decl_deleter<clang::ClassScopeFunctionSpecializationDecl>::type", 
             "supers": [
                 "clang::Decl"
             ], 
             "name": "ClassScopeFunctionSpecializationDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::VarTemplateSpecializationDecl>::type", 
-            "typename": "clang::VarTemplateSpecializationDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -55097,14 +55238,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::VarTemplateSpecializationDecl", 
+            "deleter": "decl_deleter<clang::VarTemplateSpecializationDecl>::type", 
             "supers": [
                 "clang::VarDecl"
             ], 
             "name": "VarTemplateSpecializationDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::VarTemplatePartialSpecializationDecl>::type", 
-            "typename": "clang::VarTemplatePartialSpecializationDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -55224,14 +55366,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::VarTemplatePartialSpecializationDecl", 
+            "deleter": "decl_deleter<clang::VarTemplatePartialSpecializationDecl>::type", 
             "supers": [
                 "clang::VarTemplateSpecializationDecl"
             ], 
             "name": "VarTemplatePartialSpecializationDecl"
         }, 
         {
-            "deleter": "decl_deleter<clang::VarTemplateDecl>::type", 
-            "typename": "clang::VarTemplateDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -55511,14 +55654,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::VarTemplateDecl", 
+            "deleter": "decl_deleter<clang::VarTemplateDecl>::type", 
             "supers": [
                 "clang::RedeclarableTemplateDecl"
             ], 
             "name": "VarTemplateDecl"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXOperatorCallExpr>::type", 
-            "typename": "clang::CXXOperatorCallExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -55654,14 +55798,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXOperatorCallExpr", 
+            "deleter": "stmt_deleter<clang::CXXOperatorCallExpr>::type", 
             "supers": [
                 "clang::CallExpr"
             ], 
             "name": "CXXOperatorCallExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXMemberCallExpr>::type", 
-            "typename": "clang::CXXMemberCallExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -55713,14 +55858,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXMemberCallExpr", 
+            "deleter": "stmt_deleter<clang::CXXMemberCallExpr>::type", 
             "supers": [
                 "clang::CallExpr"
             ], 
             "name": "CXXMemberCallExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CUDAKernelCallExpr>::type", 
-            "typename": "clang::CUDAKernelCallExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -55776,14 +55922,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CUDAKernelCallExpr", 
+            "deleter": "stmt_deleter<clang::CUDAKernelCallExpr>::type", 
             "supers": [
                 "clang::CallExpr"
             ], 
             "name": "CUDAKernelCallExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXNamedCastExpr>::type", 
-            "typename": "clang::CXXNamedCastExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -55883,24 +56030,26 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXNamedCastExpr", 
+            "deleter": "stmt_deleter<clang::CXXNamedCastExpr>::type", 
             "supers": [
                 "clang::ExplicitCastExpr"
             ], 
             "name": "CXXNamedCastExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXStaticCastExpr>::type", 
-            "typename": "clang::CXXStaticCastExpr", 
+            "node": true, 
             "methods": [], 
             "is_disabled": false, 
+            "typename": "clang::CXXStaticCastExpr", 
+            "deleter": "stmt_deleter<clang::CXXStaticCastExpr>::type", 
             "supers": [
                 "clang::CXXNamedCastExpr"
             ], 
             "name": "CXXStaticCastExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXDynamicCastExpr>::type", 
-            "typename": "clang::CXXDynamicCastExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -55920,34 +56069,37 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXDynamicCastExpr", 
+            "deleter": "stmt_deleter<clang::CXXDynamicCastExpr>::type", 
             "supers": [
                 "clang::CXXNamedCastExpr"
             ], 
             "name": "CXXDynamicCastExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXReinterpretCastExpr>::type", 
-            "typename": "clang::CXXReinterpretCastExpr", 
+            "node": true, 
             "methods": [], 
             "is_disabled": false, 
+            "typename": "clang::CXXReinterpretCastExpr", 
+            "deleter": "stmt_deleter<clang::CXXReinterpretCastExpr>::type", 
             "supers": [
                 "clang::CXXNamedCastExpr"
             ], 
             "name": "CXXReinterpretCastExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXConstCastExpr>::type", 
-            "typename": "clang::CXXConstCastExpr", 
+            "node": true, 
             "methods": [], 
             "is_disabled": false, 
+            "typename": "clang::CXXConstCastExpr", 
+            "deleter": "stmt_deleter<clang::CXXConstCastExpr>::type", 
             "supers": [
                 "clang::CXXNamedCastExpr"
             ], 
             "name": "CXXConstCastExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::UserDefinedLiteral>::type", 
-            "typename": "clang::UserDefinedLiteral", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -56063,14 +56215,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::UserDefinedLiteral", 
+            "deleter": "stmt_deleter<clang::UserDefinedLiteral>::type", 
             "supers": [
                 "clang::CallExpr"
             ], 
             "name": "UserDefinedLiteral"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXBoolLiteralExpr>::type", 
-            "typename": "clang::CXXBoolLiteralExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -56194,14 +56347,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXBoolLiteralExpr", 
+            "deleter": "stmt_deleter<clang::CXXBoolLiteralExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXBoolLiteralExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXNullPtrLiteralExpr>::type", 
-            "typename": "clang::CXXNullPtrLiteralExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -56289,14 +56443,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXNullPtrLiteralExpr", 
+            "deleter": "stmt_deleter<clang::CXXNullPtrLiteralExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXNullPtrLiteralExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXStdInitializerListExpr>::type", 
-            "typename": "clang::CXXStdInitializerListExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -56396,14 +56551,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXStdInitializerListExpr", 
+            "deleter": "stmt_deleter<clang::CXXStdInitializerListExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXStdInitializerListExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXTypeidExpr>::type", 
-            "typename": "clang::CXXTypeidExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -56615,14 +56771,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXTypeidExpr", 
+            "deleter": "stmt_deleter<clang::CXXTypeidExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXTypeidExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::MSPropertyRefExpr>::type", 
-            "typename": "clang::MSPropertyRefExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -56786,14 +56943,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::MSPropertyRefExpr", 
+            "deleter": "stmt_deleter<clang::MSPropertyRefExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "MSPropertyRefExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::MSPropertySubscriptExpr>::type", 
-            "typename": "clang::MSPropertySubscriptExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -56961,14 +57119,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::MSPropertySubscriptExpr", 
+            "deleter": "stmt_deleter<clang::MSPropertySubscriptExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "MSPropertySubscriptExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXUuidofExpr>::type", 
-            "typename": "clang::CXXUuidofExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -57200,14 +57359,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXUuidofExpr", 
+            "deleter": "stmt_deleter<clang::CXXUuidofExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXUuidofExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXThisExpr>::type", 
-            "typename": "clang::CXXThisExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -57331,14 +57491,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXThisExpr", 
+            "deleter": "stmt_deleter<clang::CXXThisExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXThisExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXThrowExpr>::type", 
-            "typename": "clang::CXXThrowExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -57454,14 +57615,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXThrowExpr", 
+            "deleter": "stmt_deleter<clang::CXXThrowExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXThrowExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXDefaultArgExpr>::type", 
-            "typename": "clang::CXXDefaultArgExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -57609,14 +57771,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXDefaultArgExpr", 
+            "deleter": "stmt_deleter<clang::CXXDefaultArgExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXDefaultArgExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXDefaultInitExpr>::type", 
-            "typename": "clang::CXXDefaultInitExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -57732,14 +57895,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXDefaultInitExpr", 
+            "deleter": "stmt_deleter<clang::CXXDefaultInitExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXDefaultInitExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXBindTemporaryExpr>::type", 
-            "typename": "clang::CXXBindTemporaryExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -57895,14 +58059,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXBindTemporaryExpr", 
+            "deleter": "stmt_deleter<clang::CXXBindTemporaryExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXBindTemporaryExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXConstructExpr>::type", 
-            "typename": "clang::CXXConstructExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -58388,14 +58553,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXConstructExpr", 
+            "deleter": "stmt_deleter<clang::CXXConstructExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXConstructExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXFunctionalCastExpr>::type", 
-            "typename": "clang::CXXFunctionalCastExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -58503,14 +58669,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXFunctionalCastExpr", 
+            "deleter": "stmt_deleter<clang::CXXFunctionalCastExpr>::type", 
             "supers": [
                 "clang::ExplicitCastExpr"
             ], 
             "name": "CXXFunctionalCastExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXTemporaryObjectExpr>::type", 
-            "typename": "clang::CXXTemporaryObjectExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -58562,14 +58729,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXTemporaryObjectExpr", 
+            "deleter": "stmt_deleter<clang::CXXTemporaryObjectExpr>::type", 
             "supers": [
                 "clang::CXXConstructExpr"
             ], 
             "name": "CXXTemporaryObjectExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::LambdaExpr>::type", 
-            "typename": "clang::LambdaExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -58933,14 +59101,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::LambdaExpr", 
+            "deleter": "stmt_deleter<clang::LambdaExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "LambdaExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXScalarValueInitExpr>::type", 
-            "typename": "clang::CXXScalarValueInitExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -59024,14 +59193,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXScalarValueInitExpr", 
+            "deleter": "stmt_deleter<clang::CXXScalarValueInitExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXScalarValueInitExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXNewExpr>::type", 
-            "typename": "clang::CXXNewExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -59577,14 +59747,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXNewExpr", 
+            "deleter": "stmt_deleter<clang::CXXNewExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXNewExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXDeleteExpr>::type", 
-            "typename": "clang::CXXDeleteExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -59764,14 +59935,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXDeleteExpr", 
+            "deleter": "stmt_deleter<clang::CXXDeleteExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXDeleteExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXPseudoDestructorExpr>::type", 
-            "typename": "clang::CXXPseudoDestructorExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -60073,14 +60245,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXPseudoDestructorExpr", 
+            "deleter": "stmt_deleter<clang::CXXPseudoDestructorExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXPseudoDestructorExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::TypeTraitExpr>::type", 
-            "typename": "clang::TypeTraitExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -60216,14 +60389,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::TypeTraitExpr", 
+            "deleter": "stmt_deleter<clang::TypeTraitExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "TypeTraitExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ArrayTypeTraitExpr>::type", 
-            "typename": "clang::ArrayTypeTraitExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -60355,14 +60529,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ArrayTypeTraitExpr", 
+            "deleter": "stmt_deleter<clang::ArrayTypeTraitExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ArrayTypeTraitExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ExpressionTraitExpr>::type", 
-            "typename": "clang::ExpressionTraitExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -60462,14 +60637,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ExpressionTraitExpr", 
+            "deleter": "stmt_deleter<clang::ExpressionTraitExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ExpressionTraitExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::OverloadExpr>::type", 
-            "typename": "clang::OverloadExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -60733,14 +60909,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::OverloadExpr", 
+            "deleter": "stmt_deleter<clang::OverloadExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "OverloadExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::UnresolvedLookupExpr>::type", 
-            "typename": "clang::UnresolvedLookupExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -60840,14 +61017,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::UnresolvedLookupExpr", 
+            "deleter": "stmt_deleter<clang::UnresolvedLookupExpr>::type", 
             "supers": [
                 "clang::OverloadExpr"
             ], 
             "name": "UnresolvedLookupExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::DependentScopeDeclRefExpr>::type", 
-            "typename": "clang::DependentScopeDeclRefExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -61111,14 +61289,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::DependentScopeDeclRefExpr", 
+            "deleter": "stmt_deleter<clang::DependentScopeDeclRefExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "DependentScopeDeclRefExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::ExprWithCleanups>::type", 
-            "typename": "clang::ExprWithCleanups", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -61274,14 +61453,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::ExprWithCleanups", 
+            "deleter": "stmt_deleter<clang::ExprWithCleanups>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "ExprWithCleanups"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXUnresolvedConstructExpr>::type", 
-            "typename": "clang::CXXUnresolvedConstructExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -61515,14 +61695,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXUnresolvedConstructExpr", 
+            "deleter": "stmt_deleter<clang::CXXUnresolvedConstructExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXUnresolvedConstructExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXDependentScopeMemberExpr>::type", 
-            "typename": "clang::CXXDependentScopeMemberExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -61882,14 +62063,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXDependentScopeMemberExpr", 
+            "deleter": "stmt_deleter<clang::CXXDependentScopeMemberExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXDependentScopeMemberExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::UnresolvedMemberExpr>::type", 
-            "typename": "clang::UnresolvedMemberExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -62133,14 +62315,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::UnresolvedMemberExpr", 
+            "deleter": "stmt_deleter<clang::UnresolvedMemberExpr>::type", 
             "supers": [
                 "clang::OverloadExpr"
             ], 
             "name": "UnresolvedMemberExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXNoexceptExpr>::type", 
-            "typename": "clang::CXXNoexceptExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -62240,14 +62423,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXNoexceptExpr", 
+            "deleter": "stmt_deleter<clang::CXXNoexceptExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXNoexceptExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::PackExpansionExpr>::type", 
-            "typename": "clang::PackExpansionExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -62363,14 +62547,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::PackExpansionExpr", 
+            "deleter": "stmt_deleter<clang::PackExpansionExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "PackExpansionExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::SizeOfPackExpr>::type", 
-            "typename": "clang::SizeOfPackExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -62534,14 +62719,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::SizeOfPackExpr", 
+            "deleter": "stmt_deleter<clang::SizeOfPackExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "SizeOfPackExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::SubstNonTypeTemplateParmExpr>::type", 
-            "typename": "clang::SubstNonTypeTemplateParmExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -62641,14 +62827,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::SubstNonTypeTemplateParmExpr", 
+            "deleter": "stmt_deleter<clang::SubstNonTypeTemplateParmExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "SubstNonTypeTemplateParmExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::SubstNonTypeTemplateParmPackExpr>::type", 
-            "typename": "clang::SubstNonTypeTemplateParmPackExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -62748,14 +62935,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::SubstNonTypeTemplateParmPackExpr", 
+            "deleter": "stmt_deleter<clang::SubstNonTypeTemplateParmPackExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "SubstNonTypeTemplateParmPackExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::FunctionParmPackExpr>::type", 
-            "typename": "clang::FunctionParmPackExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -62875,14 +63063,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::FunctionParmPackExpr", 
+            "deleter": "stmt_deleter<clang::FunctionParmPackExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "FunctionParmPackExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::MaterializeTemporaryExpr>::type", 
-            "typename": "clang::MaterializeTemporaryExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -63052,14 +63241,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::MaterializeTemporaryExpr", 
+            "deleter": "stmt_deleter<clang::MaterializeTemporaryExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "MaterializeTemporaryExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXFoldExpr>::type", 
-            "typename": "clang::CXXFoldExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -63239,14 +63429,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXFoldExpr", 
+            "deleter": "stmt_deleter<clang::CXXFoldExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CXXFoldExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CoroutineSuspendExpr>::type", 
-            "typename": "clang::CoroutineSuspendExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -63378,14 +63569,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CoroutineSuspendExpr", 
+            "deleter": "stmt_deleter<clang::CoroutineSuspendExpr>::type", 
             "supers": [
                 "clang::Expr"
             ], 
             "name": "CoroutineSuspendExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CoawaitExpr>::type", 
-            "typename": "clang::CoawaitExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -63405,14 +63597,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CoawaitExpr", 
+            "deleter": "stmt_deleter<clang::CoawaitExpr>::type", 
             "supers": [
                 "clang::CoroutineSuspendExpr"
             ], 
             "name": "CoawaitExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CoyieldExpr>::type", 
-            "typename": "clang::CoyieldExpr", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -63432,14 +63625,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CoyieldExpr", 
+            "deleter": "stmt_deleter<clang::CoyieldExpr>::type", 
             "supers": [
                 "clang::CoroutineSuspendExpr"
             ], 
             "name": "CoyieldExpr"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXCatchStmt>::type", 
-            "typename": "clang::CXXCatchStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -63555,14 +63749,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXCatchStmt", 
+            "deleter": "stmt_deleter<clang::CXXCatchStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "CXXCatchStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXTryStmt>::type", 
-            "typename": "clang::CXXTryStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -63734,14 +63929,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXTryStmt", 
+            "deleter": "stmt_deleter<clang::CXXTryStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "CXXTryStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CXXForRangeStmt>::type", 
-            "typename": "clang::CXXForRangeStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "", 
@@ -64305,14 +64501,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CXXForRangeStmt", 
+            "deleter": "stmt_deleter<clang::CXXForRangeStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "CXXForRangeStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::MSDependentExistsStmt>::type", 
-            "typename": "clang::MSDependentExistsStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -64460,14 +64657,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::MSDependentExistsStmt", 
+            "deleter": "stmt_deleter<clang::MSDependentExistsStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "MSDependentExistsStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CoroutineBodyStmt>::type", 
-            "typename": "clang::CoroutineBodyStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -64647,14 +64845,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CoroutineBodyStmt", 
+            "deleter": "stmt_deleter<clang::CoroutineBodyStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "CoroutineBodyStmt"
         }, 
         {
-            "deleter": "stmt_deleter<clang::CoreturnStmt>::type", 
-            "typename": "clang::CoreturnStmt", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -64754,14 +64953,15 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::CoreturnStmt", 
+            "deleter": "stmt_deleter<clang::CoreturnStmt>::type", 
             "supers": [
                 "clang::Stmt"
             ], 
             "name": "CoreturnStmt"
         }, 
         {
-            "deleter": "decl_deleter<clang::FriendDecl>::type", 
-            "typename": "clang::FriendDecl", 
+            "node": true, 
             "methods": [
                 {
                     "const": "const", 
@@ -64865,6 +65065,8 @@
                 }
             ], 
             "is_disabled": false, 
+            "typename": "clang::FriendDecl", 
+            "deleter": "decl_deleter<clang::FriendDecl>::type", 
             "supers": [
                 "clang::Decl"
             ], 
