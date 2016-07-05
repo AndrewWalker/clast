@@ -23,7 +23,7 @@ def read(filename):
     return contents
 
 
-CLANG_VERSION = '390'
+CLANG_VERSION = llvm_config('--version')[0].replace('.', '')
 
 # Rely on the llvm flags being compatible with the flags from Python
 # In cases where compilation fails, consider examining the verbose logs
