@@ -14,6 +14,7 @@ import os
 import sys
 import subprocess
 import io
+import json
 
 
 
@@ -195,36 +196,47 @@ c_src = '''
 #include <clang/ASTMatchers/ASTMatchFinder.h>
 '''
 
-if __name__ == "__main__":
-    import json
-    import argparse
-
-    parser = argparse.ArgumentParser('Generate clast code')
-    parser.add_argument('-o', '--output',
-                          help    = 'output directory');
-    args = parser.parse_args(sys.argv[1:])
-
+def codegen(path):
     tu = parse(c_src)
     ctx = build_context(tu)
     ctx.set_prelude(c_src)
 
     intermediate = render_intermediate(ctx)
 
-    with open(os.path.join(args.output, 'intermediate.json'), 'w') as fh:
+    with open(os.path.join(path, 'intermediate.json'), 'w') as fh:
         fh.write(json.dumps(intermediate, indent=4))
 
-    with open(os.path.join(args.output, '00_autogen_enums.cpp'), 'w') as fh:
+    with open(os.path.join(path, '00_autogen_enums.cpp'), 'w') as fh:
         fh.write(render_result(template='enum_module.j2', model=intermediate)) 
 
+    # in cases where optimisation is required, clast is so slow (and memory hungry)
+    # to build, that you really want to divide the build process into smaller pieces
     pages = list(pagination(intermediate['classes'], chunksize=50))
 
-    with open(os.path.join(args.output, 'autogen_classes.cpp'), 'w') as fh:
+    with open(os.path.join(path, 'autogen_classes.cpp'), 'w') as fh:
         fh.write(render_result(template='allclass_template.j2', model=intermediate, pagecnt=len(pages))) 
 
-    with open(os.path.join(args.output, 'autogen_dyntypenode.cpp'), 'w') as fh:
+    with open(os.path.join(path, 'autogen_dyntypenode.cpp'), 'w') as fh:
         fh.write(render_result(template='dyntyped_node_template.j2', model=intermediate)) 
 
     for page in pages:
-        with open(os.path.join(args.output, '%02d_autogen_classes.cpp' % (page.idx+1)), 'w') as fh:
+        with open(os.path.join(path, '%02d_autogen_classes.cpp' % (page.idx+1)), 'w') as fh:
             fh.write(render_result(template='class_module.j2', model=intermediate, page=page)) 
 
+
+if __name__ == "__main__":
+    if 'LLVM_HOME' not in os.environ:
+        print 'LLVM_HOME is undefined, giving up on code generation'
+        sys.exit(1)
+
+    import argparse
+
+    default_output_dir = llvm_config('--version')[0].replace('.', '')
+    default_output_dir = os.path.join('src', default_output_dir)
+    parser = argparse.ArgumentParser('Generate clast code')
+    parser.add_argument('-o', '--output',
+                        default = default_output_dir,
+                        help    = 'output directory');
+
+    args = parser.parse_args(sys.argv[1:])
+    codegen(args.output)
