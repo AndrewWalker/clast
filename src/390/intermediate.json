@@ -1,6 +1,18 @@
 {
     "enums": [
         {
+            "typename": "clang::ASTContext::GetBuiltinTypeError", 
+            "xitems": [
+                "GE_None", 
+                "GE_Missing_stdio", 
+                "GE_Missing_setjmp", 
+                "GE_Missing_ucontext"
+            ], 
+            "anon": false, 
+            "parent": "clang::ASTContext", 
+            "name": "GetBuiltinTypeError"
+        }, 
+        {
             "typename": "clang::AccessSpecifier", 
             "xitems": [
                 "AS_public", 
@@ -133,6 +145,29 @@
             "name": "BuiltinTemplateKind"
         }, 
         {
+            "typename": "clang::CXXConstructExpr::ConstructionKind", 
+            "xitems": [
+                "CK_Complete", 
+                "CK_NonVirtualBase", 
+                "CK_VirtualBase", 
+                "CK_Delegating"
+            ], 
+            "anon": false, 
+            "parent": "clang::CXXConstructExpr", 
+            "name": "ConstructionKind"
+        }, 
+        {
+            "typename": "clang::CXXNewExpr::InitializationStyle", 
+            "xitems": [
+                "NoInit", 
+                "CallInit", 
+                "ListInit"
+            ], 
+            "anon": false, 
+            "parent": "clang::CXXNewExpr", 
+            "name": "InitializationStyle"
+        }, 
+        {
             "typename": "clang::CallingConv", 
             "xitems": [
                 "CC_C", 
@@ -244,111 +279,6 @@
             "name": "CharacterKind"
         }, 
         {
-            "typename": "clang::SrcMgr::CharacteristicKind", 
-            "xitems": [
-                "C_User", 
-                "C_System", 
-                "C_ExternCSystem"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "CharacteristicKind"
-        }, 
-        {
-            "typename": "clang::CXXConstructExpr::ConstructionKind", 
-            "xitems": [
-                "CK_Complete", 
-                "CK_NonVirtualBase", 
-                "CK_VirtualBase", 
-                "CK_Delegating"
-            ], 
-            "anon": false, 
-            "parent": "clang::CXXConstructExpr", 
-            "name": "ConstructionKind"
-        }, 
-        {
-            "typename": "clang::VarDecl::DefinitionKind", 
-            "xitems": [
-                "DeclarationOnly", 
-                "TentativeDefinition", 
-                "Definition"
-            ], 
-            "anon": false, 
-            "parent": "clang::VarDecl", 
-            "name": "DefinitionKind"
-        }, 
-        {
-            "typename": "clang::QualType::DestructionKind", 
-            "xitems": [
-                "DK_none", 
-                "DK_cxx_destructor", 
-                "DK_objc_strong_lifetime", 
-                "DK_objc_weak_lifetime"
-            ], 
-            "anon": false, 
-            "parent": "clang::QualType", 
-            "name": "DestructionKind"
-        }, 
-        {
-            "typename": "clang::ElaboratedTypeKeyword", 
-            "xitems": [
-                "ETK_Struct", 
-                "ETK_Interface", 
-                "ETK_Union", 
-                "ETK_Class", 
-                "ETK_Enum", 
-                "ETK_Typename", 
-                "ETK_None"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "ElaboratedTypeKeyword"
-        }, 
-        {
-            "typename": "clang::NamedDecl::ExplicitVisibilityKind", 
-            "xitems": [
-                "VisibilityForType", 
-                "VisibilityForValue"
-            ], 
-            "anon": false, 
-            "parent": "clang::NamedDecl", 
-            "name": "ExplicitVisibilityKind"
-        }, 
-        {
-            "typename": "clang::ExprObjectKind", 
-            "xitems": [
-                "OK_Ordinary", 
-                "OK_BitField", 
-                "OK_VectorComponent", 
-                "OK_ObjCProperty", 
-                "OK_ObjCSubscript"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "ExprObjectKind"
-        }, 
-        {
-            "typename": "clang::ExprValueKind", 
-            "xitems": [
-                "VK_RValue", 
-                "VK_LValue", 
-                "VK_XValue"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "ExprValueKind"
-        }, 
-        {
-            "typename": "clang::ExpressionTrait", 
-            "xitems": [
-                "ET_IsLValueExpr", 
-                "ET_IsRValueExpr"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "ExpressionTrait"
-        }, 
-        {
             "typename": "clang::Decl::FriendObjectKind", 
             "xitems": [
                 "FOK_None", 
@@ -358,90 +288,6 @@
             "anon": false, 
             "parent": "clang::Decl", 
             "name": "FriendObjectKind"
-        }, 
-        {
-            "typename": "clang::Qualifiers::GC", 
-            "xitems": [
-                "GCNone", 
-                "Weak", 
-                "Strong"
-            ], 
-            "anon": false, 
-            "parent": "clang::Qualifiers", 
-            "name": "GC"
-        }, 
-        {
-            "typename": "clang::GVALinkage", 
-            "xitems": [
-                "GVA_Internal", 
-                "GVA_AvailableExternally", 
-                "GVA_DiscardableODR", 
-                "GVA_StrongExternal", 
-                "GVA_StrongODR"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "GVALinkage"
-        }, 
-        {
-            "typename": "clang::ASTContext::GetBuiltinTypeError", 
-            "xitems": [
-                "GE_None", 
-                "GE_Missing_stdio", 
-                "GE_Missing_setjmp", 
-                "GE_Missing_ucontext"
-            ], 
-            "anon": false, 
-            "parent": "clang::ASTContext", 
-            "name": "GetBuiltinTypeError"
-        }, 
-        {
-            "typename": "clang::PredefinedExpr::IdentType", 
-            "xitems": [
-                "Func", 
-                "Function", 
-                "LFunction", 
-                "FuncDName", 
-                "FuncSig", 
-                "PrettyFunction", 
-                "PrettyFunctionNoVirtual"
-            ], 
-            "anon": false, 
-            "parent": "clang::PredefinedExpr", 
-            "name": "IdentType"
-        }, 
-        {
-            "typename": "clang::InClassInitStyle", 
-            "xitems": [
-                "ICIS_NoInit", 
-                "ICIS_CopyInit", 
-                "ICIS_ListInit"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "InClassInitStyle"
-        }, 
-        {
-            "typename": "clang::CXXNewExpr::InitializationStyle", 
-            "xitems": [
-                "NoInit", 
-                "CallInit", 
-                "ListInit"
-            ], 
-            "anon": false, 
-            "parent": "clang::CXXNewExpr", 
-            "name": "InitializationStyle"
-        }, 
-        {
-            "typename": "clang::VarDecl::InitializationStyle", 
-            "xitems": [
-                "CInit", 
-                "CallInit", 
-                "ListInit"
-            ], 
-            "anon": false, 
-            "parent": "clang::VarDecl", 
-            "name": "InitializationStyle"
         }, 
         {
             "typename": "clang::Decl::Kind", 
@@ -557,81 +403,20 @@
             "name": "Kind"
         }, 
         {
-            "typename": "clang::Expr::LValueClassification", 
+            "typename": "clang::Decl::ObjCDeclQualifier", 
             "xitems": [
-                "LV_Valid", 
-                "LV_NotObjectType", 
-                "LV_IncompleteVoidType", 
-                "LV_DuplicateVectorComponents", 
-                "LV_InvalidExpression", 
-                "LV_InvalidMessageExpression", 
-                "LV_MemberFunction", 
-                "LV_SubObjCPropertySetting", 
-                "LV_ClassTemporary", 
-                "LV_ArrayTemporary"
+                "OBJC_TQ_None", 
+                "OBJC_TQ_In", 
+                "OBJC_TQ_Inout", 
+                "OBJC_TQ_Out", 
+                "OBJC_TQ_Bycopy", 
+                "OBJC_TQ_Byref", 
+                "OBJC_TQ_Oneway", 
+                "OBJC_TQ_CSNullability"
             ], 
             "anon": false, 
-            "parent": "clang::Expr", 
-            "name": "LValueClassification"
-        }, 
-        {
-            "typename": "clang::LambdaCaptureDefault", 
-            "xitems": [
-                "LCD_None", 
-                "LCD_ByCopy", 
-                "LCD_ByRef"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "LambdaCaptureDefault"
-        }, 
-        {
-            "typename": "clang::LinkageSpecDecl::LanguageIDs", 
-            "xitems": [
-                "lang_c", 
-                "lang_cxx"
-            ], 
-            "anon": false, 
-            "parent": "clang::LinkageSpecDecl", 
-            "name": "LanguageIDs"
-        }, 
-        {
-            "typename": "clang::LanguageLinkage", 
-            "xitems": [
-                "CLanguageLinkage", 
-                "CXXLanguageLinkage", 
-                "NoLanguageLinkage"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "LanguageLinkage"
-        }, 
-        {
-            "typename": "clang::Linkage", 
-            "xitems": [
-                "NoLinkage", 
-                "InternalLinkage", 
-                "UniqueExternalLinkage", 
-                "VisibleNoLinkage", 
-                "ExternalLinkage"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "Linkage"
-        }, 
-        {
-            "typename": "clang::UserDefinedLiteral::LiteralOperatorKind", 
-            "xitems": [
-                "LOK_Raw", 
-                "LOK_Template", 
-                "LOK_Integer", 
-                "LOK_Floating", 
-                "LOK_String", 
-                "LOK_Character"
-            ], 
-            "anon": false, 
-            "parent": "clang::UserDefinedLiteral", 
-            "name": "LiteralOperatorKind"
+            "parent": "clang::Decl", 
+            "name": "ObjCDeclQualifier"
         }, 
         {
             "typename": "clang::DeclarationName::NameKind", 
@@ -650,6 +435,39 @@
             "anon": false, 
             "parent": "clang::DeclarationName", 
             "name": "NameKind"
+        }, 
+        {
+            "typename": "clang::ElaboratedTypeKeyword", 
+            "xitems": [
+                "ETK_Struct", 
+                "ETK_Interface", 
+                "ETK_Union", 
+                "ETK_Class", 
+                "ETK_Enum", 
+                "ETK_Typename", 
+                "ETK_None"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "ElaboratedTypeKeyword"
+        }, 
+        {
+            "typename": "clang::Expr::LValueClassification", 
+            "xitems": [
+                "LV_Valid", 
+                "LV_NotObjectType", 
+                "LV_IncompleteVoidType", 
+                "LV_DuplicateVectorComponents", 
+                "LV_InvalidExpression", 
+                "LV_InvalidMessageExpression", 
+                "LV_MemberFunction", 
+                "LV_SubObjCPropertySetting", 
+                "LV_ClassTemporary", 
+                "LV_ArrayTemporary"
+            ], 
+            "anon": false, 
+            "parent": "clang::Expr", 
+            "name": "LValueClassification"
         }, 
         {
             "typename": "clang::Expr::NullPointerConstantKind", 
@@ -676,33 +494,165 @@
             "name": "NullPointerConstantValueDependence"
         }, 
         {
-            "typename": "clang::Decl::ObjCDeclQualifier", 
+            "typename": "clang::Expr::SideEffectsKind", 
             "xitems": [
-                "OBJC_TQ_None", 
-                "OBJC_TQ_In", 
-                "OBJC_TQ_Inout", 
-                "OBJC_TQ_Out", 
-                "OBJC_TQ_Bycopy", 
-                "OBJC_TQ_Byref", 
-                "OBJC_TQ_Oneway", 
-                "OBJC_TQ_CSNullability"
+                "SE_NoSideEffects", 
+                "SE_AllowUndefinedBehavior", 
+                "SE_AllowSideEffects"
             ], 
             "anon": false, 
-            "parent": "clang::Decl", 
-            "name": "ObjCDeclQualifier"
+            "parent": "clang::Expr", 
+            "name": "SideEffectsKind"
         }, 
         {
-            "typename": "clang::Qualifiers::ObjCLifetime", 
+            "typename": "clang::Expr::isModifiableLvalueResult", 
             "xitems": [
-                "OCL_None", 
-                "OCL_ExplicitNone", 
-                "OCL_Strong", 
-                "OCL_Weak", 
-                "OCL_Autoreleasing"
+                "MLV_Valid", 
+                "MLV_NotObjectType", 
+                "MLV_IncompleteVoidType", 
+                "MLV_DuplicateVectorComponents", 
+                "MLV_InvalidExpression", 
+                "MLV_LValueCast", 
+                "MLV_IncompleteType", 
+                "MLV_ConstQualified", 
+                "MLV_ConstAddrSpace", 
+                "MLV_ArrayType", 
+                "MLV_NoSetterProperty", 
+                "MLV_MemberFunction", 
+                "MLV_SubObjCPropertySetting", 
+                "MLV_InvalidMessageExpression", 
+                "MLV_ClassTemporary", 
+                "MLV_ArrayTemporary"
             ], 
             "anon": false, 
-            "parent": "clang::Qualifiers", 
-            "name": "ObjCLifetime"
+            "parent": "clang::Expr", 
+            "name": "isModifiableLvalueResult"
+        }, 
+        {
+            "typename": "clang::ExprObjectKind", 
+            "xitems": [
+                "OK_Ordinary", 
+                "OK_BitField", 
+                "OK_VectorComponent", 
+                "OK_ObjCProperty", 
+                "OK_ObjCSubscript"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "ExprObjectKind"
+        }, 
+        {
+            "typename": "clang::ExprValueKind", 
+            "xitems": [
+                "VK_RValue", 
+                "VK_LValue", 
+                "VK_XValue"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "ExprValueKind"
+        }, 
+        {
+            "typename": "clang::ExpressionTrait", 
+            "xitems": [
+                "ET_IsLValueExpr", 
+                "ET_IsRValueExpr"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "ExpressionTrait"
+        }, 
+        {
+            "typename": "clang::FunctionDecl::TemplatedKind", 
+            "xitems": [
+                "TK_NonTemplate", 
+                "TK_FunctionTemplate", 
+                "TK_MemberSpecialization", 
+                "TK_FunctionTemplateSpecialization", 
+                "TK_DependentFunctionTemplateSpecialization"
+            ], 
+            "anon": false, 
+            "parent": "clang::FunctionDecl", 
+            "name": "TemplatedKind"
+        }, 
+        {
+            "typename": "clang::GVALinkage", 
+            "xitems": [
+                "GVA_Internal", 
+                "GVA_AvailableExternally", 
+                "GVA_DiscardableODR", 
+                "GVA_StrongExternal", 
+                "GVA_StrongODR"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "GVALinkage"
+        }, 
+        {
+            "typename": "clang::InClassInitStyle", 
+            "xitems": [
+                "ICIS_NoInit", 
+                "ICIS_CopyInit", 
+                "ICIS_ListInit"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "InClassInitStyle"
+        }, 
+        {
+            "typename": "clang::LambdaCaptureDefault", 
+            "xitems": [
+                "LCD_None", 
+                "LCD_ByCopy", 
+                "LCD_ByRef"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "LambdaCaptureDefault"
+        }, 
+        {
+            "typename": "clang::LanguageLinkage", 
+            "xitems": [
+                "CLanguageLinkage", 
+                "CXXLanguageLinkage", 
+                "NoLanguageLinkage"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "LanguageLinkage"
+        }, 
+        {
+            "typename": "clang::Linkage", 
+            "xitems": [
+                "NoLinkage", 
+                "InternalLinkage", 
+                "UniqueExternalLinkage", 
+                "VisibleNoLinkage", 
+                "ExternalLinkage"
+            ], 
+            "anon": false, 
+            "parent": null, 
+            "name": "Linkage"
+        }, 
+        {
+            "typename": "clang::LinkageSpecDecl::LanguageIDs", 
+            "xitems": [
+                "lang_c", 
+                "lang_cxx"
+            ], 
+            "anon": false, 
+            "parent": "clang::LinkageSpecDecl", 
+            "name": "LanguageIDs"
+        }, 
+        {
+            "typename": "clang::NamedDecl::ExplicitVisibilityKind", 
+            "xitems": [
+                "VisibilityForType", 
+                "VisibilityForValue"
+            ], 
+            "anon": false, 
+            "parent": "clang::NamedDecl", 
+            "name": "ExplicitVisibilityKind"
         }, 
         {
             "typename": "clang::ObjCStringFormatFamily", 
@@ -797,6 +747,57 @@
             "name": "PragmaMSCommentKind"
         }, 
         {
+            "typename": "clang::PredefinedExpr::IdentType", 
+            "xitems": [
+                "Func", 
+                "Function", 
+                "LFunction", 
+                "FuncDName", 
+                "FuncSig", 
+                "PrettyFunction", 
+                "PrettyFunctionNoVirtual"
+            ], 
+            "anon": false, 
+            "parent": "clang::PredefinedExpr", 
+            "name": "IdentType"
+        }, 
+        {
+            "typename": "clang::QualType::DestructionKind", 
+            "xitems": [
+                "DK_none", 
+                "DK_cxx_destructor", 
+                "DK_objc_strong_lifetime", 
+                "DK_objc_weak_lifetime"
+            ], 
+            "anon": false, 
+            "parent": "clang::QualType", 
+            "name": "DestructionKind"
+        }, 
+        {
+            "typename": "clang::Qualifiers::GC", 
+            "xitems": [
+                "GCNone", 
+                "Weak", 
+                "Strong"
+            ], 
+            "anon": false, 
+            "parent": "clang::Qualifiers", 
+            "name": "GC"
+        }, 
+        {
+            "typename": "clang::Qualifiers::ObjCLifetime", 
+            "xitems": [
+                "OCL_None", 
+                "OCL_ExplicitNone", 
+                "OCL_Strong", 
+                "OCL_Weak", 
+                "OCL_Autoreleasing"
+            ], 
+            "anon": false, 
+            "parent": "clang::Qualifiers", 
+            "name": "ObjCLifetime"
+        }, 
+        {
             "typename": "clang::RefQualifierKind", 
             "xitems": [
                 "RQ_None", 
@@ -808,32 +809,15 @@
             "name": "RefQualifierKind"
         }, 
         {
-            "typename": "clang::Type::ScalarTypeKind", 
+            "typename": "clang::SrcMgr::CharacteristicKind", 
             "xitems": [
-                "STK_CPointer", 
-                "STK_BlockPointer", 
-                "STK_ObjCObjectPointer", 
-                "STK_MemberPointer", 
-                "STK_Bool", 
-                "STK_Integral", 
-                "STK_Floating", 
-                "STK_IntegralComplex", 
-                "STK_FloatingComplex"
+                "C_User", 
+                "C_System", 
+                "C_ExternCSystem"
             ], 
             "anon": false, 
-            "parent": "clang::Type", 
-            "name": "ScalarTypeKind"
-        }, 
-        {
-            "typename": "clang::Expr::SideEffectsKind", 
-            "xitems": [
-                "SE_NoSideEffects", 
-                "SE_AllowUndefinedBehavior", 
-                "SE_AllowSideEffects"
-            ], 
-            "anon": false, 
-            "parent": "clang::Expr", 
-            "name": "SideEffectsKind"
+            "parent": null, 
+            "name": "CharacteristicKind"
         }, 
         {
             "typename": "clang::Stmt::StmtClass", 
@@ -1089,17 +1073,6 @@
             "name": "StringKind"
         }, 
         {
-            "typename": "clang::VarDecl::TLSKind", 
-            "xitems": [
-                "TLS_None", 
-                "TLS_Static", 
-                "TLS_Dynamic"
-            ], 
-            "anon": false, 
-            "parent": "clang::VarDecl", 
-            "name": "TLSKind"
-        }, 
-        {
             "typename": "clang::TagTypeKind", 
             "xitems": [
                 "TTK_Struct", 
@@ -1126,19 +1099,6 @@
             "name": "TemplateSpecializationKind"
         }, 
         {
-            "typename": "clang::FunctionDecl::TemplatedKind", 
-            "xitems": [
-                "TK_NonTemplate", 
-                "TK_FunctionTemplate", 
-                "TK_MemberSpecialization", 
-                "TK_FunctionTemplateSpecialization", 
-                "TK_DependentFunctionTemplateSpecialization"
-            ], 
-            "anon": false, 
-            "parent": "clang::FunctionDecl", 
-            "name": "TemplatedKind"
-        }, 
-        {
             "typename": "clang::ThreadStorageClassSpecifier", 
             "xitems": [
                 "TSCS_unspecified", 
@@ -1149,6 +1109,23 @@
             "anon": false, 
             "parent": null, 
             "name": "ThreadStorageClassSpecifier"
+        }, 
+        {
+            "typename": "clang::Type::ScalarTypeKind", 
+            "xitems": [
+                "STK_CPointer", 
+                "STK_BlockPointer", 
+                "STK_ObjCObjectPointer", 
+                "STK_MemberPointer", 
+                "STK_Bool", 
+                "STK_Integral", 
+                "STK_Floating", 
+                "STK_IntegralComplex", 
+                "STK_FloatingComplex"
+            ], 
+            "anon": false, 
+            "parent": "clang::Type", 
+            "name": "ScalarTypeKind"
         }, 
         {
             "typename": "clang::Type::TypeClass", 
@@ -1308,6 +1285,53 @@
             "name": "UnaryOperatorKind"
         }, 
         {
+            "typename": "clang::UserDefinedLiteral::LiteralOperatorKind", 
+            "xitems": [
+                "LOK_Raw", 
+                "LOK_Template", 
+                "LOK_Integer", 
+                "LOK_Floating", 
+                "LOK_String", 
+                "LOK_Character"
+            ], 
+            "anon": false, 
+            "parent": "clang::UserDefinedLiteral", 
+            "name": "LiteralOperatorKind"
+        }, 
+        {
+            "typename": "clang::VarDecl::DefinitionKind", 
+            "xitems": [
+                "DeclarationOnly", 
+                "TentativeDefinition", 
+                "Definition"
+            ], 
+            "anon": false, 
+            "parent": "clang::VarDecl", 
+            "name": "DefinitionKind"
+        }, 
+        {
+            "typename": "clang::VarDecl::InitializationStyle", 
+            "xitems": [
+                "CInit", 
+                "CallInit", 
+                "ListInit"
+            ], 
+            "anon": false, 
+            "parent": "clang::VarDecl", 
+            "name": "InitializationStyle"
+        }, 
+        {
+            "typename": "clang::VarDecl::TLSKind", 
+            "xitems": [
+                "TLS_None", 
+                "TLS_Static", 
+                "TLS_Dynamic"
+            ], 
+            "anon": false, 
+            "parent": "clang::VarDecl", 
+            "name": "TLSKind"
+        }, 
+        {
             "typename": "clang::Visibility", 
             "xitems": [
                 "HiddenVisibility", 
@@ -1317,30 +1341,6 @@
             "anon": false, 
             "parent": null, 
             "name": "Visibility"
-        }, 
-        {
-            "typename": "clang::Expr::isModifiableLvalueResult", 
-            "xitems": [
-                "MLV_Valid", 
-                "MLV_NotObjectType", 
-                "MLV_IncompleteVoidType", 
-                "MLV_DuplicateVectorComponents", 
-                "MLV_InvalidExpression", 
-                "MLV_LValueCast", 
-                "MLV_IncompleteType", 
-                "MLV_ConstQualified", 
-                "MLV_ConstAddrSpace", 
-                "MLV_ArrayType", 
-                "MLV_NoSetterProperty", 
-                "MLV_MemberFunction", 
-                "MLV_SubObjCPropertySetting", 
-                "MLV_InvalidMessageExpression", 
-                "MLV_ClassTemporary", 
-                "MLV_ArrayTemporary"
-            ], 
-            "anon": false, 
-            "parent": "clang::Expr", 
-            "name": "isModifiableLvalueResult"
         }
     ], 
     "classes": [
