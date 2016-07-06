@@ -37,7 +37,10 @@ void matchString(const std::string& code, MatchFinder& finder,
     std::vector<std::string> args = {compileArgs, "-frtti", "-fexceptions",
                                      "-target", "i386-unknown-unknown"};
     runToolOnCodeWithArgs(
-        Factory->create(), code, args, filename, "clang-tool",
+        Factory->create(), code, args, filename, 
+#if __clang_minor__ > 8
+	"clang-tool",
+#endif
         std::make_shared<clang::PCHContainerOperations>(), 
         VirtualMappedFiles);
 }
