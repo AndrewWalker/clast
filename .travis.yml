@@ -1,19 +1,56 @@
 language: python
-sudo: required
-dist: trusty
-python:
-    - "2.7"
-before_install:
-    - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
-    - echo "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main" | sudo tee -a /etc/apt/sources.list
-    - sudo apt-get update -qq
-    - sudo apt-get install -y clang-3.8 libclang-common-3.8-dev libclang-3.8-dev llvm-3.8-dev liblldb-3.8-dev python-clang-3.8
-    - export LLVM_HOME=/usr/lib/llvm-3.8
-    - export CC=$LLVM_HOME/bin/clang
-    - export CXX=$LLVM_HOME/bin/clang++
+python: "2.7"
+env:
+  - LLVM_HOME=/usr/lib/llvm-3.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-precise-3.8
+    packages:
+      - clang-3.8 
+      - libclang-common-3.8-dev 
+      - libclang-3.8-dev 
+      - llvm-3.8-dev 
+      - liblldb-3.8-dev 
+      - python-clang-3.8
+matrix:
+  include:
+    - python: "2.7"
+      env:
+        - LLVM_HOME=/usr/lib/llvm-3.9
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise
+          packages:
+            - clang-3.9 
+            - libclang-common-3.9-dev 
+            - libclang-3.9-dev 
+            - llvm-3.9-dev 
+            - liblldb-3.9-dev 
+            - python-clang-3.9
+    - python: "3.5"
+      env:
+        - LLVM_HOME=/usr/lib/llvm-3.8
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.8
+          packages:
+            - clang-3.8 
+            - libclang-common-3.8-dev 
+            - libclang-3.8-dev 
+            - llvm-3.8-dev 
+            - liblldb-3.8-dev 
+            - python-clang-3.8
 install:
-    - python setup.py sdist
-    - pip install --verbose dist/*.tar.gz
+  - export CC=$LLVM_HOME/bin/clang
+  - export CXX=$LLVM_HOME/bin/clang++
+  - if [[ $TRAVIS_PYTHON_VERSION == 2* ]]; then ln -s /usr/lib/python2.7/dist-packages/clang; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then pip install libclang-py3; fi
+  - pip install pybind11
 script:
-    - coverage run setup.py test
-    - coverage report --show-missing
+  - pip install -v .
