@@ -17,6 +17,14 @@ import io
 import json
 
 
+def clang_version():
+    llvm_home = os.environ['LLVM_HOME']
+    binary = os.path.join(llvm_home, 'bin', 'clang')
+    res = subprocess.check_output([binary, '--version']).split()
+    if sys.version_info.major >= 3:
+        return [p.decode('utf-8') for p in res]
+    return res
+
 
 def llvm_config(arg):
     llvm_home = os.environ['LLVM_HOME']
@@ -181,6 +189,7 @@ def render_result(template, **kwargs):
 
 def build_context(tu):
     ctx = Context()
+    ctx.set_clang_version(clang_version())
     find_typedefs(tu, ctx)
     find_classes(tu, ctx)
     find_methods(ctx)
