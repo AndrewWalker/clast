@@ -1,23 +1,26 @@
 language: python
-python: "2.7"
-env:
-  - LLVM_HOME=/usr/lib/llvm-3.8
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-      - llvm-toolchain-precise-3.8
-    packages:
-      - clang-3.8 
-      - libclang-common-3.8-dev 
-      - libclang-3.8-dev 
-      - llvm-3.8-dev 
-      - liblldb-3.8-dev 
-      - python-clang-3.8
+
 matrix:
   include:
     - python: "2.7"
       env:
+        - LLVM_VER=3.8
+        - LLVM_HOME=/usr/lib/llvm-3.8
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.8
+          packages:
+            - clang-3.8 
+            - libclang-common-3.8-dev 
+            - libclang-3.8-dev 
+            - llvm-3.8-dev 
+            - liblldb-3.8-dev 
+            - python-clang-3.8
+    - python: "2.7"
+      env:
+        - LLVM_VER=3.9
         - LLVM_HOME=/usr/lib/llvm-3.9
       addons:
         apt:
@@ -33,6 +36,7 @@ matrix:
             - python-clang-3.9
     - python: "3.5"
       env:
+        - LLVM_VER=3.8
         - LLVM_HOME=/usr/lib/llvm-3.8
       addons:
         apt:
@@ -51,6 +55,12 @@ install:
   - export CXX=$LLVM_HOME/bin/clang++
   - if [[ $TRAVIS_PYTHON_VERSION == 2* ]]; then ln -s /usr/lib/python2.7/dist-packages/clang; fi
   - if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then pip install libclang-py3; fi
+  - |
+    if [[ "$LLVM_VER" == "3.9" ]];
+    then
+      pip install -r clastgen/requirements.txt
+      python codegen.py
+    fi
   - pip install pybind11
 script:
   - pip install -v .
