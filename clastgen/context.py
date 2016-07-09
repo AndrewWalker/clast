@@ -12,6 +12,10 @@ class Context(object):
         self._methods = collections.defaultdict(list)
         self._meta = {}
         self._prelude = ''
+        self._clang_version = ''
+
+    def set_clang_version(self, version):
+        self._clang_version = version
 
     def set_prelude(self, src):
         self._prelude = src
@@ -36,6 +40,10 @@ class Context(object):
         if cursor.hash not in self._meta:
             self._meta[cursor.hash] = {}
         self._meta[cursor.hash].update(kwargs)
+
+    @property
+    def clang_version(self):
+        return self._clang_version
 
     @property
     def prelude(self):
