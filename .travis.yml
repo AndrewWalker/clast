@@ -49,7 +49,6 @@ matrix:
             - libclang-3.8-dev 
             - llvm-3.8-dev 
             - liblldb-3.8-dev 
-            - python-clang-3.8
     - python: "3.5"
       env:
         - LLVM_VER=3.9
@@ -65,7 +64,6 @@ matrix:
             - libclang-3.9-dev 
             - llvm-3.9-dev 
             - liblldb-3.9-dev 
-            - python-clang-3.9
 install:
   - export CC=$LLVM_HOME/bin/clang
   - export CXX=$LLVM_HOME/bin/clang++
