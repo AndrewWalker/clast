@@ -20,9 +20,9 @@ import json
 def clang_version():
     llvm_home = os.environ['LLVM_HOME']
     binary = os.path.join(llvm_home, 'bin', 'clang')
-    res = subprocess.check_output([binary, '--version']).split()
+    res = subprocess.check_output([binary, '--version'])
     if sys.version_info.major >= 3:
-        return [p.decode('utf-8') for p in res]
+        return res.decode('utf-8')
     return res
 
 

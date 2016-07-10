@@ -13,6 +13,18 @@
             "name": "GetBuiltinTypeError"
         }, 
         {
+            "typename": "clang::ASTContext::InlineVariableDefinitionKind", 
+            "xitems": [
+                "None", 
+                "Weak", 
+                "WeakUnknown", 
+                "Strong"
+            ], 
+            "anon": false, 
+            "parent": "clang::ASTContext", 
+            "name": "InlineVariableDefinitionKind"
+        }, 
+        {
             "typename": "clang::AccessSpecifier", 
             "xitems": [
                 "AS_public", 
@@ -182,7 +194,7 @@
                 "CC_AAPCS_VFP", 
                 "CC_IntelOclBicc", 
                 "CC_SpirFunction", 
-                "CC_SpirKernel", 
+                "CC_OpenCLKernel", 
                 "CC_Swift", 
                 "CC_PreserveMost", 
                 "CC_PreserveAll"
@@ -353,6 +365,9 @@
                 "Using", 
                 "UsingDirective", 
                 "UsingShadow", 
+                "ConstructorUsingShadow", 
+                "firstUsingShadow", 
+                "lastUsingShadow", 
                 "Field", 
                 "ObjCAtDefsField", 
                 "ObjCIvar", 
@@ -809,17 +824,6 @@
             "name": "RefQualifierKind"
         }, 
         {
-            "typename": "clang::SrcMgr::CharacteristicKind", 
-            "xitems": [
-                "C_User", 
-                "C_System", 
-                "C_ExternCSystem"
-            ], 
-            "anon": false, 
-            "parent": null, 
-            "name": "CharacteristicKind"
-        }, 
-        {
             "typename": "clang::Stmt::StmtClass", 
             "xitems": [
                 "NoStmtClass", 
@@ -864,6 +868,7 @@
                 "CXXDeleteExprClass", 
                 "CXXDependentScopeMemberExprClass", 
                 "CXXFoldExprClass", 
+                "CXXInheritedCtorInitExprClass", 
                 "CXXNewExprClass", 
                 "CXXNoexceptExprClass", 
                 "CXXNullPtrLiteralExprClass", 
@@ -978,6 +983,8 @@
                 "OMPCriticalDirectiveClass", 
                 "OMPFlushDirectiveClass", 
                 "OMPDistributeDirectiveClass", 
+                "OMPDistributeParallelForDirectiveClass", 
+                "OMPDistributeParallelForSimdDirectiveClass", 
                 "OMPForDirectiveClass", 
                 "OMPForSimdDirectiveClass", 
                 "OMPParallelForDirectiveClass", 
@@ -1000,6 +1007,7 @@
                 "OMPTargetExitDataDirectiveClass", 
                 "OMPTargetParallelDirectiveClass", 
                 "OMPTargetParallelForDirectiveClass", 
+                "OMPTargetUpdateDirectiveClass", 
                 "OMPTaskDirectiveClass", 
                 "OMPTaskgroupDirectiveClass", 
                 "OMPTaskwaitDirectiveClass", 
@@ -1239,6 +1247,7 @@
                 "BTT_IsConvertibleTo", 
                 "BTT_IsSame", 
                 "BTT_TypeCompatible", 
+                "BTT_IsAssignable", 
                 "BTT_IsNothrowAssignable", 
                 "BTT_IsTriviallyAssignable", 
                 "BTT_Last", 
@@ -1348,6 +1357,22 @@
             "node": false, 
             "typename": "llvm::StringRef", 
             "methods": [
+                {
+                    "const": "const", 
+                    "name": "bytes", 
+                    "parent": "llvm::StringRef", 
+                    "is_disabled": true, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "iterator_range<const unsigned char *> () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "iterator_range<const unsigned char *> (llvm::StringRef::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "llvm::iterator_range<const unsigned char *>", 
+                    "mode": "long"
+                }, 
                 {
                     "const": "const", 
                     "name": "data", 
@@ -1556,7 +1581,7 @@
                     "const": "const", 
                     "name": "str", 
                     "parent": "llvm::StringRef", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string () const", 
@@ -1936,7 +1961,7 @@
                     "const": "const", 
                     "name": "lower", 
                     "parent": "llvm::StringRef", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string () const", 
@@ -1952,7 +1977,7 @@
                     "const": "const", 
                     "name": "upper", 
                     "parent": "llvm::StringRef", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string () const", 
@@ -2431,7 +2456,7 @@
                     "const": "const", 
                     "name": "printToString", 
                     "parent": "clang::SourceLocation", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string (const clang::SourceManager &) const", 
@@ -2689,7 +2714,7 @@
                     "const": "const", 
                     "name": "getAsString", 
                     "parent": "clang::DeclarationName", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string () const", 
@@ -3148,7 +3173,7 @@
                     "const": "const", 
                     "name": "getAsString", 
                     "parent": "clang::DeclarationNameInfo", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string () const", 
@@ -4016,7 +4041,7 @@
                     "const": "const", 
                     "name": "getAvailability", 
                     "parent": "clang::Decl", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "clang::AvailabilityResult (std::string *) const", 
@@ -4036,7 +4061,7 @@
                     "const": "const", 
                     "name": "isDeprecated", 
                     "parent": "clang::Decl", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "bool (std::string *) const", 
@@ -4056,7 +4081,7 @@
                     "const": "const", 
                     "name": "isUnavailable", 
                     "parent": "clang::Decl", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "bool (std::string *) const", 
@@ -6419,6 +6444,94 @@
                     "mode": "long"
                 }, 
                 {
+                    "const": "", 
+                    "name": "addCVRUQualifiers", 
+                    "parent": "clang::Qualifiers", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "void (unsigned int)", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "void (clang::Qualifiers::*)(unsigned int)", 
+                    "arg_names": [
+                        "mask"
+                    ], 
+                    "arg_types": [
+                        "unsigned int"
+                    ], 
+                    "result_type": "void", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "hasUnaligned", 
+                    "parent": "clang::Qualifiers", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "bool () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "bool (clang::Qualifiers::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "bool", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "setUnaligned", 
+                    "parent": "clang::Qualifiers", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "void (bool)", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "void (clang::Qualifiers::*)(bool)", 
+                    "arg_names": [
+                        "flag"
+                    ], 
+                    "arg_types": [
+                        "bool"
+                    ], 
+                    "result_type": "void", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "removeUnaligned", 
+                    "parent": "clang::Qualifiers", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "void ()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "void (clang::Qualifiers::*)()", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "void", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "addUnaligned", 
+                    "parent": "clang::Qualifiers", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "void ()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "void (clang::Qualifiers::*)()", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "void", 
+                    "mode": "long"
+                }, 
+                {
                     "const": "const", 
                     "name": "hasObjCGCAttr", 
                     "parent": "clang::Qualifiers", 
@@ -7062,7 +7175,7 @@
                     "const": "const", 
                     "name": "getAsString", 
                     "parent": "clang::Qualifiers", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": true, 
                     "is_virtual": false, 
                     "typename": "std::string () const", 
@@ -7546,15 +7659,15 @@
                     "is_disabled": false, 
                     "is_overload": true, 
                     "is_virtual": false, 
-                    "typename": "bool (clang::ASTContext &) const", 
+                    "typename": "bool (const clang::ASTContext &) const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "bool (clang::QualType::*)(clang::ASTContext &) const", 
+                    "signature": "bool (clang::QualType::*)(const clang::ASTContext &) const", 
                     "arg_names": [
                         "Ctx"
                     ], 
                     "arg_types": [
-                        "clang::ASTContext &"
+                        "const clang::ASTContext &"
                     ], 
                     "result_type": "bool", 
                     "mode": "long"
@@ -7566,15 +7679,15 @@
                     "is_disabled": false, 
                     "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "bool (clang::ASTContext &) const", 
+                    "typename": "bool (const clang::ASTContext &) const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "bool (clang::QualType::*)(clang::ASTContext &) const", 
+                    "signature": "bool (clang::QualType::*)(const clang::ASTContext &) const", 
                     "arg_names": [
                         "Context"
                     ], 
                     "arg_types": [
-                        "clang::ASTContext &"
+                        "const clang::ASTContext &"
                     ], 
                     "result_type": "bool", 
                     "mode": "long"
@@ -7586,15 +7699,15 @@
                     "is_disabled": false, 
                     "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "bool (clang::ASTContext &) const", 
+                    "typename": "bool (const clang::ASTContext &) const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "bool (clang::QualType::*)(clang::ASTContext &) const", 
+                    "signature": "bool (clang::QualType::*)(const clang::ASTContext &) const", 
                     "arg_names": [
                         "Context"
                     ], 
                     "arg_types": [
-                        "clang::ASTContext &"
+                        "const clang::ASTContext &"
                     ], 
                     "result_type": "bool", 
                     "mode": "long"
@@ -7606,15 +7719,15 @@
                     "is_disabled": false, 
                     "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "bool (clang::ASTContext &) const", 
+                    "typename": "bool (const clang::ASTContext &) const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "bool (clang::QualType::*)(clang::ASTContext &) const", 
+                    "signature": "bool (clang::QualType::*)(const clang::ASTContext &) const", 
                     "arg_names": [
                         "Context"
                     ], 
                     "arg_types": [
-                        "clang::ASTContext &"
+                        "const clang::ASTContext &"
                     ], 
                     "result_type": "bool", 
                     "mode": "long"
@@ -7626,15 +7739,15 @@
                     "is_disabled": false, 
                     "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "bool (clang::ASTContext &) const", 
+                    "typename": "bool (const clang::ASTContext &) const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "bool (clang::QualType::*)(clang::ASTContext &) const", 
+                    "signature": "bool (clang::QualType::*)(const clang::ASTContext &) const", 
                     "arg_names": [
                         "Context"
                     ], 
                     "arg_types": [
-                        "clang::ASTContext &"
+                        "const clang::ASTContext &"
                     ], 
                     "result_type": "bool", 
                     "mode": "long"
@@ -7646,15 +7759,15 @@
                     "is_disabled": false, 
                     "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "bool (clang::ASTContext &) const", 
+                    "typename": "bool (const clang::ASTContext &) const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "bool (clang::QualType::*)(clang::ASTContext &) const", 
+                    "signature": "bool (clang::QualType::*)(const clang::ASTContext &) const", 
                     "arg_names": [
                         "Context"
                     ], 
                     "arg_types": [
-                        "clang::ASTContext &"
+                        "const clang::ASTContext &"
                     ], 
                     "result_type": "bool", 
                     "mode": "long"
@@ -8171,7 +8284,7 @@
                     "const": "const", 
                     "name": "getAsString", 
                     "parent": "clang::QualType", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": true, 
                     "is_virtual": false, 
                     "typename": "std::string () const", 
@@ -8540,6 +8653,22 @@
                     "arg_types": [
                         "const clang::ASTContext &"
                     ], 
+                    "result_type": "clang::QualType", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getAtomicUnqualifiedType", 
+                    "parent": "clang::QualType", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::QualType () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::QualType (clang::QualType::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
                     "result_type": "clang::QualType", 
                     "mode": "long"
                 }
@@ -8939,15 +9068,15 @@
                     "is_disabled": false, 
                     "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "bool (clang::ASTContext &) const", 
+                    "typename": "bool (const clang::ASTContext &) const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "bool (clang::Type::*)(clang::ASTContext &) const", 
+                    "signature": "bool (clang::Type::*)(const clang::ASTContext &) const", 
                     "arg_names": [
                         "Ctx"
                     ], 
                     "arg_types": [
-                        "clang::ASTContext &"
+                        "const clang::ASTContext &"
                     ], 
                     "result_type": "bool", 
                     "mode": "long"
@@ -11278,6 +11407,22 @@
                 }, 
                 {
                     "const": "const", 
+                    "name": "getPointeeOrArrayElementType", 
+                    "parent": "clang::Type", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "const clang::Type *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "const clang::Type * (clang::Type::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "const clang::Type *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
                     "name": "getPointeeType", 
                     "parent": "clang::Type", 
                     "is_disabled": false, 
@@ -11906,7 +12051,7 @@
                     "const": "const", 
                     "name": "getNameAsString", 
                     "parent": "clang::NamedDecl", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string () const", 
@@ -12020,7 +12165,7 @@
                     "const": "const", 
                     "name": "getQualifiedNameAsString", 
                     "parent": "clang::NamedDecl", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string () const", 
@@ -13714,22 +13859,6 @@
                     "mode": "long"
                 }, 
                 {
-                    "const": "", 
-                    "name": "getOutOfLineDefinition", 
-                    "parent": "clang::VarDecl", 
-                    "is_disabled": false, 
-                    "is_overload": false, 
-                    "is_virtual": false, 
-                    "typename": "clang::VarDecl *()", 
-                    "is_pure_virtual": false, 
-                    "is_overridden": false, 
-                    "signature": "clang::VarDecl * (clang::VarDecl::*)()", 
-                    "arg_names": [], 
-                    "arg_types": [], 
-                    "result_type": "clang::VarDecl *", 
-                    "mode": "long"
-                }, 
-                {
                     "const": "const", 
                     "name": "isFileVarDecl", 
                     "parent": "clang::VarDecl", 
@@ -14158,6 +14287,70 @@
                     "arg_types": [
                         "bool"
                     ], 
+                    "result_type": "void", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "isInline", 
+                    "parent": "clang::VarDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "bool () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "bool (clang::VarDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "bool", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "isInlineSpecified", 
+                    "parent": "clang::VarDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "bool () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "bool (clang::VarDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "bool", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "setInlineSpecified", 
+                    "parent": "clang::VarDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "void ()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "void (clang::VarDecl::*)()", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "void", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "setImplicitlyInline", 
+                    "parent": "clang::VarDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "void ()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "void (clang::VarDecl::*)()", 
+                    "arg_names": [], 
+                    "arg_types": [], 
                     "result_type": "void", 
                     "mode": "long"
                 }, 
@@ -15836,50 +16029,66 @@
                 }, 
                 {
                     "const": "const", 
+                    "name": "parameters", 
+                    "parent": "clang::FunctionDecl", 
+                    "is_disabled": true, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "ArrayRef<clang::ParmVarDecl *> () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "ArrayRef<clang::ParmVarDecl *> (clang::FunctionDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "llvm::ArrayRef<clang::ParmVarDecl *>", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "parameters", 
+                    "parent": "clang::FunctionDecl", 
+                    "is_disabled": true, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "MutableArrayRef<clang::ParmVarDecl *> ()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "MutableArrayRef<clang::ParmVarDecl *> (clang::FunctionDecl::*)()", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "llvm::MutableArrayRef<clang::ParmVarDecl *>", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "param_empty", 
+                    "parent": "clang::FunctionDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "bool () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "bool (clang::FunctionDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "bool", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
                     "name": "param_size", 
                     "parent": "clang::FunctionDecl", 
                     "is_disabled": false, 
                     "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "unsigned int () const", 
+                    "typename": "size_t () const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "unsigned int (clang::FunctionDecl::*)() const", 
+                    "signature": "size_t (clang::FunctionDecl::*)() const", 
                     "arg_names": [], 
                     "arg_types": [], 
-                    "result_type": "unsigned int", 
-                    "mode": "long"
-                }, 
-                {
-                    "const": "", 
-                    "name": "params", 
-                    "parent": "clang::FunctionDecl", 
-                    "is_disabled": true, 
-                    "is_overload": true, 
-                    "is_virtual": false, 
-                    "typename": "param_range ()", 
-                    "is_pure_virtual": false, 
-                    "is_overridden": false, 
-                    "signature": "param_range (clang::FunctionDecl::*)()", 
-                    "arg_names": [], 
-                    "arg_types": [], 
-                    "result_type": "llvm::iterator_range<clang::ParmVarDecl **>", 
-                    "mode": "long"
-                }, 
-                {
-                    "const": "const", 
-                    "name": "params", 
-                    "parent": "clang::FunctionDecl", 
-                    "is_disabled": true, 
-                    "is_overload": true, 
-                    "is_virtual": false, 
-                    "typename": "param_const_range () const", 
-                    "is_pure_virtual": false, 
-                    "is_overridden": false, 
-                    "signature": "param_const_range (clang::FunctionDecl::*)() const", 
-                    "arg_names": [], 
-                    "arg_types": [], 
-                    "result_type": "llvm::iterator_range<clang::ParmVarDecl *const *>", 
+                    "result_type": "unsigned long", 
                     "mode": "long"
                 }, 
                 {
@@ -15956,22 +16165,6 @@
                         "llvm::ArrayRef<clang::ParmVarDecl *>"
                     ], 
                     "result_type": "void", 
-                    "mode": "long"
-                }, 
-                {
-                    "const": "const", 
-                    "name": "parameters", 
-                    "parent": "clang::FunctionDecl", 
-                    "is_disabled": true, 
-                    "is_overload": false, 
-                    "is_virtual": false, 
-                    "typename": "ArrayRef<clang::ParmVarDecl *> () const", 
-                    "is_pure_virtual": false, 
-                    "is_overridden": false, 
-                    "signature": "ArrayRef<clang::ParmVarDecl *> (clang::FunctionDecl::*)() const", 
-                    "arg_names": [], 
-                    "arg_types": [], 
-                    "result_type": "llvm::ArrayRef<clang::ParmVarDecl *>", 
                     "mode": "long"
                 }, 
                 {
@@ -17240,13 +17433,13 @@
                     "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "chain_range () const", 
+                    "typename": "ArrayRef<clang::NamedDecl *> () const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "chain_range (clang::IndirectFieldDecl::*)() const", 
+                    "signature": "ArrayRef<clang::NamedDecl *> (clang::IndirectFieldDecl::*)() const", 
                     "arg_names": [], 
                     "arg_types": [], 
-                    "result_type": "llvm::iterator_range<clang::NamedDecl *const *>", 
+                    "result_type": "llvm::ArrayRef<clang::NamedDecl *>", 
                     "mode": "long"
                 }, 
                 {
@@ -18750,6 +18943,22 @@
                 }, 
                 {
                     "const": "const", 
+                    "name": "getTemplateInstantiationPattern", 
+                    "parent": "clang::EnumDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::EnumDecl *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::EnumDecl * (clang::EnumDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::EnumDecl *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
                     "name": "getInstantiatedFromMemberEnum", 
                     "parent": "clang::EnumDecl", 
                     "is_disabled": false, 
@@ -19566,26 +19775,10 @@
                 }, 
                 {
                     "const": "const", 
-                    "name": "param_size", 
-                    "parent": "clang::BlockDecl", 
-                    "is_disabled": false, 
-                    "is_overload": false, 
-                    "is_virtual": false, 
-                    "typename": "unsigned int () const", 
-                    "is_pure_virtual": false, 
-                    "is_overridden": false, 
-                    "signature": "unsigned int (clang::BlockDecl::*)() const", 
-                    "arg_names": [], 
-                    "arg_types": [], 
-                    "result_type": "unsigned int", 
-                    "mode": "long"
-                }, 
-                {
-                    "const": "const", 
                     "name": "parameters", 
                     "parent": "clang::BlockDecl", 
                     "is_disabled": true, 
-                    "is_overload": false, 
+                    "is_overload": true, 
                     "is_virtual": false, 
                     "typename": "ArrayRef<clang::ParmVarDecl *> () const", 
                     "is_pure_virtual": false, 
@@ -19594,6 +19787,22 @@
                     "arg_names": [], 
                     "arg_types": [], 
                     "result_type": "llvm::ArrayRef<clang::ParmVarDecl *>", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "parameters", 
+                    "parent": "clang::BlockDecl", 
+                    "is_disabled": true, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "MutableArrayRef<clang::ParmVarDecl *> ()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "MutableArrayRef<clang::ParmVarDecl *> (clang::BlockDecl::*)()", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "llvm::MutableArrayRef<clang::ParmVarDecl *>", 
                     "mode": "long"
                 }, 
                 {
@@ -19613,35 +19822,19 @@
                     "mode": "long"
                 }, 
                 {
-                    "const": "", 
-                    "name": "params", 
-                    "parent": "clang::BlockDecl", 
-                    "is_disabled": true, 
-                    "is_overload": true, 
-                    "is_virtual": false, 
-                    "typename": "param_range ()", 
-                    "is_pure_virtual": false, 
-                    "is_overridden": false, 
-                    "signature": "param_range (clang::BlockDecl::*)()", 
-                    "arg_names": [], 
-                    "arg_types": [], 
-                    "result_type": "llvm::iterator_range<clang::ParmVarDecl **>", 
-                    "mode": "long"
-                }, 
-                {
                     "const": "const", 
-                    "name": "params", 
+                    "name": "param_size", 
                     "parent": "clang::BlockDecl", 
-                    "is_disabled": true, 
-                    "is_overload": true, 
+                    "is_disabled": false, 
+                    "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "param_const_range () const", 
+                    "typename": "size_t () const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "param_const_range (clang::BlockDecl::*)() const", 
+                    "signature": "size_t (clang::BlockDecl::*)() const", 
                     "arg_names": [], 
                     "arg_types": [], 
-                    "result_type": "llvm::iterator_range<clang::ParmVarDecl *const *>", 
+                    "result_type": "unsigned long", 
                     "mode": "long"
                 }, 
                 {
@@ -19753,35 +19946,19 @@
                     "mode": "long"
                 }, 
                 {
-                    "const": "", 
-                    "name": "captures", 
-                    "parent": "clang::BlockDecl", 
-                    "is_disabled": true, 
-                    "is_overload": true, 
-                    "is_virtual": false, 
-                    "typename": "capture_range ()", 
-                    "is_pure_virtual": false, 
-                    "is_overridden": false, 
-                    "signature": "capture_range (clang::BlockDecl::*)()", 
-                    "arg_names": [], 
-                    "arg_types": [], 
-                    "result_type": "llvm::iterator_range<const clang::BlockDecl::Capture *>", 
-                    "mode": "long"
-                }, 
-                {
                     "const": "const", 
                     "name": "captures", 
                     "parent": "clang::BlockDecl", 
                     "is_disabled": true, 
-                    "is_overload": true, 
+                    "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "capture_const_range () const", 
+                    "typename": "ArrayRef<clang::BlockDecl::Capture> () const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "capture_const_range (clang::BlockDecl::*)() const", 
+                    "signature": "ArrayRef<clang::BlockDecl::Capture> (clang::BlockDecl::*)() const", 
                     "arg_names": [], 
                     "arg_types": [], 
-                    "result_type": "llvm::iterator_range<const clang::BlockDecl::Capture *>", 
+                    "result_type": "llvm::ArrayRef<clang::BlockDecl::Capture>", 
                     "mode": "long"
                 }, 
                 {
@@ -20131,6 +20308,38 @@
                 }, 
                 {
                     "const": "const", 
+                    "name": "parameters", 
+                    "parent": "clang::CapturedDecl", 
+                    "is_disabled": true, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "ArrayRef<clang::ImplicitParamDecl *> () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "ArrayRef<clang::ImplicitParamDecl *> (clang::CapturedDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "llvm::ArrayRef<clang::ImplicitParamDecl *>", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "parameters", 
+                    "parent": "clang::CapturedDecl", 
+                    "is_disabled": true, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "MutableArrayRef<clang::ImplicitParamDecl *> ()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "MutableArrayRef<clang::ImplicitParamDecl *> (clang::CapturedDecl::*)()", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "llvm::MutableArrayRef<clang::ImplicitParamDecl *>", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
                     "name": "getContextParam", 
                     "parent": "clang::CapturedDecl", 
                     "is_disabled": false, 
@@ -20181,22 +20390,6 @@
                     "arg_names": [], 
                     "arg_types": [], 
                     "result_type": "unsigned int", 
-                    "mode": "long"
-                }, 
-                {
-                    "const": "const", 
-                    "name": "params", 
-                    "parent": "clang::CapturedDecl", 
-                    "is_disabled": true, 
-                    "is_overload": false, 
-                    "is_virtual": false, 
-                    "typename": "param_range () const", 
-                    "is_pure_virtual": false, 
-                    "is_overridden": false, 
-                    "signature": "param_range (clang::CapturedDecl::*)() const", 
-                    "arg_names": [], 
-                    "arg_types": [], 
-                    "result_type": "llvm::iterator_range<clang::ImplicitParamDecl *const *>", 
                     "mode": "long"
                 }
             ], 
@@ -22623,6 +22816,42 @@
                 }, 
                 {
                     "const": "const", 
+                    "name": "isConstexpr", 
+                    "parent": "clang::IfStmt", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "bool () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "bool (clang::IfStmt::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "bool", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "setConstexpr", 
+                    "parent": "clang::IfStmt", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "void (bool)", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "void (clang::IfStmt::*)(bool)", 
+                    "arg_names": [
+                        "C"
+                    ], 
+                    "arg_types": [
+                        "bool"
+                    ], 
+                    "result_type": "void", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
                     "name": "getLocStart", 
                     "parent": "clang::IfStmt", 
                     "is_disabled": false, 
@@ -24921,7 +25150,7 @@
                     "const": "const", 
                     "name": "generateAsmString", 
                     "parent": "clang::AsmStmt", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string (const clang::ASTContext &) const", 
@@ -25329,7 +25558,7 @@
                     "const": "const", 
                     "name": "generateAsmString", 
                     "parent": "clang::GCCAsmStmt", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string (const clang::ASTContext &) const", 
@@ -25911,7 +26140,7 @@
                     "const": "const", 
                     "name": "generateAsmString", 
                     "parent": "clang::MSAsmStmt", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string (const clang::ASTContext &) const", 
@@ -28420,7 +28649,7 @@
                     "const": "const", 
                     "name": "getFileCharacteristic", 
                     "parent": "clang::SourceManager", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "SrcMgr::CharacteristicKind (clang::SourceLocation) const", 
@@ -30038,6 +30267,26 @@
                     "mode": "long"
                 }, 
                 {
+                    "const": "const", 
+                    "name": "overridden_methods", 
+                    "parent": "clang::ASTContext", 
+                    "is_disabled": true, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "overridden_method_range (const clang::CXXMethodDecl *) const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "overridden_method_range (clang::ASTContext::*)(const clang::CXXMethodDecl *) const", 
+                    "arg_names": [
+                        "Method"
+                    ], 
+                    "arg_types": [
+                        "const clang::CXXMethodDecl *"
+                    ], 
+                    "result_type": "llvm::iterator_range<const clang::CXXMethodDecl *const *>", 
+                    "mode": "long"
+                }, 
+                {
                     "const": "", 
                     "name": "addOverriddenMethod", 
                     "parent": "clang::ASTContext", 
@@ -30272,6 +30521,22 @@
                     "mode": "long"
                 }, 
                 {
+                    "const": "const", 
+                    "name": "getTypePackElementDecl", 
+                    "parent": "clang::ASTContext", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::BuiltinTemplateDecl *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::BuiltinTemplateDecl * (clang::ASTContext::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::BuiltinTemplateDecl *", 
+                    "mode": "long"
+                }, 
+                {
                     "const": "", 
                     "name": "setExternalSource", 
                     "parent": "clang::ASTContext", 
@@ -30401,7 +30666,7 @@
                     "const": "const", 
                     "name": "buildImplicitRecord", 
                     "parent": "clang::ASTContext", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "clang::RecordDecl *(llvm::StringRef, RecordDecl::TagKind) const", 
@@ -30471,22 +30736,6 @@
                     "arg_names": [], 
                     "arg_types": [], 
                     "result_type": "clang::TypedefDecl *", 
-                    "mode": "long"
-                }, 
-                {
-                    "const": "const", 
-                    "name": "getFloat128StubType", 
-                    "parent": "clang::ASTContext", 
-                    "is_disabled": false, 
-                    "is_overload": false, 
-                    "is_virtual": false, 
-                    "typename": "clang::TypeDecl *() const", 
-                    "is_pure_virtual": false, 
-                    "is_overridden": false, 
-                    "signature": "clang::TypeDecl * (clang::ASTContext::*)() const", 
-                    "arg_names": [], 
-                    "arg_types": [], 
-                    "result_type": "clang::TypeDecl *", 
                     "mode": "long"
                 }, 
                 {
@@ -32591,7 +32840,39 @@
                 }, 
                 {
                     "const": "const", 
+                    "name": "getBoolName", 
+                    "parent": "clang::ASTContext", 
+                    "is_disabled": true, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::IdentifierInfo *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::IdentifierInfo * (clang::ASTContext::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::IdentifierInfo *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
                     "name": "getMakeIntegerSeqName", 
+                    "parent": "clang::ASTContext", 
+                    "is_disabled": true, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::IdentifierInfo *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::IdentifierInfo * (clang::ASTContext::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::IdentifierInfo *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getTypePackElementName", 
                     "parent": "clang::ASTContext", 
                     "is_disabled": true, 
                     "is_overload": false, 
@@ -32801,7 +33082,7 @@
                     "const": "const", 
                     "name": "getObjCEncodingForType", 
                     "parent": "clang::ASTContext", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "void (clang::QualType, std::string &, const clang::FieldDecl *, clang::QualType *) const", 
@@ -32827,7 +33108,7 @@
                     "const": "const", 
                     "name": "getObjCEncodingForPropertyType", 
                     "parent": "clang::ASTContext", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "void (clang::QualType, std::string &) const", 
@@ -32869,7 +33150,7 @@
                     "const": "const", 
                     "name": "getObjCEncodingForTypeQualifier", 
                     "parent": "clang::ASTContext", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "void (Decl::ObjCDeclQualifier, std::string &) const", 
@@ -32891,7 +33172,7 @@
                     "const": "", 
                     "name": "getObjCEncodingForFunctionDecl", 
                     "parent": "clang::ASTContext", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "bool (const clang::FunctionDecl *, std::string &)", 
@@ -32937,7 +33218,7 @@
                     "const": "const", 
                     "name": "getObjCEncodingForBlock", 
                     "parent": "clang::ASTContext", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "std::string (const clang::BlockExpr *) const", 
@@ -36465,7 +36746,7 @@
                     "const": "const", 
                     "name": "getObjCEncodingForMethodParameter", 
                     "parent": "clang::ASTContext", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
                     "typename": "void (Decl::ObjCDeclQualifier, clang::QualType, std::string &, bool) const", 
@@ -36505,6 +36786,26 @@
                         "const clang::VarDecl *"
                     ], 
                     "result_type": "bool", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getInlineVariableDefinitionKind", 
+                    "parent": "clang::ASTContext", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::ASTContext::InlineVariableDefinitionKind (const clang::VarDecl *) const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::ASTContext::InlineVariableDefinitionKind (clang::ASTContext::*)(const clang::VarDecl *) const", 
+                    "arg_names": [
+                        "VD"
+                    ], 
+                    "arg_types": [
+                        "const clang::VarDecl *"
+                    ], 
+                    "result_type": "clang::ASTContext::InlineVariableDefinitionKind", 
                     "mode": "long"
                 }
             ], 
@@ -45570,13 +45871,13 @@
                     "is_disabled": true, 
                     "is_overload": true, 
                     "is_virtual": false, 
-                    "typename": "designators_range ()", 
+                    "typename": "llvm::MutableArrayRef<Designator> ()", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "designators_range (clang::DesignatedInitExpr::*)()", 
+                    "signature": "llvm::MutableArrayRef<Designator> (clang::DesignatedInitExpr::*)()", 
                     "arg_names": [], 
                     "arg_types": [], 
-                    "result_type": "llvm::iterator_range<clang::DesignatedInitExpr::Designator *>", 
+                    "result_type": "llvm::MutableArrayRef<clang::DesignatedInitExpr::Designator>", 
                     "mode": "long"
                 }, 
                 {
@@ -45586,13 +45887,13 @@
                     "is_disabled": true, 
                     "is_overload": true, 
                     "is_virtual": false, 
-                    "typename": "designators_const_range () const", 
+                    "typename": "llvm::ArrayRef<Designator> () const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "designators_const_range (clang::DesignatedInitExpr::*)() const", 
+                    "signature": "llvm::ArrayRef<Designator> (clang::DesignatedInitExpr::*)() const", 
                     "arg_names": [], 
                     "arg_types": [], 
-                    "result_type": "llvm::iterator_range<const clang::DesignatedInitExpr::Designator *>", 
+                    "result_type": "llvm::ArrayRef<clang::DesignatedInitExpr::Designator>", 
                     "mode": "long"
                 }, 
                 {
@@ -49377,6 +49678,38 @@
                 }, 
                 {
                     "const": "const", 
+                    "name": "hasInheritedConstructor", 
+                    "parent": "clang::CXXRecordDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "bool () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "bool (clang::CXXRecordDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "bool", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "hasInheritedAssignment", 
+                    "parent": "clang::CXXRecordDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "bool () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "bool (clang::CXXRecordDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "bool", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
                     "name": "isTriviallyCopyable", 
                     "parent": "clang::CXXRecordDecl", 
                     "is_disabled": false, 
@@ -50331,6 +50664,22 @@
                 }, 
                 {
                     "const": "const", 
+                    "name": "overridden_methods", 
+                    "parent": "clang::CXXMethodDecl", 
+                    "is_disabled": true, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "overridden_method_range () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "overridden_method_range (clang::CXXMethodDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "llvm::iterator_range<const clang::CXXMethodDecl *const *>", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
                     "name": "getParent", 
                     "parent": "clang::CXXMethodDecl", 
                     "is_disabled": false, 
@@ -50795,38 +51144,34 @@
                 }, 
                 {
                     "const": "const", 
-                    "name": "getInheritedConstructor", 
+                    "name": "isInheritingConstructor", 
                     "parent": "clang::CXXConstructorDecl", 
                     "is_disabled": false, 
                     "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "const clang::CXXConstructorDecl *() const", 
+                    "typename": "bool () const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "const clang::CXXConstructorDecl * (clang::CXXConstructorDecl::*)() const", 
+                    "signature": "bool (clang::CXXConstructorDecl::*)() const", 
                     "arg_names": [], 
                     "arg_types": [], 
-                    "result_type": "const clang::CXXConstructorDecl *", 
+                    "result_type": "bool", 
                     "mode": "long"
                 }, 
                 {
-                    "const": "", 
-                    "name": "setInheritedConstructor", 
+                    "const": "const", 
+                    "name": "getInheritedConstructor", 
                     "parent": "clang::CXXConstructorDecl", 
-                    "is_disabled": false, 
+                    "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "void (const clang::CXXConstructorDecl *)", 
+                    "typename": "clang::InheritedConstructor () const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "void (clang::CXXConstructorDecl::*)(const clang::CXXConstructorDecl *)", 
-                    "arg_names": [
-                        "BaseCtor"
-                    ], 
-                    "arg_types": [
-                        "const clang::CXXConstructorDecl *"
-                    ], 
-                    "result_type": "void", 
+                    "signature": "clang::InheritedConstructor (clang::CXXConstructorDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::InheritedConstructor", 
                     "mode": "long"
                 }, 
                 {
@@ -51666,6 +52011,166 @@
                 "clang::NamedDecl"
             ], 
             "name": "UsingShadowDecl"
+        }, 
+        {
+            "node": true, 
+            "methods": [
+                {
+                    "const": "const", 
+                    "name": "getParent", 
+                    "parent": "clang::ConstructorUsingShadowDecl", 
+                    "is_disabled": false, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "const clang::CXXRecordDecl *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "const clang::CXXRecordDecl * (clang::ConstructorUsingShadowDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "const clang::CXXRecordDecl *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "getParent", 
+                    "parent": "clang::ConstructorUsingShadowDecl", 
+                    "is_disabled": false, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "clang::CXXRecordDecl *()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::CXXRecordDecl * (clang::ConstructorUsingShadowDecl::*)()", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::CXXRecordDecl *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getNominatedBaseClassShadowDecl", 
+                    "parent": "clang::ConstructorUsingShadowDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::ConstructorUsingShadowDecl *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::ConstructorUsingShadowDecl * (clang::ConstructorUsingShadowDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::ConstructorUsingShadowDecl *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getConstructedBaseClassShadowDecl", 
+                    "parent": "clang::ConstructorUsingShadowDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::ConstructorUsingShadowDecl *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::ConstructorUsingShadowDecl * (clang::ConstructorUsingShadowDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::ConstructorUsingShadowDecl *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getNominatedBaseClass", 
+                    "parent": "clang::ConstructorUsingShadowDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::CXXRecordDecl *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::CXXRecordDecl * (clang::ConstructorUsingShadowDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::CXXRecordDecl *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getConstructedBaseClass", 
+                    "parent": "clang::ConstructorUsingShadowDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::CXXRecordDecl *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::CXXRecordDecl * (clang::ConstructorUsingShadowDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::CXXRecordDecl *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "constructsVirtualBase", 
+                    "parent": "clang::ConstructorUsingShadowDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "bool () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "bool (clang::ConstructorUsingShadowDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "bool", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getConstructor", 
+                    "parent": "clang::ConstructorUsingShadowDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::CXXConstructorDecl *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::CXXConstructorDecl * (clang::ConstructorUsingShadowDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::CXXConstructorDecl *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "setConstructor", 
+                    "parent": "clang::ConstructorUsingShadowDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "void (clang::NamedDecl *)", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "void (clang::ConstructorUsingShadowDecl::*)(clang::NamedDecl *)", 
+                    "arg_names": [
+                        "Ctor"
+                    ], 
+                    "arg_types": [
+                        "clang::NamedDecl *"
+                    ], 
+                    "result_type": "void", 
+                    "mode": "long"
+                }
+            ], 
+            "is_disabled": false, 
+            "typename": "clang::ConstructorUsingShadowDecl", 
+            "deleter": "decl_deleter<clang::ConstructorUsingShadowDecl>::type", 
+            "supers": [
+                "clang::UsingShadowDecl"
+            ], 
+            "name": "ConstructorUsingShadowDecl"
         }, 
         {
             "node": true, 
@@ -54155,6 +54660,22 @@
                     "mode": "long"
                 }, 
                 {
+                    "const": "const", 
+                    "name": "getInstantiatedFromMemberTemplate", 
+                    "parent": "clang::ClassTemplatePartialSpecializationDecl", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::ClassTemplatePartialSpecializationDecl *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::ClassTemplatePartialSpecializationDecl * (clang::ClassTemplatePartialSpecializationDecl::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::ClassTemplatePartialSpecializationDecl *", 
+                    "mode": "long"
+                }, 
+                {
                     "const": "", 
                     "name": "setInstantiatedFromMember", 
                     "parent": "clang::ClassTemplatePartialSpecializationDecl", 
@@ -55854,6 +56375,22 @@
                     "arg_names": [], 
                     "arg_types": [], 
                     "result_type": "clang::CXXRecordDecl *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getExprLoc", 
+                    "parent": "clang::CXXMemberCallExpr", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::SourceLocation () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::SourceLocation (clang::CXXMemberCallExpr::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::SourceLocation", 
                     "mode": "long"
                 }
             ], 
@@ -58086,26 +58623,6 @@
                     "mode": "long"
                 }, 
                 {
-                    "const": "", 
-                    "name": "setConstructor", 
-                    "parent": "clang::CXXConstructExpr", 
-                    "is_disabled": false, 
-                    "is_overload": false, 
-                    "is_virtual": false, 
-                    "typename": "void (clang::CXXConstructorDecl *)", 
-                    "is_pure_virtual": false, 
-                    "is_overridden": false, 
-                    "signature": "void (clang::CXXConstructExpr::*)(clang::CXXConstructorDecl *)", 
-                    "arg_names": [
-                        "C"
-                    ], 
-                    "arg_types": [
-                        "clang::CXXConstructorDecl *"
-                    ], 
-                    "result_type": "void", 
-                    "mode": "long"
-                }, 
-                {
                     "const": "const", 
                     "name": "getLocation", 
                     "parent": "clang::CXXConstructExpr", 
@@ -58559,6 +59076,146 @@
                 "clang::Expr"
             ], 
             "name": "CXXConstructExpr"
+        }, 
+        {
+            "node": true, 
+            "methods": [
+                {
+                    "const": "const", 
+                    "name": "getConstructor", 
+                    "parent": "clang::CXXInheritedCtorInitExpr", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::CXXConstructorDecl *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::CXXConstructorDecl * (clang::CXXInheritedCtorInitExpr::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::CXXConstructorDecl *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "constructsVBase", 
+                    "parent": "clang::CXXInheritedCtorInitExpr", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "bool () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "bool (clang::CXXInheritedCtorInitExpr::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "bool", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getConstructionKind", 
+                    "parent": "clang::CXXInheritedCtorInitExpr", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "CXXConstructExpr::ConstructionKind () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "CXXConstructExpr::ConstructionKind (clang::CXXInheritedCtorInitExpr::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::CXXConstructExpr::ConstructionKind", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "inheritedFromVBase", 
+                    "parent": "clang::CXXInheritedCtorInitExpr", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "bool () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "bool (clang::CXXInheritedCtorInitExpr::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "bool", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getLocation", 
+                    "parent": "clang::CXXInheritedCtorInitExpr", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::SourceLocation () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::SourceLocation (clang::CXXInheritedCtorInitExpr::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::SourceLocation", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getLocStart", 
+                    "parent": "clang::CXXInheritedCtorInitExpr", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::SourceLocation () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::SourceLocation (clang::CXXInheritedCtorInitExpr::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::SourceLocation", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "getLocEnd", 
+                    "parent": "clang::CXXInheritedCtorInitExpr", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "clang::SourceLocation () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::SourceLocation (clang::CXXInheritedCtorInitExpr::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "clang::SourceLocation", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "", 
+                    "name": "children", 
+                    "parent": "clang::CXXInheritedCtorInitExpr", 
+                    "is_disabled": true, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "child_range ()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "child_range (clang::CXXInheritedCtorInitExpr::*)()", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "llvm::iterator_range<clang::StmtIterator>", 
+                    "mode": "long"
+                }
+            ], 
+            "is_disabled": false, 
+            "typename": "clang::CXXInheritedCtorInitExpr", 
+            "deleter": "stmt_deleter<clang::CXXInheritedCtorInitExpr>::type", 
+            "supers": [
+                "clang::Expr"
+            ], 
+            "name": "CXXInheritedCtorInitExpr"
         }, 
         {
             "node": true, 
@@ -61381,6 +62038,22 @@
                     "arg_names": [], 
                     "arg_types": [], 
                     "result_type": "const clang::Expr *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": "const", 
+                    "name": "cleanupsHaveSideEffects", 
+                    "parent": "clang::ExprWithCleanups", 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "bool () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "bool (clang::ExprWithCleanups::*)() const", 
+                    "arg_names": [], 
+                    "arg_types": [], 
+                    "result_type": "bool", 
                     "mode": "long"
                 }, 
                 {
@@ -65073,5 +65746,6 @@
             "name": "FriendDecl"
         }
     ], 
-    "prelude": "\n#include <clang/AST/AST.h>\n#include <clang/ASTMatchers/ASTMatchers.h>\n#include <clang/ASTMatchers/ASTMatchFinder.h>\n"
+    "prelude": "\n#include <clang/AST/AST.h>\n#include <clang/ASTMatchers/ASTMatchers.h>\n#include <clang/ASTMatchers/ASTMatchFinder.h>\n", 
+    "clang_version": "clang version 3.9.0-svn274595-1~exp1 (trunk)\nTarget: x86_64-unknown-linux-gnu\nThread model: posix\nInstalledDir: /usr/lib/llvm-3.9/bin\n"
 }
