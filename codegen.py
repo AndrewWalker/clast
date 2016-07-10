@@ -37,6 +37,7 @@ def llvm_config(arg):
 
 def parse(src):
     syspath = ccsyspath.system_include_paths(os.path.join(os.environ['LLVM_HOME'], 'bin', 'clang++'))
+    syspath = [ p.decode('utf-8') for p in syspath ]
     args = '-x c++ --std=c++11'.split()
     args += llvm_config('--cppflags')
     args += [ '-I' + inc for inc in syspath ]
@@ -118,7 +119,7 @@ def find_methods(ctx):
 
 def find_enums(ctx):
     res = {}
-    for c, ms in ctx.methods.iteritems():
+    for c, ms in iter(ctx.methods.items()):
         for m in ms:
             for t in dependent_types(m):
                 ut = underlying_type(t)

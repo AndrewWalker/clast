@@ -18,7 +18,7 @@ def get_overridden_cursors(self):
     clang_getOverriddenCursors(self, byref(cursors), byref(num))
 
     updcursors = []
-    for i in xrange(int(num.value)):
+    for i in range(int(num.value)):
         c = cursors[i]
         updcursor = Cursor.from_location(self._tu, c.location)
         updcursors.append( updcursor )
@@ -26,6 +26,17 @@ def get_overridden_cursors(self):
     clang_disposeOverriddenCursors(cursors)
 
     return updcursors
+
+def patch_clang_commit_7cd277a1():
+    tu = glud.parse_string('namespace N { class D {}; } N::D d;', args='-x c++ --std=c++11'.split())
+    for c in tu.cursor.walk_preorder():
+        try:
+            # evaluating the property is sufficient
+            c.type.kind
+        except ValueError as ve:
+            if c.type._kind_id == 119:
+                TypeKind.ELABORATED = TypeKind(119)
+
 
 def patch_clang_issue_28435():
     """Some (unstable) releases of the libclang bindings omit static_release
@@ -49,4 +60,8 @@ cymbal.monkeypatch_type('get_num_template_arguments',
                         [Type],
                         c_int)
 
+# fixed on master, but not in apt
+patch_clang_commit_7cd277a1()
+
+# bug reported, but not fixed 
 patch_clang_issue_28435()
