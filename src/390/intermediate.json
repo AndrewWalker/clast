@@ -65747,5 +65747,5 @@
         }
     ], 
     "prelude": "\n#include <clang/AST/AST.h>\n#include <clang/ASTMatchers/ASTMatchers.h>\n#include <clang/ASTMatchers/ASTMatchFinder.h>\n", 
-    "clang_version": "clang version 3.9.0-svn274595-1~exp1 (trunk)\nTarget: x86_64-unknown-linux-gnu\nThread model: posix\nInstalledDir: /usr/lib/llvm-3.9/bin\n"
+    "clang_version": "clang version 3.9.0-svn274595-1~exp1 (trunk)"
 }
