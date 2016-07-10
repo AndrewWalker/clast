@@ -1,5 +1,6 @@
 import clang.cindex
 import cymbal
+import glud
 from clang.cindex import *
 from ctypes import *
 
@@ -26,6 +27,18 @@ def get_overridden_cursors(self):
 
     return updcursors
 
+def patch_clang_issue_28435():
+    """Some (unstable) releases of the libclang bindings omit static_release
+    """
+    tu = glud.parse_string('int main() { static_assert(true, ""); return 0; }', args='-x c++ --std=c++11'.split())
+    for c in tu.cursor.walk_preorder():
+        try:
+            # evaluating the property is sufficient
+            c.kind
+        except ValueError as ve:
+            if c._kind_id == 602:
+                CursorKind.STATIC_ASSERT = CursorKind(602)
+
 cymbal.monkeypatch_type('get_template_argument_type',
                         'clang_Type_getTemplateArgumentAsType',
                         [Type, c_uint],
@@ -36,4 +49,4 @@ cymbal.monkeypatch_type('get_num_template_arguments',
                         [Type],
                         c_int)
 
-
+patch_clang_issue_28435()

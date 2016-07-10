@@ -87,7 +87,7 @@ def render_intermediate(ctx):
         classes = [ render_class(c, ctx) for c in ctx.classes ],
         enums   = [ render_enum(c, ctx) for c in ctx.enums ],
         prelude = ctx.prelude,
-        clast_version = ctx.clang_version
+        clang_version = ctx.clang_version
     )
     return d
 
