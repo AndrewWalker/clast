@@ -235,7 +235,7 @@ def codegen(path):
 
 if __name__ == "__main__":
     if 'LLVM_HOME' not in os.environ:
-        print 'LLVM_HOME is undefined, giving up on code generation'
+        print('LLVM_HOME is undefined, giving up on code generation')
         sys.exit(1)
 
     import argparse
