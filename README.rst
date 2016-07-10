@@ -9,7 +9,7 @@ Existing tools in this space make good use of libclang to build rapid
 prototypes for exploring the Clang AST, however, several important tools
 (for example code rewriting) are not available from libclang. 
 
-|license| 
+|license| |build| 
 
 Installation
 ============
@@ -116,5 +116,9 @@ Python was inspired by Christian Schafmeister's work on `clasp`_
 .. |license| image:: https://img.shields.io/badge/license-MIT-blue.svg
    :target: https://raw.githubusercontent.com/andrewwalker/glud/master/LICENSE
    :alt: MIT License
+
+.. |build| image:: https://travis-ci.org/AndrewWalker/clast.svg?branch=master
+   :target: https://travis-ci.org/AndrewWalker/clast
+   :alt: Continuous Integration
 
 
