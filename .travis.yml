@@ -57,7 +57,7 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.9
+            - llvm-toolchain-precise
           packages:
             - clang-3.9 
             - libclang-common-3.9-dev 
