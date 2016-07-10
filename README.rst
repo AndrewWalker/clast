@@ -60,7 +60,7 @@ In cases where the bindings are stale, or do not compile correctly, you can try
 to rebuild the them using the included clastgen.py script.  
 
 It is hoped that future revisions of Clast will rapidly become self-hosting
-(one version of Clast will be able to successive versions).
+(one version of Clast will be able to build successive versions).
 
 
 Limitations
