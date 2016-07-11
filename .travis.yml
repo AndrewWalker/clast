@@ -1,13 +1,9 @@
 language: python
 
 matrix:
-  allow_failures:
-    - env: LLVM_VER=3.9
   include:
     - python: "2.7"
-      env:
-        - LLVM_VER=3.8
-        - LLVM_HOME=/usr/lib/llvm-3.8
+      env: LLVM_VER=3.8
       addons:
         apt:
           sources:
@@ -21,9 +17,7 @@ matrix:
             - liblldb-3.8-dev 
             - python-clang-3.8
     - python: "2.7"
-      env:
-        - LLVM_VER=3.9
-        - LLVM_HOME=/usr/lib/llvm-3.9
+      env: LLVM_VER=3.9
       addons:
         apt:
           sources:
@@ -37,9 +31,7 @@ matrix:
             - liblldb-3.9-dev 
             - python-clang-3.9
     - python: "3.5"
-      env:
-        - LLVM_VER=3.8
-        - LLVM_HOME=/usr/lib/llvm-3.8
+      env: LLVM_VER=3.8
       addons:
         apt:
           sources:
@@ -52,9 +44,7 @@ matrix:
             - llvm-3.8-dev 
             - liblldb-3.8-dev 
     - python: "3.5"
-      env:
-        - LLVM_VER=3.9
-        - LLVM_HOME=/usr/lib/llvm-3.9
+      env: LLVM_VER=3.9
       addons:
         apt:
           sources:
@@ -66,7 +56,10 @@ matrix:
             - libclang-3.9-dev 
             - llvm-3.9-dev 
             - liblldb-3.9-dev 
+  allow_failures:
+    - env: LLVM_VER=3.9 
 install:
+  - export LLVM_HOME=/usr/lib/llvm-$LLVM_VER
   - export CC=$LLVM_HOME/bin/clang
   - export CXX=$LLVM_HOME/bin/clang++
   - if [[ $TRAVIS_PYTHON_VERSION == 2* ]]; then ln -s /usr/lib/python2.7/dist-packages/clang; fi
