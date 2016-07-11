@@ -1,2 +1,4 @@
 include README.rst LICENSE LICENSE.pybind_python_example requirements.txt
 include src/*.h
+include src/381/*
+include src/390/*
