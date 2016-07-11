@@ -1,6 +1,8 @@
 language: python
 
 matrix:
+  allow_failures:
+    - env: LLVM_VER=3.9
   include:
     - python: "2.7"
       env:
