@@ -160,8 +160,9 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 2.7',
-        # Python 3 support coming
+        'Programming Language :: Python :: 3.5',
         'Operating System :: POSIX :: Linux',
         'Topic :: Software Development :: Code Generators',
     ],
