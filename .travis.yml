@@ -76,5 +76,6 @@ install:
       python codegen.py
     fi
   - pip install pybind11
-script:
   - pip install -v .
+script:
+  - nosetests

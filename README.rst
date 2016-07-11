@@ -11,6 +11,35 @@ prototypes for exploring the Clang AST, however, several important tools
 
 |license| |build| 
 
+Usage
+=====
+
+DynTypedMatcher
+---------------
+
+Example of creating a dynamically typed AST node matcher using the dynamic
+parser and dumping the node.
+
+.. code:: python
+
+	import sys
+	from clast import *
+
+	class MyMatchCallback(MatchCallback):
+	    def __init__(self, *args, **kwargs):
+		super(MyMatchCallback, self).__init__()
+
+	    def run(self, result):
+		cls = result.GetNode('cls').get(CXXRecordDecl)
+		cls.dump()
+
+	if __name__ == "__main__":
+	    callback = MyMatchCallback()
+	    m = parseMatcherExpression('cxxRecordDecl().bind("cls")')
+	    finder = MatchFinder()
+	    finder.addDynamicMatcher(m, callback)
+	    matchString('class X;', finder, '-std=c++11', 'input.cpp')
+
 Installation
 ============
 
