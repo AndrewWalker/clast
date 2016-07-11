@@ -163,6 +163,8 @@ def resolve_methods(ctx):
                 ctx.set_attr(m, is_disabled=False)
             if any(a.spelling == '' for a in m.get_arguments()):
                 ctx.set_attr(m, mode='short')
+            if any(a.spelling is None for a in m.get_arguments()):
+                ctx.set_attr(m, mode='short')
 
 
 def resolve_disabled_classes(ctx):

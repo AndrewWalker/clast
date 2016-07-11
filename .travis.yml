@@ -72,7 +72,7 @@ install:
   - |
     if [[ "$LLVM_VER" == "3.9" ]];
     then
-      pip install -r clastgen/requirements.txt
+      pip install -r clastgen/requirements.txt --pre
       python codegen.py
     fi
   - pip install pybind11
