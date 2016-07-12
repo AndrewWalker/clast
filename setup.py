@@ -141,7 +141,7 @@ class BuildExt(build_ext):
 
 setup(
     name         = "clast",
-    version      = "0.0.1rc0",
+    version      = "0.0.1rc1",
     description  = "Python bindings for the unstable interface of the Clang AST Matchers library",
     long_description = read('README.rst'),
     author       = "Andrew Walker",
