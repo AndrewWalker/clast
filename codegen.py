@@ -81,6 +81,7 @@ def find_classes(tu, ctx):
             isSameOrDerivedFrom('clang::Decl'),
             isSameOrDerivedFrom('clang::Stmt')),
         unless(hasName('clang::FriendDecl')),
+        unless(hasTypename('clang::ConstructorUsingShadowDecl')),
         unless(hasName('.*ObjC.*')),
         unless(hasName('.*OMP.*')))
 
