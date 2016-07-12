@@ -18,6 +18,28 @@ def is_ref_to_ptr(t):
     return t.kind == TypeKind.LVALUEREFERENCE and t.get_pointee().kind == TypeKind.POINTER
 
 
+def is_bool_ptr(c):
+    """Test if a cursor refers to a boolean pointer
+    """
+    if not c.type.kind == TypeKind.POINTER:
+        return False
+    if not c.type.get_pointee().spelling == 'bool':
+        return False
+    return True
+
+
+def is_anonymous_argument(c):
+    """Test if one argument is anonymous (unnamed)
+
+    In the declaration `void f(int x, int);` the second argument is unnamed
+    """
+    return c.spelling is None or c.spelling == ''
+
+
+def has_any_anonymous_arguments(m):
+    return any(is_anonymous_argument(a) for a in m.get_arguments())
+
+
 def dependent_types(m):
     """Yield all of the types the method depends on
     """

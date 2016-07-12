@@ -71,4 +71,11 @@ class Context(object):
     def class_methods(self, cursor):
         return self._methods[cursor.hash]
 
+    def enabled_methods(self):
+        for c in self.classes:
+            for m in self.class_methods(c):
+                attrs = self.get_attr(m)
+                if not attrs['is_disabled']:
+                    yield c, m
+
 

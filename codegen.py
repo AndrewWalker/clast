@@ -156,16 +156,15 @@ def resolve_deleters(ctx):
 
 
 def resolve_methods(ctx):
+    resolved = ctx.classes + ctx.enums + ctx.typedefs
     for c in ctx.classes:
         for m in ctx.class_methods(c):
-            if not is_resolved_method(m, ctx.classes + ctx.enums + ctx.typedefs):
-                ctx.set_attr(m, is_disabled=True)    
-            else:
-                ctx.set_attr(m, is_disabled=False)
-            if any(a.spelling == '' for a in m.get_arguments()):
+            disabled = not is_resolved_method(m, resolved)
+            ctx.set_attr(m, is_disabled=disabled)
+            if has_any_anonymous_arguments(m):
                 ctx.set_attr(m, mode='short')
-            if any(a.spelling is None for a in m.get_arguments()):
-                ctx.set_attr(m, mode='short')
+            #if any(is_bool_ptr(a) for a in m.get_arguments()):
+            #    ctx.set_attr(m, mode='boolinvalid')
 
 
 def resolve_disabled_classes(ctx):
@@ -173,10 +172,8 @@ def resolve_disabled_classes(ctx):
         'llvm::StringRef'
     ])
     for c in ctx.classes:
-        if c.type.spelling in exclusions:
-            ctx.set_attr(c, is_disabled=True)    
-        else:
-            ctx.set_attr(c, is_disabled=False)
+        disabled = c.type.spelling in exclusions
+        ctx.set_attr(c, is_disabled=disabled)
 
 
 def render_result(template, **kwargs):
@@ -235,7 +232,6 @@ def codegen(path):
     for page in pages:
         with open(os.path.join(path, '%02d_autogen_classes.cpp' % (page.idx+1)), 'w') as fh:
             fh.write(render_result(template='class_module.j2', model=intermediate, page=page)) 
-
 
 if __name__ == "__main__":
     if 'LLVM_HOME' not in os.environ:
