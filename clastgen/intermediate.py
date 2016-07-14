@@ -6,7 +6,7 @@ __all__ = ['render_intermediate']
 
 
 def render_type(t):
-    """Convert a type to a dictionary (taking care to preserve namespaces)
+    """Identify the canonical form of a type 
     """
     tcan = t.get_canonical()
     kinds = [
@@ -24,14 +24,13 @@ def render_method(m, ctx):
     """Convert a method to a dictionary
     """
     d = dict(
-        mode            = 'long',
+        mode            = 'short',
         parent          = m.semantic_parent.type.spelling,
         name            = m.spelling,
         typename        = m.type.spelling,
         signature       = method_signature(m),
         result_type     = render_type(m.result_type),
-        arg_names       = [ n.spelling for n in m.get_arguments() ],
-        arg_types       = [ render_type(n.type) for n in m.get_arguments() ],
+        args            = [ (render_type(n.type), n.spelling) for n in m.get_arguments() ],
         is_virtual      = m.is_virtual_method(),
         is_pure_virtual = m.is_pure_virtual_method(),
         const           = 'const' if m.is_const_method() else '',

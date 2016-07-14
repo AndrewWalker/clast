@@ -1,11 +1,25 @@
 
+short_method = '''
+        {{ m|disabled }}.def("{{m.name}}", ({{ m.signature }})&{{ m.parent }}::{{ m.name }})
+'''
+
+long_method = '''
+        {{ m|disabled }}.def("{{ m.name }}", []({{ m.const }} {{ m.parent }}& self{{ m.args|argpack(call=False) }}) {{m|respack}} {
+        {{ m|disabled }}   {{ m|retpack }}  self.{{m.name}}({{ m.args|argpack(call=True) }});
+        {{ m|disabled }}})
+'''
+
+aux_method = '''
+        // TBD. {{ m.signature }}
+'''
+
 method_template = '''
         {%- if m.mode == 'short' %}
-        {{ m|disabled }}.def("{{m.name}}", ({{ m.signature }})&{{ m.parent }}::{{ m.name }})
-        {% else %}
-        {{ m|disabled }}.def("{{ m.name }}", []({{ m.const }} {{ m.parent }}& self{{ m|argpack(call=False) }}) {{m|respack}} {
-        {{ m|disabled }}   {{ m|retpack }}  self.{{m.name}}({{ m|argpack(call=True) }});
-        {{ m|disabled }}})
+        {% include "short_method.j2" %}
+        {% elif m.mode == 'long' %}
+        {% include "long_method.j2" %}
+        {% elif m.mode == 'aux' %}
+        {% include "aux_method.j2" %}
         {% endif %}
 '''
 
@@ -16,6 +30,7 @@ class_template = '''
         {% include "method_template.j2" %}
         {% endblock context %}
     {% endfor %}
+
     ;
 
 '''
@@ -137,6 +152,9 @@ def clast_templates():
         'class_module.j2'      : module_class,
         'enum_module.j2'       : module_enum,
         'method_template.j2'   : method_template,
+        'short_method.j2'      : short_method,
+        'long_method.j2'       : long_method,
+        'aux_method.j2'        : aux_method,
         'class_template.j2'    : class_template,
         'allclass_template.j2' : allclass_template,
         'enum_template.j2'     : enum_template,

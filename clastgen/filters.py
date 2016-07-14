@@ -5,16 +5,22 @@
 __all__ = ['clast_jinja_filters']
 
 def enum_parent(e):
+    """Return the name of the parent type of the enumeration.
+
+    If the enum doesn't have a parent, this will be the module, 
+    otherwise it will be the exported name of the Python class
+    the values need to be added to
+    """
     if e['parent'] is not None:
         return 'm.attr("%s")' % e['parent'].split('::')[-1] 
     else:
         return 'm'
 
-def argpack(method, call=True):
+def argpack(args, call=True):
     if call:
-        return ', '.join(n for n in method['arg_names'])
+        return ', '.join(n for _, n in args)
     else:
-        return ' '.join(', %s %s' % (t, n) for t, n in zip(method['arg_types'], method['arg_names']))
+        return ' '.join(', %s %s' % (t, n) for t, n in args)
 
 def respack(method):
     if method['result_type'] == 'void':

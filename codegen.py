@@ -9,7 +9,6 @@ from clastgen.intermediate import *
 from clastgen.templates import *
 from clastgen.pagination import *
 import ccsyspath
-import collections
 import os
 import sys
 import subprocess
@@ -161,10 +160,11 @@ def resolve_methods(ctx):
         for m in ctx.class_methods(c):
             disabled = not is_resolved_method(m, resolved)
             ctx.set_attr(m, is_disabled=disabled)
-            if has_any_anonymous_arguments(m):
-                ctx.set_attr(m, mode='short')
-            #if any(is_bool_ptr(a) for a in m.get_arguments()):
-            #    ctx.set_attr(m, mode='boolinvalid')
+            if is_overload(m):
+                ctx.set_attr(m, mode='long')
+            # TODO - methods that need to change types (llvm::StringRef must be long)
+            # TODO - methods that return iterator_ranges must be custom
+            # TODO - methods that take in/out parameters must be custom
 
 
 def resolve_disabled_classes(ctx):
