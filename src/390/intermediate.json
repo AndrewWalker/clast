@@ -985,11 +985,13 @@
                 "OMPDistributeDirectiveClass", 
                 "OMPDistributeParallelForDirectiveClass", 
                 "OMPDistributeParallelForSimdDirectiveClass", 
+                "OMPDistributeSimdDirectiveClass", 
                 "OMPForDirectiveClass", 
                 "OMPForSimdDirectiveClass", 
                 "OMPParallelForDirectiveClass", 
                 "OMPParallelForSimdDirectiveClass", 
                 "OMPSimdDirectiveClass", 
+                "OMPTargetParallelForSimdDirectiveClass", 
                 "OMPTaskLoopDirectiveClass", 
                 "OMPTaskLoopSimdDirectiveClass", 
                 "firstOMPLoopDirectiveConstant", 
@@ -14739,6 +14741,36 @@
                     "mode": "long"
                 }, 
                 {
+                    "const": false, 
+                    "name": "getDefinition", 
+                    "parent": "clang::FunctionDecl", 
+                    "args": [], 
+                    "is_disabled": false, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "clang::FunctionDecl *()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::FunctionDecl * (clang::FunctionDecl::*)()", 
+                    "result_type": "clang::FunctionDecl *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": true, 
+                    "name": "getDefinition", 
+                    "parent": "clang::FunctionDecl", 
+                    "args": [], 
+                    "is_disabled": false, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "const clang::FunctionDecl *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "const clang::FunctionDecl * (clang::FunctionDecl::*)() const", 
+                    "result_type": "const clang::FunctionDecl *", 
+                    "mode": "long"
+                }, 
+                {
                     "const": true, 
                     "name": "getBody", 
                     "parent": "clang::FunctionDecl", 
@@ -21866,6 +21898,56 @@
                     "mode": "short"
                 }, 
                 {
+                    "const": false, 
+                    "name": "getInit", 
+                    "parent": "clang::IfStmt", 
+                    "args": [], 
+                    "is_disabled": false, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "clang::Stmt *()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::Stmt * (clang::IfStmt::*)()", 
+                    "result_type": "clang::Stmt *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": true, 
+                    "name": "getInit", 
+                    "parent": "clang::IfStmt", 
+                    "args": [], 
+                    "is_disabled": false, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "const clang::Stmt *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "const clang::Stmt * (clang::IfStmt::*)() const", 
+                    "result_type": "const clang::Stmt *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": false, 
+                    "name": "setInit", 
+                    "parent": "clang::IfStmt", 
+                    "args": [
+                        [
+                            "clang::Stmt *", 
+                            "S"
+                        ]
+                    ], 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "void (clang::Stmt *)", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "void (clang::IfStmt::*)(clang::Stmt *)", 
+                    "result_type": "void", 
+                    "mode": "short"
+                }, 
+                {
                     "const": true, 
                     "name": "getCond", 
                     "parent": "clang::IfStmt", 
@@ -22229,6 +22311,56 @@
                     "is_overridden": false, 
                     "signature": "const clang::DeclStmt * (clang::SwitchStmt::*)() const", 
                     "result_type": "const clang::DeclStmt *", 
+                    "mode": "short"
+                }, 
+                {
+                    "const": false, 
+                    "name": "getInit", 
+                    "parent": "clang::SwitchStmt", 
+                    "args": [], 
+                    "is_disabled": false, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "clang::Stmt *()", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "clang::Stmt * (clang::SwitchStmt::*)()", 
+                    "result_type": "clang::Stmt *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": true, 
+                    "name": "getInit", 
+                    "parent": "clang::SwitchStmt", 
+                    "args": [], 
+                    "is_disabled": false, 
+                    "is_overload": true, 
+                    "is_virtual": false, 
+                    "typename": "const clang::Stmt *() const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "const clang::Stmt * (clang::SwitchStmt::*)() const", 
+                    "result_type": "const clang::Stmt *", 
+                    "mode": "long"
+                }, 
+                {
+                    "const": false, 
+                    "name": "setInit", 
+                    "parent": "clang::SwitchStmt", 
+                    "args": [
+                        [
+                            "clang::Stmt *", 
+                            "S"
+                        ]
+                    ], 
+                    "is_disabled": false, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "void (clang::Stmt *)", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "void (clang::SwitchStmt::*)(clang::Stmt *)", 
+                    "result_type": "void", 
                     "mode": "short"
                 }, 
                 {
@@ -31155,12 +31287,8 @@
                             "T"
                         ], 
                         [
-                            "const clang::TemplateArgument *", 
+                            "llvm::ArrayRef<clang::TemplateArgument>", 
                             "Args"
-                        ], 
-                        [
-                            "unsigned int", 
-                            "NumArgs"
                         ], 
                         [
                             "clang::QualType", 
@@ -31170,10 +31298,10 @@
                     "is_disabled": true, 
                     "is_overload": true, 
                     "is_virtual": false, 
-                    "typename": "clang::QualType (clang::TemplateName, const clang::TemplateArgument *, unsigned int, clang::QualType) const", 
+                    "typename": "clang::QualType (clang::TemplateName, ArrayRef<clang::TemplateArgument>, clang::QualType) const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "clang::QualType (clang::ASTContext::*)(clang::TemplateName, const clang::TemplateArgument *, unsigned int, clang::QualType) const", 
+                    "signature": "clang::QualType (clang::ASTContext::*)(clang::TemplateName, llvm::ArrayRef<clang::TemplateArgument>, clang::QualType) const", 
                     "result_type": "clang::QualType", 
                     "mode": "long"
                 }, 
@@ -31187,21 +31315,17 @@
                             "T"
                         ], 
                         [
-                            "const clang::TemplateArgument *", 
+                            "llvm::ArrayRef<clang::TemplateArgument>", 
                             "Args"
-                        ], 
-                        [
-                            "unsigned int", 
-                            "NumArgs"
                         ]
                     ], 
                     "is_disabled": true, 
                     "is_overload": false, 
                     "is_virtual": false, 
-                    "typename": "clang::QualType (clang::TemplateName, const clang::TemplateArgument *, unsigned int) const", 
+                    "typename": "clang::QualType (clang::TemplateName, ArrayRef<clang::TemplateArgument>) const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "clang::QualType (clang::ASTContext::*)(clang::TemplateName, const clang::TemplateArgument *, unsigned int) const", 
+                    "signature": "clang::QualType (clang::ASTContext::*)(clang::TemplateName, llvm::ArrayRef<clang::TemplateArgument>) const", 
                     "result_type": "clang::QualType", 
                     "mode": "short"
                 }, 
@@ -31395,21 +31519,17 @@
                             "Name"
                         ], 
                         [
-                            "unsigned int", 
-                            "NumArgs"
-                        ], 
-                        [
-                            "const clang::TemplateArgument *", 
+                            "llvm::ArrayRef<clang::TemplateArgument>", 
                             "Args"
                         ]
                     ], 
                     "is_disabled": true, 
                     "is_overload": true, 
                     "is_virtual": false, 
-                    "typename": "clang::QualType (clang::ElaboratedTypeKeyword, clang::NestedNameSpecifier *, const clang::IdentifierInfo *, unsigned int, const clang::TemplateArgument *) const", 
+                    "typename": "clang::QualType (clang::ElaboratedTypeKeyword, clang::NestedNameSpecifier *, const clang::IdentifierInfo *, ArrayRef<clang::TemplateArgument>) const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "clang::QualType (clang::ASTContext::*)(clang::ElaboratedTypeKeyword, clang::NestedNameSpecifier *, const clang::IdentifierInfo *, unsigned int, const clang::TemplateArgument *) const", 
+                    "signature": "clang::QualType (clang::ASTContext::*)(clang::ElaboratedTypeKeyword, clang::NestedNameSpecifier *, const clang::IdentifierInfo *, llvm::ArrayRef<clang::TemplateArgument>) const", 
                     "result_type": "clang::QualType", 
                     "mode": "long"
                 }, 
@@ -38314,6 +38434,21 @@
                 }, 
                 {
                     "const": true, 
+                    "name": "template_arguments", 
+                    "parent": "clang::DeclRefExpr", 
+                    "args": [], 
+                    "is_disabled": true, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "ArrayRef<clang::TemplateArgumentLoc> () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "llvm::ArrayRef<clang::TemplateArgumentLoc> (clang::DeclRefExpr::*)() const", 
+                    "result_type": "llvm::ArrayRef<clang::TemplateArgumentLoc>", 
+                    "mode": "short"
+                }, 
+                {
+                    "const": true, 
                     "name": "hadMultipleCandidates", 
                     "parent": "clang::DeclRefExpr", 
                     "args": [], 
@@ -41537,6 +41672,21 @@
                     "is_overridden": false, 
                     "signature": "unsigned int (clang::MemberExpr::*)() const", 
                     "result_type": "unsigned int", 
+                    "mode": "short"
+                }, 
+                {
+                    "const": true, 
+                    "name": "template_arguments", 
+                    "parent": "clang::MemberExpr", 
+                    "args": [], 
+                    "is_disabled": true, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "ArrayRef<clang::TemplateArgumentLoc> () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "llvm::ArrayRef<clang::TemplateArgumentLoc> (clang::MemberExpr::*)() const", 
+                    "result_type": "llvm::ArrayRef<clang::TemplateArgumentLoc>", 
                     "mode": "short"
                 }, 
                 {
@@ -47130,17 +47280,17 @@
                     "mode": "short"
                 }, 
                 {
-                    "const": false, 
+                    "const": true, 
                     "name": "getNumSubExprs", 
                     "parent": "clang::AtomicExpr", 
                     "args": [], 
                     "is_disabled": false, 
                     "is_overload": true, 
                     "is_virtual": false, 
-                    "typename": "unsigned int ()", 
+                    "typename": "unsigned int () const", 
                     "is_pure_virtual": false, 
                     "is_overridden": false, 
-                    "signature": "unsigned int (clang::AtomicExpr::*)()", 
+                    "signature": "unsigned int (clang::AtomicExpr::*)() const", 
                     "result_type": "unsigned int", 
                     "mode": "long"
                 }, 
@@ -60039,6 +60189,21 @@
                 }, 
                 {
                     "const": true, 
+                    "name": "template_arguments", 
+                    "parent": "clang::OverloadExpr", 
+                    "args": [], 
+                    "is_disabled": true, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "ArrayRef<clang::TemplateArgumentLoc> () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "llvm::ArrayRef<clang::TemplateArgumentLoc> (clang::OverloadExpr::*)() const", 
+                    "result_type": "llvm::ArrayRef<clang::TemplateArgumentLoc>", 
+                    "mode": "short"
+                }, 
+                {
+                    "const": true, 
                     "name": "copyTemplateArgumentsInto", 
                     "parent": "clang::OverloadExpr", 
                     "args": [
@@ -60369,6 +60534,21 @@
                     "is_overridden": false, 
                     "signature": "unsigned int (clang::DependentScopeDeclRefExpr::*)() const", 
                     "result_type": "unsigned int", 
+                    "mode": "short"
+                }, 
+                {
+                    "const": true, 
+                    "name": "template_arguments", 
+                    "parent": "clang::DependentScopeDeclRefExpr", 
+                    "args": [], 
+                    "is_disabled": true, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "ArrayRef<clang::TemplateArgumentLoc> () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "llvm::ArrayRef<clang::TemplateArgumentLoc> (clang::DependentScopeDeclRefExpr::*)() const", 
+                    "result_type": "llvm::ArrayRef<clang::TemplateArgumentLoc>", 
                     "mode": "short"
                 }, 
                 {
@@ -61124,6 +61304,21 @@
                     "is_overridden": false, 
                     "signature": "unsigned int (clang::CXXDependentScopeMemberExpr::*)() const", 
                     "result_type": "unsigned int", 
+                    "mode": "short"
+                }, 
+                {
+                    "const": true, 
+                    "name": "template_arguments", 
+                    "parent": "clang::CXXDependentScopeMemberExpr", 
+                    "args": [], 
+                    "is_disabled": true, 
+                    "is_overload": false, 
+                    "is_virtual": false, 
+                    "typename": "ArrayRef<clang::TemplateArgumentLoc> () const", 
+                    "is_pure_virtual": false, 
+                    "is_overridden": false, 
+                    "signature": "llvm::ArrayRef<clang::TemplateArgumentLoc> (clang::CXXDependentScopeMemberExpr::*)() const", 
+                    "result_type": "llvm::ArrayRef<clang::TemplateArgumentLoc>", 
                     "mode": "short"
                 }, 
                 {
@@ -64029,5 +64224,5 @@
         }
     ], 
     "prelude": "\n#include <clang/AST/AST.h>\n#include <clang/ASTMatchers/ASTMatchers.h>\n#include <clang/ASTMatchers/ASTMatchFinder.h>\n", 
-    "clang_version": "clang version 3.9.0-svn274595-1~exp1 (trunk)"
+    "clang_version": "clang version 3.9.0-svn275525-1~exp1 (trunk)"
 }
