@@ -33,7 +33,7 @@ def render_method(m, ctx):
         args            = [ (render_type(n.type), n.spelling) for n in m.get_arguments() ],
         is_virtual      = m.is_virtual_method(),
         is_pure_virtual = m.is_pure_virtual_method(),
-        const           = 'const' if m.is_const_method() else '',
+        const           = m.is_const_method(),
         is_overridden   = len(list(get_overridden_cursors(m))) > 0,
         is_overload     = is_overload(m),
         is_disabled     = False,

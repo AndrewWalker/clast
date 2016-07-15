@@ -4,13 +4,20 @@ short_method = '''
 '''
 
 long_method = '''
-        {{ m|disabled }}.def("{{ m.name }}", []({{ m.const }} {{ m.parent }}& self{{ m.args|argpack(call=False) }}) {{m|respack}} {
-        {{ m|disabled }}   {{ m|retpack }}  self.{{m.name}}({{ m.args|argpack(call=True) }});
+        {{ m|disabled }}.def("{{ m.name }}", []({{ m|mthd_const }} {{ m.parent }}& self{{ m.args|argpack(call=False) }}) {{m|respack}} {
+        {{ m|disabled }}  {{ m|retpack }} self.{{m.name}}({{ m.args|argpack(call=True) }});
         {{ m|disabled }}})
 '''
 
 aux_method = '''
-        // TBD. {{ m.signature }}
+        .def("{{ m.name }}", []({{ m|mthd_const }} {{ m.parent }}& self{{ m.args[:-1]|argpack(call=False) }}) -> {{ m.result_type }} {
+          bool Invalid = false;
+          {{ m.result_type }} res = self.{{m.name}}({{ m.args[:-1]|argpack(call=True) }}, &Invalid);
+          if(Invalid) {
+            throw std::runtime_error("Invalid response");
+          }
+          return res;
+        })
 '''
 
 method_template = '''

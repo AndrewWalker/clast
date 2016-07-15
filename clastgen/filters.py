@@ -18,9 +18,9 @@ def enum_parent(e):
 
 def argpack(args, call=True):
     if call:
-        return ', '.join(n for _, n in args)
+        return ', '.join(n or '' for _, n in args)
     else:
-        return ' '.join(', %s %s' % (t, n) for t, n in args)
+        return ' '.join(', %s %s' % (t, n or '') for t, n in args)
 
 def respack(method):
     if method['result_type'] == 'void':
@@ -49,6 +49,12 @@ def baseclass(c):
     else:
         return ''
 
+def mthd_const(m):
+    if m['const']:
+        return 'const'
+    else:
+        return ''
+
 def clast_jinja_filters():
     d = {}
     d['argpack'] = argpack
@@ -58,6 +64,7 @@ def clast_jinja_filters():
     d['fdeleter']  = fdeleter
     d['enum_parent'] = enum_parent
     d['baseclass'] = baseclass
+    d['mthd_const'] = mthd_const 
     return d
 
 

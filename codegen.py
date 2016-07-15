@@ -162,6 +162,11 @@ def resolve_methods(ctx):
             ctx.set_attr(m, is_disabled=disabled)
             if is_overload(m):
                 ctx.set_attr(m, mode='long')
+
+            args = list(m.get_arguments())
+            if (disabled == False) and len(args) > 1 and is_bool_ptr(args[-1]) and (args[-1].spelling == 'Invalid'):
+                ctx.set_attr(m, mode='aux')
+
             # TODO - methods that need to change types (llvm::StringRef must be long)
             # TODO - methods that return iterator_ranges must be custom
             # TODO - methods that take in/out parameters must be custom
