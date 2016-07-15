@@ -24,9 +24,8 @@ def test_eli1():
             loc = s.getLocStart()
 
             # TODO - Incomplete, col and line should be tuples
-            res = False
-            col = sm.getSpellingColumnNumber(loc, res)
-            line= sm.getSpellingLineNumber(loc, res)
+            col = sm.getSpellingColumnNumber(loc)
+            line= sm.getSpellingLineNumber(loc)
 
     callback = MyMatchCallback()
     m = parseMatcherExpression('ifStmt(hasCondition(binaryOperator(hasOperatorName("==")))).bind("op")')
