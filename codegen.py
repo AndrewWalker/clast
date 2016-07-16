@@ -140,7 +140,6 @@ def resolve_deleters(ctx):
     stmt_subclass  = isSameOrDerivedFrom('clang::Stmt')
 
     for c in ctx.classes:
-        #print type(c), c.type.spelling, decl_subclass(c), stmt_subclass(c)
         assert c is not None
         assert type(c) == Cursor
         if decl_subclass(c):
@@ -175,7 +174,6 @@ def resolve_methods(ctx):
             # typically this will be a node
             if m.result_type.kind == TypeKind.POINTER and m.result_type.get_pointee().kind == TypeKind.RECORD:
                 ctx.set_attr(m, policy='py::return_value_policy::reference_internal')
-                print m.spelling
 
 def resolve_disabled_classes(ctx):
     exclusions = set([
