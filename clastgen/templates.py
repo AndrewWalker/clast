@@ -1,12 +1,12 @@
 
 short_method = '''
-        {{ m|disabled }}.def("{{m.name}}", ({{ m.signature }})&{{ m.parent }}::{{ m.name }})
+        {{ m|disabled }}.def("{{m.name}}", ({{ m.signature }})&{{ m.parent }}::{{ m.name }} {{m|policyfilt}} )
 '''
 
 long_method = '''
         {{ m|disabled }}.def("{{ m.name }}", []({{ m|mthd_const }} {{ m.parent }}& self{{ m.args|argpack(call=False) }}) {{m|respack}} {
-        {{ m|disabled }}  {{ m|retpack }} self.{{m.name}}({{ m.args|argpack(call=True) }});
-        {{ m|disabled }}})
+        {{ m|disabled }} {{ m|retpack }} self.{{m.name}}({{ m.args|argpack(call=True) }});
+        {{ m|disabled }}} {{m|policyfilt}})
 '''
 
 aux_method = '''
@@ -17,7 +17,7 @@ aux_method = '''
             throw std::runtime_error("Invalid response");
           }
           return res;
-        })
+        } {{m|policyfilt}})
 '''
 
 method_template = '''

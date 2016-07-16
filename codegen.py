@@ -171,6 +171,11 @@ def resolve_methods(ctx):
             # TODO - methods that return iterator_ranges must be custom
             # TODO - methods that take in/out parameters must be custom
 
+            # This is the important special case of structs returned by pointer
+            # typically this will be a node
+            if m.result_type.kind == TypeKind.POINTER and m.result_type.get_pointee().kind == TypeKind.RECORD:
+                ctx.set_attr(m, policy='py::return_value_policy::reference_internal')
+                print m.spelling
 
 def resolve_disabled_classes(ctx):
     exclusions = set([

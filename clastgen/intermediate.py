@@ -37,6 +37,7 @@ def render_method(m, ctx):
         is_overridden   = len(list(get_overridden_cursors(m))) > 0,
         is_overload     = is_overload(m),
         is_disabled     = False,
+        policy          = None,
     )
     d.update(ctx.get_attr(m))
     return d

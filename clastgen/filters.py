@@ -55,6 +55,11 @@ def mthd_const(m):
     else:
         return ''
 
+def policyfilt(m):
+    if m['policy'] is not None:
+        return ', ' + m['policy']
+    return ''
+
 def clast_jinja_filters():
     d = {}
     d['argpack'] = argpack
@@ -65,6 +70,7 @@ def clast_jinja_filters():
     d['enum_parent'] = enum_parent
     d['baseclass'] = baseclass
     d['mthd_const'] = mthd_const 
+    d['policyfilt'] = policyfilt
     return d
 
 
