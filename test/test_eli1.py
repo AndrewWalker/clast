@@ -41,8 +41,8 @@ class EliTest(unittest.TestCase):
                     hasRHS(expr(hasType(isInteger())))))).bind("forLoop")
         '''.replace('\n', '')
 
-        #m = parseMatcherExpression(s.replace('\n', ''))
-        m = parseMatcherExpression('forStmt(hasLoopInit(anything())).bind("forLoop")')
+        m = parseMatcherExpression(s.replace('\n', ''))
+        #m = parseMatcherExpression('forStmt(hasLoopInit(anything())).bind("forLoop")')
         callback = ForLoopHandler()
         finder = MatchFinder()
         finder.addDynamicMatcher(m, callback)
