@@ -13,9 +13,11 @@
 #include "clang/Tooling/Tooling.h"
 
 namespace py = pybind11;
+
 using namespace clang::ast_matchers;
 using namespace clang::ast_matchers::internal;
 using namespace clang::ast_matchers::dynamic;
+using namespace clang::ast_type_traits;
 using namespace clang::tooling;
 
 
@@ -49,17 +51,17 @@ void matchString(const std::string& code, MatchFinder& finder,
 
 void install_wrappers(pybind11::module& m)
 {
-    py::class_<clatt::ASTNodeKind>(m, "ASTNodeKind")
+    py::class_<ASTNodeKind>(m, "ASTNodeKind")
         .def(py::init<>())
-        .def("isSame", &clang::ast_type_traits::ASTNodeKind::isSame)
-        .def("isNone", &clang::ast_type_traits::ASTNodeKind::isNone)
-        .def("asStringRef", [](const clatt::ASTNodeKind& self){
+        .def("isSame", &ASTNodeKind::isSame)
+        .def("isNone", &ASTNodeKind::isNone)
+        .def("asStringRef", [](const ASTNodeKind& self){
             return std::string(self.asStringRef());
         })
-        .def("__repr__", [](const clatt::ASTNodeKind& self){
+        .def("__repr__", [](const ASTNodeKind& self){
             return std::string(self.asStringRef());
         })
-        .def("hasPointerIdentity", &clang::ast_type_traits::ASTNodeKind::hasPointerIdentity)
+        .def("hasPointerIdentity", &ASTNodeKind::hasPointerIdentity)
     ;
 
     py::class_<DynTypedMatcher>(m, "DynTypedMatcher")
