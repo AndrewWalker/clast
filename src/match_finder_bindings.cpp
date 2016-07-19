@@ -1,3 +1,6 @@
+//////////////////////////////////////////////////////////////////////////////
+// Bindings for the clang::MatchFinder and associated inner classes
+//////////////////////////////////////////////////////////////////////////////
 #include "pyclast.h"
 #include <pybind11/stl.h>
 #include <clang/AST/AST.h>
@@ -56,7 +59,7 @@ void install_ast_matcher_bindings(pybind11::module& m)
         .def("GetNode", [](const clam::MatchFinder::MatchResult& self, const std::string& key) {
             auto it = self.Nodes.getMap().find(key);
             if(it == self.Nodes.getMap().end()){
-                throw std::runtime_error("bad key");
+                throw std::runtime_error("unknown node " + key);
             }
             clatt::DynTypedNode node = it->second;
             return node;
@@ -83,28 +86,5 @@ void install_ast_matcher_bindings(pybind11::module& m)
         });
     ;
 
-    py::class_<clatt::ASTNodeKind>(m, "ASTNodeKind")
-        .def(py::init<>())
-        .def("isSame", &clang::ast_type_traits::ASTNodeKind::isSame)
-        .def("isNone", &clang::ast_type_traits::ASTNodeKind::isNone)
-        .def("asStringRef", [](const clatt::ASTNodeKind& self){
-            return std::string(self.asStringRef());
-        })
-        .def("__repr__", [](const clatt::ASTNodeKind& self){
-            return std::string(self.asStringRef());
-        })
-
-        .def("hasPointerIdentity", &clang::ast_type_traits::ASTNodeKind::hasPointerIdentity)
-    ;
-
-    py::class_<clam::BoundNodes>(m, "BoundNodes")
-    ;
-
-    py::class_<clami::DynTypedMatcher>(m, "DynTypedMatcher")
-        .def("getSupportedKind", &clami::DynTypedMatcher::getSupportedKind)
-        .def("tryBind", [](const clami::DynTypedMatcher& self, const std::string& name) {
-            return self.tryBind(name).getValue();
-        });
-    ;
 }
 
