@@ -14,6 +14,8 @@ import sys
 import subprocess
 import io
 import json
+import jinja2
+from jinja2 import Environment, StrictUndefined
 
 
 def clang_version():
@@ -75,17 +77,7 @@ def is_clami_matcher(t):
     return False
             
 
-def render_result(templates, template, **kwargs):
-    import jinja2
-    from jinja2 import environment, strictundefined
     
-    loader = jinja2.dictloader(templates)
-    env = environment(trim_blocks = true, lstrip_blocks = true,
-                      undefined = strictundefined, 
-                      loader=loader)
-    env.filters.update()
-    return env.get_template(template).render(**kwargs)
-
 
 matcher_0 = '''
 clami::DynTypedMatcher _{{ f.name }}()
@@ -100,22 +92,6 @@ clami::DynTypedMatcher _{{ f.name }}(clami::DynTypedMatcher& m)
     return {{ f.name }}(try_convert<>);
 }
 '''
-
-
-def matcher_0_pred(f):
-    if not is_clami_matcher(f['result_type']):
-        return False
-    if len(f['args']) != 0:
-        return False
-    return True
-
-def matcher_1_pred(f):
-    if not is_clami_matcher(f['result_type']):
-        return False
-    if len(f['args']) != 1 or not is_clami_matcher(f['args'][0][0]):
-        return False
-    return True
-
 
 def render_template_args(atype):
     if atype.kind == TypeKind.LVALUEREFERENCE:
@@ -141,32 +117,84 @@ def render_arg(a):
     return d
 
 
+def render_function(f):
+    d = dict(
+        name = f.spelling,
+        result_type = render_type(f.result_type),
+        args = [ render_arg(a) for a in f.get_arguments() ]
+    )
+    return d
+
+
+class NodeMatcher(object):
+    def __init__(self, m, template):
+        self._m = m
+        self._template = template
+
+    def match(self, c):
+        return self._m(c)
+
+    def intermediate(self, c):
+        return render_function(c)
+
+
+# def render_all():
+    # loader = jinja2.DictLoader(templates)
+    # env = Environment(trim_blocks = true, lstrip_blocks = true,
+                      # undefined = StrictUndefined, 
+                      # loader=loader)
+    # return env.get_template(template).render(**kwargs)
+
+
+
 if __name__ == "__main__":
     if 'LLVM_HOME' not in os.environ:
         print('LLVM_HOME is undefined, giving up on code generation')
         sys.exit(1)
 
     tu = parse(c_src)
-    m = allOf(
-            isExpansionInFileMatching('.*ASTMatchers.h'),
-            anyOf(
-                functionDecl(),
-                varDecl()),
-            hasParent(namespaceDecl(hasName('ast_matchers'))))
-    intermediate = []
-    for c in tu.cursor.walk_preorder():
-        if m(c):
-            if c.kind == CursorKind.FUNCTION_DECL:
-                #print(c.kind, c.spelling)
-                #print([ a.type.spelling for a in c.get_arguments() ]), '->', c.result_type.spelling
-                d = dict(
-                    name = c.spelling,
-                    result_type = render_type(c.result_type),
-                    args = [ render_arg(a) for a in c.get_arguments() ]
-                )
-                intermediate.append(d)
-            else:
-                pass
+
+    m0 = functionDecl(
+            argumentCountIs(0),
+            hasReturnType(
+                hasCanonicalType(
+                    hasName('clang::ast_matchers::internal::Matcher.*'))))
+
+    m1 = functionDecl(
+            argumentCountIs(1),
+            hasReturnType(
+                hasCanonicalType(
+                    hasName('clang::ast_matchers::internal::Matcher.*'))))
+
+    ms = [
+        NodeMatcher(m0, 'matcher_0'),
+        NodeMatcher(m1, 'matcher_1'),
+        NodeMatcher(functionDecl(), '???')
+    ]
+
+    mbase = allOf(
+        isExpansionInFileMatching('.*ASTMatchers.h'),
+        hasParent(namespaceDecl(hasName('ast_matchers'))))
+    cursors = glud.walk(mbase, tu.cursor)
+
+    import collections
+    import pprint
+    d = collections.defaultdict(list)
+    for c in cursors:
+        for m in ms:
+            if m.match(c):
+                d[m._template].append(c)
+                # print m._template, c.spelling
+                break
+    pprint.pprint(dict(d))
+    for f in d['???']:
+        print f.result_type.get_canonical().spelling, len(list(f.get_arguments())), f.spelling
+    # functions = []
+    # for c in glud.walk(m, tu.cursor):
+        # functions.append(render_function(c))
+
+
+
     # templates = {
         # 'matcher_0' : matcher_0,
     # }
@@ -178,7 +206,7 @@ if __name__ == "__main__":
         #else:
         #    print f
 
-    print json.dumps(intermediate, indent=4)
+    # print json.dumps(intermediate, indent=4)
     # for f in intermediate:
         # if f['result_type'].startswith('clang::ast_matchers::internal::Matcher'):
             # print '%s %s(clang::ast_matchers::internal DynTypedMatcher
