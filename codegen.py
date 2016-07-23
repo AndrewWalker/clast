@@ -44,13 +44,6 @@ def parse(src):
     return tu
 
 
-def cxxRecordDeclEx(*args):
-    return allOf(
-                anyOf(
-                    is_kind(CursorKind.STRUCT_DECL),
-                    is_kind(CursorKind.CLASS_DECL)),
-                *args)
-
 def find_typedefs(tu, ctx):
     matcher = typedefDecl(
         hasName('string'), 
@@ -62,7 +55,8 @@ def find_typedefs(tu, ctx):
         ctx.add_typedef(n)
 
 def find_classes(tu, ctx):
-    matcher = cxxRecordDeclEx(
+    matcher = recordDecl(
+        anyOf(isClass(), isStruct()),
         isDefinition(),
         anyOf(
             hasTypename('llvm::StringRef'),
@@ -90,7 +84,7 @@ def find_classes(tu, ctx):
 
 def find_methods(ctx):
     matcher = cxxMethodDecl(
-        is_public,
+        isPublic(),
 
         # don't bind static methods
         unless(hasStaticStorageDuration()),
@@ -125,7 +119,7 @@ def find_enums(ctx):
                 ut = underlying_type(t)
                 decl = ut.get_declaration()
                 if ut.kind == TypeKind.ENUM and decl is not None:
-                    if not (is_protected(decl) or is_private(decl)):
+                    if not (isProtected()(decl) or isPrivate()(decl)):
                         res[decl.hash] = decl
     for decl in res.values():
         parent = decl.semantic_parent
