@@ -1,5 +1,6 @@
 language: python
-
+sudo: required
+dist: trusty
 matrix:
   include:
     - python: "2.7"
@@ -8,7 +9,8 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.8
+            - sourceline: 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main'
+              key_url: 'http://llvm.org/apt/llvm-snapshot.gpg.key'
           packages:
             - clang-3.8 
             - libclang-common-3.8-dev 
@@ -22,7 +24,8 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise
+            - sourceline: 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.9 main'
+              key_url: 'http://llvm.org/apt/llvm-snapshot.gpg.key'
           packages:
             - clang-3.9 
             - libclang-common-3.9-dev 
@@ -30,13 +33,29 @@ matrix:
             - llvm-3.9-dev 
             - liblldb-3.9-dev 
             - python-clang-3.9
+    - python: "2.7"
+      env: LLVM_VER=4.0
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - sourceline: 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main'
+              key_url: 'http://llvm.org/apt/llvm-snapshot.gpg.key'
+          packages:
+            - clang-4.0 
+            - libclang-common-4.0-dev 
+            - libclang-4.0-dev 
+            - llvm-4.0-dev 
+            - liblldb-4.0-dev 
+            - python-clang-4.0
     - python: "3.5"
       env: LLVM_VER=3.8
       addons:
         apt:
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.8
+            - sourceline: 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main'
+              key_url: 'http://llvm.org/apt/llvm-snapshot.gpg.key'
           packages:
             - clang-3.8 
             - libclang-common-3.8-dev 
@@ -49,23 +68,40 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise
+            - sourceline: 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.9 main'
+              key_url: 'http://llvm.org/apt/llvm-snapshot.gpg.key'
           packages:
             - clang-3.9 
             - libclang-common-3.9-dev 
             - libclang-3.9-dev 
             - llvm-3.9-dev 
             - liblldb-3.9-dev 
+    - python: "3.5"
+      env: LLVM_VER=4.0
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - sourceline: 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main'
+              key_url: 'http://llvm.org/apt/llvm-snapshot.gpg.key'
+          packages:
+            - clang-4.0 
+            - libclang-common-4.0-dev 
+            - libclang-4.0-dev 
+            - llvm-4.0-dev 
+            - liblldb-4.0-dev 
   allow_failures:
     - env: LLVM_VER=3.9 
+    - env: LLVM_VER=4.0
 install:
   - export LLVM_HOME=/usr/lib/llvm-$LLVM_VER
+  - export LD_LIBRARY_PATH=$LLVM_HOME/lib:$LD_LIBRARY_PATH
   - export CC=$LLVM_HOME/bin/clang
   - export CXX=$LLVM_HOME/bin/clang++
   - if [[ $TRAVIS_PYTHON_VERSION == 2* ]]; then ln -s /usr/lib/python2.7/dist-packages/clang; fi
   - if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then pip install libclang-py3; fi
   - |
-    if [[ "$LLVM_VER" == "3.9" ]];
+    if [[ "$LLVM_VER" != "3.8" ]];
     then
       pip install -r clastgen/requirements.txt --pre
       python codegen.py
