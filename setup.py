@@ -84,7 +84,9 @@ class get_pybind_include(object):
 ext_modules = [
     Extension(
         '_clast',
-        glob.glob('src/*.cpp') + glob.glob('src/%s/*.cpp' % CLANG_VERSION),
+        glob.glob('src/*.cpp') + 
+        glob.glob('src/%s/*.cpp' % CLANG_VERSION) +
+        glob.glob('src/%s/generated/*.cpp' % CLANG_VERSION),
         extra_compile_args=LLVM_CFLAGS,
         libraries=LLVM_LIBS ,
         extra_link_args=clang_libraries(),

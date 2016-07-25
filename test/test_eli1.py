@@ -46,7 +46,7 @@ class EliTest(unittest.TestCase):
         callback = ForLoopHandler()
         finder = MatchFinder()
         finder.addDynamicMatcher(m, callback)
-        matchString(code, finder, '-std=c++11', 'input.cpp')
+        matchString(code, finder, ['-std=c++11'], 'input.cpp')
 
     def test_el1(self):
         # http://eli.thegreenplace.net/2014/07/29/ast-matchers-and-clang-refactoring-tools
@@ -67,7 +67,7 @@ class EliTest(unittest.TestCase):
         m = parseMatcherExpression('ifStmt(hasCondition(binaryOperator(hasOperatorName("==")).bind("op")))')
         finder = MatchFinder()
         finder.addDynamicMatcher(m, callback)
-        matchString(code, finder, '-std=c++11', 'input.cpp')
+        matchString(code, finder, ['-std=c++11'], 'input.cpp')
         self.assertEquals((7,2), callback.matches[0])
 
 if __name__ == '__main__':

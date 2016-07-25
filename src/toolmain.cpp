@@ -2,7 +2,6 @@
 // Bindings for a representive clang tooling entry-point 
 //////////////////////////////////////////////////////////////////////////////
 #include "pyclast.h"
-#include <pybind11/stl.h>
 #include <string>
 #include <vector>
 #include <clang/ASTMatchers/ASTMatchFinder.h>

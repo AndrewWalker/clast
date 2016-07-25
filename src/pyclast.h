@@ -2,6 +2,7 @@
 #define PYCLAST_H
 
 #include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
 
 void install_toolmain(pybind11::module& m);
 void install_wrappers(pybind11::module& m);

@@ -215,24 +215,30 @@ def codegen(path):
 
     intermediate = render_intermediate(ctx)
 
-    with open(os.path.join(path, 'intermediate.json'), 'w') as fh:
+    def output_dir(fname, **kwargs):
+        outfolder = os.path.join(path, 'generated')
+        if not os.path.exists(outfolder):
+            os.makedirs(outfolder)
+        outfile = os.path.join(outfolder, fname)
+        return open(outfile, 'w')
+
+    with output_dir('intermediate.json') as fh:
         fh.write(json.dumps(intermediate, indent=4))
 
-    with open(os.path.join(path, '00_autogen_enums.cpp'), 'w') as fh:
+    with output_dir('00_autogen_enums.cpp') as fh:
         fh.write(render_result(template='enum_module.j2', model=intermediate)) 
+
+    with output_dir('autogen_dyntypednode.cpp') as fh:
+        fh.write(render_result(template='dyntyped_node_template.j2', model=intermediate)) 
 
     # in cases where optimisation is required, clast is so slow (and memory hungry)
     # to build, that you really want to divide the build process into smaller pieces
     pages = list(pagination(intermediate['classes'], chunksize=50))
-
-    with open(os.path.join(path, 'autogen_classes.cpp'), 'w') as fh:
+    with output_dir('autogen_classes.cpp') as fh:
         fh.write(render_result(template='allclass_template.j2', model=intermediate, pagecnt=len(pages))) 
 
-    with open(os.path.join(path, 'autogen_dyntypenode.cpp'), 'w') as fh:
-        fh.write(render_result(template='dyntyped_node_template.j2', model=intermediate)) 
-
     for page in pages:
-        with open(os.path.join(path, '%02d_autogen_classes.cpp' % (page.idx+1)), 'w') as fh:
+        with output_dir('%02d_autogen_classes.cpp' % (page.idx+1)) as fh:
             fh.write(render_result(template='class_module.j2', model=intermediate, page=page)) 
 
 if __name__ == "__main__":

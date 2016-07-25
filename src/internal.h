@@ -1,5 +1,5 @@
-#ifndef PYCLAST_INTERNAL_H
-#define PYCLAST_INTERNAL_H
+#ifndef CLAST_INTERNAL_H
+#define CLAST_INTERNAL_H
 
 #include <clang/AST/AST.h>
 

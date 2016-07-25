@@ -13,4 +13,4 @@ def test_simple_example():
     m = parseMatcherExpression('cxxRecordDecl().bind("cls")')
     finder = MatchFinder()
     finder.addDynamicMatcher(m, callback)
-    matchString('class X;', finder, '-std=c++11', 'input.cpp')
+    matchString('class X;', finder, ['-std=c++11'], 'input.cpp')

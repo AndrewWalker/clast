@@ -2,7 +2,6 @@
 // Bindings for the clang::MatchFinder and associated inner classes
 //////////////////////////////////////////////////////////////////////////////
 #include "pyclast.h"
-#include <pybind11/stl.h>
 #include <clang/AST/AST.h>
 #include <clang/AST/ASTTypeTraits.h>
 #include <clang/ASTMatchers/ASTMatchers.h>
