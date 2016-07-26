@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import glud
 from glud import *
+from clastgen.tools import clang_version, llvm_config
 from clastgen.utils import *
 from clastgen.clangext import *
 from clastgen.context import *
@@ -16,35 +17,30 @@ import io
 import json
 
 
-def clang_version():
-    llvm_home = os.environ['LLVM_HOME']
-    binary = os.path.join(llvm_home, 'bin', 'clang')
-    res = subprocess.check_output([binary, '--version']).splitlines()[0]
-    if sys.version_info.major >= 3:
-        return res.decode('utf-8')
-    return res
-
-
-def llvm_config(arg):
-    llvm_home = os.environ['LLVM_HOME']
-    llvm_config = os.path.join(llvm_home, 'bin', 'llvm-config')
-    res = subprocess.check_output([llvm_config, arg]).split()
-    if sys.version_info.major >= 3:
-        return [p.decode('utf-8') for p in res]
-    return res
-
 
 def parse(src):
-    syspath = ccsyspath.system_include_paths(os.path.join(os.environ['LLVM_HOME'], 'bin', 'clang++'))
+    """Parse a string of source code and return the translation unit
+    """
+
+    # Find the clang compiler 
+    clang = os.path.join(os.environ['LLVM_HOME'], 'bin', 'clang++')
+
+    # Find the system paths for the compiler
+    syspath = ccsyspath.system_include_paths(clang)
     syspath = [ p.decode('utf-8') for p in syspath ]
+
+    # Build up an appropriate set of compiler flags
     args = '-x c++ --std=c++11'.split()
     args += llvm_config('--cppflags')
     args += [ '-I' + inc for inc in syspath ]
-    tu = glud.parse_string(src, name='input.cpp', args=args)
-    return tu
+
+    # Parse the source passed in
+    return glud.parse_string(src, name='input.cpp', args=args)
 
 
 def find_typedefs(tu, ctx):
+    """Find interesting typedefs in a translation unit
+    """
     matcher = typedefDecl(
         hasName('string'), 
         hasAncestor(
@@ -53,6 +49,7 @@ def find_typedefs(tu, ctx):
 
     for n in walk(matcher, tu.cursor):
         ctx.add_typedef(n)
+
 
 def find_classes(tu, ctx):
     matcher = recordDecl(
@@ -90,10 +87,10 @@ def find_methods(ctx):
         unless(hasStaticStorageDuration()),
 
         # foo* is ok, foo& is ok, foo*& is not
-        unless(anyArgument(hasType(is_ref_to_ptr))),
+        unless(hasAnyParameter(hasType(is_ref_to_ptr))),
 
         # foo* is ok, foo** is not
-        unless(anyArgument(hasType(limit_indirections(1)))),
+        unless(hasAnyParameter(hasType(limit_indirections(1)))),
         unless(hasReturnType(limit_indirections(1))),
         unless(
             anyOf(
@@ -112,6 +109,8 @@ def find_methods(ctx):
 
 
 def find_enums(ctx):
+    """Identify enums used in the methods in the Context
+    """
     res = {}
     for c, ms in iter(ctx.methods.items()):
         for m in ms:
@@ -146,28 +145,43 @@ def resolve_deleters(ctx):
             ctx.set_attr(c, node=False)
 
 
-
 def resolve_methods(ctx):
+    void_ptr_arg_matcher = cxxMethodDecl(
+            hasAnyParameter(hasType(
+                    pointerType(pointee(
+                        hasName('void'))))))
+
+    def bool_ptr_arg_matcher(m):
+        args = list(m.get_arguments())
+        return (len(args) > 1) and is_bool_ptr(args[-1]) and (args[-1].spelling == 'Invalid')
+
     resolved = ctx.classes + ctx.enums + ctx.typedefs
     for c in ctx.classes:
         for m in ctx.class_methods(c):
-            disabled = not is_resolved_method(m, resolved)
-            ctx.set_attr(m, is_disabled=disabled)
-            if is_overload(m):
-                ctx.set_attr(m, mode='long')
+            disabled = False
+            mode = 'short'
+            policy = None
 
-            args = list(m.get_arguments())
-            if (disabled == False) and len(args) > 1 and is_bool_ptr(args[-1]) and (args[-1].spelling == 'Invalid'):
-                ctx.set_attr(m, mode='aux')
-
-            # TODO - methods that need to change types (llvm::StringRef must be long)
-            # TODO - methods that return iterator_ranges must be custom
-            # TODO - methods that take in/out parameters must be custom
-
-            # This is the important special case of structs returned by pointer
-            # typically this will be a node
+            if not is_resolved_method(m, resolved):
+                disabled = True
+            if void_ptr_arg_matcher(m):
+                disabled = True
+            if not disabled:
+                if is_overload(m):
+                    mode = 'long'
+                if bool_ptr_arg_matcher(m):
+                    mode = 'aux'
             if m.result_type.kind == TypeKind.POINTER and m.result_type.get_pointee().kind == TypeKind.RECORD:
-                ctx.set_attr(m, policy='py::return_value_policy::reference_internal')
+                policy = 'py::return_value_policy::reference_internal'
+            
+            ctx.set_attr(m, is_disabled=disabled)
+            ctx.set_attr(m, mode=mode)
+            ctx.set_attr(m, policy=policy)
+
+            # # TODO - methods that need to change types (llvm::StringRef must be long)
+            # # TODO - methods that return iterator_ranges must be custom
+            # # TODO - methods that take in/out parameters must be custom
+
 
 def resolve_disabled_classes(ctx):
     exclusions = set([
@@ -208,11 +222,7 @@ c_src = '''
 #include <clang/ASTMatchers/ASTMatchFinder.h>
 '''
 
-def codegen(path):
-    tu = parse(c_src)
-    ctx = build_context(tu)
-    ctx.set_prelude(c_src)
-
+def codegen(ctx, path):
     intermediate = render_intermediate(ctx)
 
     def output_dir(fname, **kwargs):
@@ -256,4 +266,8 @@ if __name__ == "__main__":
                         help    = 'output directory');
 
     args = parser.parse_args(sys.argv[1:])
-    codegen(args.output)
+    tu = parse(c_src)
+    ctx = build_context(tu)
+    ctx.set_prelude(c_src)
+    codegen(ctx, args.output)
+    
