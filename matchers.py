@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import glud
 from glud import *
+from clastgen.tools import *
 from clastgen.utils import *
 from clastgen.clangext import *
 from clastgen.context import *
@@ -16,24 +17,6 @@ import io
 import json
 import jinja2
 from jinja2 import Environment, StrictUndefined
-
-
-def clang_version():
-    llvm_home = os.environ['LLVM_HOME']
-    binary = os.path.join(llvm_home, 'bin', 'clang')
-    res = subprocess.check_output([binary, '--version']).splitlines()[0]
-    if sys.version_info.major >= 3:
-        return res.decode('utf-8')
-    return res
-
-
-def llvm_config(arg):
-    llvm_home = os.environ['LLVM_HOME']
-    llvm_config = os.path.join(llvm_home, 'bin', 'llvm-config')
-    res = subprocess.check_output([llvm_config, arg]).split()
-    if sys.version_info.major >= 3:
-        return [p.decode('utf-8') for p in res]
-    return res
 
 
 def parse(src):
@@ -55,11 +38,9 @@ c_src = '''
 from asciitree import draw_tree
 
 
-def dump(cursor):
+def dump(cursor, pred=anything()):
     def node_children(node):
-        if node.kind == CursorKind.COMPOUND_STMT:
-            return []
-        return list(node.get_children())
+        return iter_node_children(pred, node)
 
     def print_node(node):
         text = node.spelling or node.displayname
@@ -154,17 +135,67 @@ if __name__ == "__main__":
 
     tu = parse(c_src)
 
+    # The most simple form of matcher: 
+    #  - Matcher<something> f()
     m0 = functionDecl(
-            argumentCountIs(0),
+            parameterCountIs(0),
+            hasReturnType(
+                hasCanonicalType(
+                    anyOf(
+                        hasName('clang::ast_matchers::internal::Matcher.*')))))
+
+    # Special case of m0 where a proxy class needs to returned
+    m0p = functionDecl(
+            parameterCountIs(0),
+            hasReturnType(
+                hasCanonicalType(
+                    hasName('clang::ast_matchers::internal::PolymorphicMatcherWithParam0.*'))))
+
+    # The most common form of matcher: 
+    #  - Matcher<something> f(matcher<something>)
+    #  - BindableMatcher<something> g(matcher<something>)
+    m1 = functionDecl(
+            parameterCountIs(1),
+            hasParameter(0, 
+                hasType(
+                    hasCanonicalType(
+                        hasName('.*clang::ast_matchers::internal::Matcher.*')))),
+            hasReturnType(
+                hasCanonicalType(
+                    anyOf(
+                        hasName('clang::ast_matchers::internal::Matcher.*'),
+                        hasName('clang::ast_matchers::internal::BindableMatcher.*')))))
+
+    # Special case of m1 where a proxy class needs to be returned
+    m1p = functionDecl(
+            parameterCountIs(1),
+            hasParameter(0, 
+                hasType(
+                    hasCanonicalType(
+                        hasName('.*clang::ast_matchers::internal::Matcher.*')))),
+            hasReturnType(
+                hasCanonicalType(
+                    hasName('clang::ast_matchers::internal::PolymorphicMatcherWithParam1.*'))))
+
+    # Special case of m1 where there is only a data argument 
+    m1a = functionDecl(
+            parameterCountIs(1),
+            hasParameter(0, 
+                hasType(
+                    hasCanonicalType(
+                        anyOf(
+                            hasName('.*std::string.*'),
+                            hasName('.*unsigned int.*'))))),
             hasReturnType(
                 hasCanonicalType(
                     hasName('clang::ast_matchers::internal::Matcher.*'))))
 
-    m1 = functionDecl(
-            argumentCountIs(1),
-            hasReturnType(
-                hasCanonicalType(
-                    hasName('clang::ast_matchers::internal::Matcher.*'))))
+    # m2 = functionDecl(
+            # parameterCountIs(0),
+            # hasReturnType(
+                # hasCanonicalType(
+                    # hasName('clang::ast_matchers::internal::Matcher.*'))))
+
 
     ms = [
         NodeMatcher(m0, 'matcher_0'),
@@ -176,19 +207,40 @@ if __name__ == "__main__":
         isExpansionInFileMatching('.*ASTMatchers.h'),
         hasParent(namespaceDecl(hasName('ast_matchers'))))
     cursors = glud.walk(mbase, tu.cursor)
-
+    mprime = functionDecl()
     import collections
     import pprint
     d = collections.defaultdict(list)
     for c in cursors:
-        for m in ms:
-            if m.match(c):
-                d[m._template].append(c)
-                # print m._template, c.spelling
-                break
-    pprint.pprint(dict(d))
-    for f in d['???']:
-        print f.result_type.get_canonical().spelling, len(list(f.get_arguments())), f.spelling
+        if mprime(c):
+            args = list(c.get_arguments())
+            if m0(c):
+                print 'm0', c.spelling
+            elif m0p(c):
+                print 'pm0', c.spelling
+            elif m1(c):
+                print 'm1', c.spelling
+            elif m1p(c):
+                print 'pm1', c.spelling
+            elif m1a(c):
+                print 'm1a', c.spelling
+            else:
+                inter = {
+                    'name' : c.spelling,
+                    'result_type': c.result_type.get_canonical().spelling,
+                    'args': [(a.type.spelling, a.spelling) for a in args],
+                    'nargs' : len(args),
+                }
+                pprint.pprint(inter)
+                #print c.spelling, c.result_type.get_canonical().spelling, 'xx')
+        # for m in ms:
+            # if m.match(c):
+                # d[m._template].append(c)
+                # # print m._template, c.spelling
+                # break
+    # pprint.pprint(dict(d))
+    # for f in d['???']:
+        # print f.result_type.get_canonical().spelling, len(list(f.get_arguments())), f.spelling
     # functions = []
     # for c in glud.walk(m, tu.cursor):
         # functions.append(render_function(c))
